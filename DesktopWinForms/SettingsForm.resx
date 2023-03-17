@@ -1,0 +1,383 @@
+﻿<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblLanguage.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblLanguage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 10.8pt</value>
+  </data>
+  <data name="lblLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 23</value>
+  </data>
+  <data name="lblLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 22</value>
+  </data>
+  <data name="lblLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblLanguage.Text" xml:space="preserve">
+    <value>Jezik</value>
+  </data>
+  <data name="&gt;&gt;lblLanguage.Name" xml:space="preserve">
+    <value>lblLanguage</value>
+  </data>
+  <data name="&gt;&gt;lblLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblLanguage.Parent" xml:space="preserve">
+    <value>groupBoxLang</value>
+  </data>
+  <data name="&gt;&gt;lblLanguage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="radioButtonEng.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioButtonEng.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 10.2pt</value>
+  </data>
+  <data name="radioButtonEng.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 79</value>
+  </data>
+  <data name="radioButtonEng.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 24</value>
+  </data>
+  <data name="radioButtonEng.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="radioButtonEng.Text" xml:space="preserve">
+    <value>ENGLISH</value>
+  </data>
+  <data name="&gt;&gt;radioButtonEng.Name" xml:space="preserve">
+    <value>radioButtonEng</value>
+  </data>
+  <data name="&gt;&gt;radioButtonEng.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioButtonEng.Parent" xml:space="preserve">
+    <value>groupBoxLang</value>
+  </data>
+  <data name="&gt;&gt;radioButtonEng.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="radioButtonCro.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioButtonCro.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 10.2pt</value>
+  </data>
+  <data name="radioButtonCro.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 49</value>
+  </data>
+  <data name="radioButtonCro.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 24</value>
+  </data>
+  <data name="radioButtonCro.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="radioButtonCro.Text" xml:space="preserve">
+    <value>Hrvatski</value>
+  </data>
+  <data name="&gt;&gt;radioButtonCro.Name" xml:space="preserve">
+    <value>radioButtonCro</value>
+  </data>
+  <data name="&gt;&gt;radioButtonCro.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioButtonCro.Parent" xml:space="preserve">
+    <value>groupBoxLang</value>
+  </data>
+  <data name="&gt;&gt;radioButtonCro.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="radioButtonWomen.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioButtonWomen.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 10.2pt</value>
+  </data>
+  <data name="radioButtonWomen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 49</value>
+  </data>
+  <data name="radioButtonWomen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 24</value>
+  </data>
+  <data name="radioButtonWomen.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="radioButtonWomen.Text" xml:space="preserve">
+    <value>Žene</value>
+  </data>
+  <data name="&gt;&gt;radioButtonWomen.Name" xml:space="preserve">
+    <value>radioButtonWomen</value>
+  </data>
+  <data name="&gt;&gt;radioButtonWomen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioButtonWomen.Parent" xml:space="preserve">
+    <value>groupBoxChamp</value>
+  </data>
+  <data name="&gt;&gt;radioButtonWomen.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="radioButtonMen.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioButtonMen.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 10.2pt</value>
+  </data>
+  <data name="radioButtonMen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 79</value>
+  </data>
+  <data name="radioButtonMen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 24</value>
+  </data>
+  <data name="radioButtonMen.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="radioButtonMen.Text" xml:space="preserve">
+    <value>Muškarci</value>
+  </data>
+  <data name="&gt;&gt;radioButtonMen.Name" xml:space="preserve">
+    <value>radioButtonMen</value>
+  </data>
+  <data name="&gt;&gt;radioButtonMen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioButtonMen.Parent" xml:space="preserve">
+    <value>groupBoxChamp</value>
+  </data>
+  <data name="&gt;&gt;radioButtonMen.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblChampionship.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblChampionship.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 10.8pt</value>
+  </data>
+  <data name="lblChampionship.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 23</value>
+  </data>
+  <data name="lblChampionship.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="lblChampionship.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblChampionship.Text" xml:space="preserve">
+    <value>Prvenstvo</value>
+  </data>
+  <data name="&gt;&gt;lblChampionship.Name" xml:space="preserve">
+    <value>lblChampionship</value>
+  </data>
+  <data name="&gt;&gt;lblChampionship.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblChampionship.Parent" xml:space="preserve">
+    <value>groupBoxChamp</value>
+  </data>
+  <data name="&gt;&gt;lblChampionship.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblSettingsHeading.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblSettingsHeading.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 13.8pt</value>
+  </data>
+  <data name="lblSettingsHeading.Location" type="System.Drawing.Point, System.Drawing">
+    <value>42, 23</value>
+  </data>
+  <data name="lblSettingsHeading.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 27</value>
+  </data>
+  <data name="lblSettingsHeading.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="lblSettingsHeading.Text" xml:space="preserve">
+    <value>Početne Postavke</value>
+  </data>
+  <data name="&gt;&gt;lblSettingsHeading.Name" xml:space="preserve">
+    <value>lblSettingsHeading</value>
+  </data>
+  <data name="&gt;&gt;lblSettingsHeading.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSettingsHeading.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblSettingsHeading.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnSettingsAccept.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 9pt</value>
+  </data>
+  <data name="btnSettingsAccept.Location" type="System.Drawing.Point, System.Drawing">
+    <value>91, 211</value>
+  </data>
+  <data name="btnSettingsAccept.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 29</value>
+  </data>
+  <data name="btnSettingsAccept.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnSettingsAccept.Text" xml:space="preserve">
+    <value>Postavi</value>
+  </data>
+  <data name="&gt;&gt;btnSettingsAccept.Name" xml:space="preserve">
+    <value>btnSettingsAccept</value>
+  </data>
+  <data name="&gt;&gt;btnSettingsAccept.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSettingsAccept.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnSettingsAccept.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="groupBoxLang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 53</value>
+  </data>
+  <data name="groupBoxLang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 137</value>
+  </data>
+  <data name="groupBoxLang.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLang.Name" xml:space="preserve">
+    <value>groupBoxLang</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLang.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLang.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLang.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="groupBoxChamp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>143, 53</value>
+  </data>
+  <data name="groupBoxChamp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 137</value>
+  </data>
+  <data name="groupBoxChamp.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;groupBoxChamp.Name" xml:space="preserve">
+    <value>groupBoxChamp</value>
+  </data>
+  <data name="&gt;&gt;groupBoxChamp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxChamp.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBoxChamp.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnSettingsCancel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 9pt</value>
+  </data>
+  <data name="btnSettingsCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>91, 246</value>
+  </data>
+  <data name="btnSettingsCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 29</value>
+  </data>
+  <data name="btnSettingsCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="btnSettingsCancel.Text" xml:space="preserve">
+    <value>Zatvori</value>
+  </data>
+  <data name="&gt;&gt;btnSettingsCancel.Name" xml:space="preserve">
+    <value>btnSettingsCancel</value>
+  </data>
+  <data name="&gt;&gt;btnSettingsCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSettingsCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnSettingsCancel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 20</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>303, 285</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>SettingsForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>
