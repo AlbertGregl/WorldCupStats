@@ -3,7 +3,7 @@ using DataRepository.ConverterJson;
 
 namespace DataRepository.Models
 {
-    public class Matches
+    public class Matches : IComparable<Matches>
     {
         [JsonProperty("venue", NullValueHandling = NullValueHandling.Ignore)]
         public string? Venue { get; set; }
@@ -24,7 +24,7 @@ namespace DataRepository.Models
         public Weather? Weather { get; set; }
 
         [JsonProperty("attendance", NullValueHandling = NullValueHandling.Ignore)]
-        public int? Attendance { get; set; }
+        public int Attendance { get; set; }
 
         [JsonProperty("officials", NullValueHandling = NullValueHandling.Ignore)]
         public List<string>? Officials { get; set; }
@@ -71,5 +71,8 @@ namespace DataRepository.Models
         [JsonProperty("last_score_update_at", NullValueHandling = NullValueHandling.Ignore)]
         public DateTimeOffset? LastScoreUpdateAt { get; set; }
 
+
+        // compare by attendance
+        public int CompareTo(Matches? other) => Attendance.CompareTo(other?.Attendance);
     }
 }

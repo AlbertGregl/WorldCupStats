@@ -28,6 +28,15 @@ namespace DataRepository.Models
         public Image? Image { get; set; }
         public int Goals { get; set; }
         public int YellowCards { get; set; }
+        public int GamesPlayed { get; set; }
+
+        public Player()
+        {
+            // default values
+            Goals = 0;
+            YellowCards = 0;
+            GamesPlayed = 0;            
+        }
 
         // compare by shirt number or Goal or YellowCard
         public int CompareTo(Player? other)
@@ -48,8 +57,15 @@ namespace DataRepository.Models
         }
 
         public override bool Equals(object? obj)
-            => obj is Player player && ShirtNumber == player.ShirtNumber;
+        {
+            return obj is Player player &&
+                   Name == player.Name &&
+                   ShirtNumber == player.ShirtNumber;
+        }
 
-        public override int GetHashCode() => HashCode.Combine(ShirtNumber);
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Name, ShirtNumber);
+        }
     }
 }

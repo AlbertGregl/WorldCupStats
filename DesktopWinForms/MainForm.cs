@@ -1,25 +1,24 @@
 ﻿using DataRepository.Dal;
 using DataRepository.Models;
-using System.ComponentModel;
-using System.Numerics;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using DataRepository.Utilities;
 
 namespace DesktopWinForms
 {
     public partial class MainForm : Form
     {
-        private DataManager dataManager;
-        private ISet<Results> results;
-        private ISet<Matches> matches;
+        private static DataManager dataManager = new DataManager();
+        private static ISet<Results> results = new HashSet<Results>();
+        private static ISet<Matches> matches = new HashSet<Matches>();
+        private static ISet<Matches> favTeamMetch = new HashSet<Matches>();
+
         private readonly ISettingsRepository settingsRepo;
         public SettingsLocal AppSettings { get; set; }
         private SettingsFavorite settingsFavorite;
-        private ISet<Player> playerSet;
-        private ISet<Player> favPlayerSet;
 
-        private ISet<Player> playerRangList;
-        private PlayerImageManager playerImageManager;
+        private static HashSet<Player> playerSet = new HashSet<Player>();
+        private static HashSet<Player> favPlayerSet = new HashSet<Player>();
+        private static HashSet<Player> playerRangList = new HashSet<Player>();
+        private static PlayerImageManager playerImageManager = new PlayerImageManager();
 
 
         public MainForm()
@@ -29,15 +28,6 @@ namespace DesktopWinForms
             // prepare settings object
             AppSettings = new SettingsLocal();
 
-            // initialize the Data
-            dataManager = new DataManager();
-            results = new HashSet<Results>();
-            matches = new HashSet<Matches>();
-            playerSet = new HashSet<Player>();
-            favPlayerSet = new HashSet<Player>();
-
-            playerRangList = new HashSet<Player>();
-            playerImageManager = new PlayerImageManager();
 
             // initialize settings
             settingsRepo = RepositoryFactory.GetSettingsRepo();
@@ -55,89 +45,59 @@ namespace DesktopWinForms
             // if settings favorite file does not exist set default values
             CheckIfSettingsFavoriteFileExists();
             // load results & matches and display them
-
-            // show loading form if operation takes longer than expected
-            //using (LoadingForm loadingForm = new LoadingForm(DisplayLoadedResultsAndMetches))
-            //{
-            //    loadingForm.ShowDialog();
-            //}
+            using (LoadingForm loadingForm = new LoadingForm(LoadResultsAndMetches))
+            {
+                //show loading form if operation takes longer than expected
+                loadingForm.ShowDialog();
+            }
             DisplayLoadedResultsAndMetches();
-
+            // load players from favorite team and display them
             GetPlayersFromFavoriteTeam();
-
             // display players from selected favorite team in dataGridAllPlayers
             DisplayPlayersFromFavoriteTeam();
-
             // display favorite players in dataGridFavPlayers
             DisplayFavoritePlayers();
-
-            // create image avatars for players
-            DisplayTeamImages();
-
             // display player rang list
             DisplayPlayerRangList();
+            // display favorite team matches in dataGridFavTeamMatches
+            DisplayFavoriteTeamMatches();
+        }
 
+        private void DisplayFavoriteTeamMatches()
+        {
+            // sort favTeamMetch by attendace
+            favTeamMetch = favTeamMetch.OrderByDescending(x => x.Attendance).ToHashSet();
+
+            // display favorite team matches in dataGridFavTeamMatches
+            dataGridFavTeamMatches.DataSource = favTeamMetch.ToList();
         }
 
         private void DisplayPlayerRangList()
         {
+            // sort playerRangList by goals if rbSortGoals is checked
+            if (rbSortGoals.Checked)
+            {
+                playerRangList = playerRangList.OrderByDescending(x => x.Goals).ToHashSet();
+            }
+            // sort playerRangList by yellow cards if rbSortYellowCards is checked
+            else if (rbSortYellowCards.Checked)
+            {
+                playerRangList = playerRangList.OrderByDescending(x => x.YellowCards).ToHashSet();
+            }
+            // sort playerRangList by games played if rbSortGamesPlayed is checked
+            else if (rbSortGamesPlayed.Checked)
+            {
+                playerRangList = playerRangList.OrderByDescending(x => x.GamesPlayed).ToHashSet();
+            }
+
+            // display playerRangList in dataGridPlayerRangList
             dataGridPlayerRangList.DataSource = playerRangList.ToList();
-
         }
 
-        private void DisplayTeamImages()
+        private void LoadResultsAndMetches()
         {
-            // clear old images
-            pnlflwTeamImages.Controls.Clear();
+            //Thread.Sleep(4000); // just for test purposes
 
-            // set the flow direction of the panel
-            pnlflwTeamImages.FlowDirection = FlowDirection.LeftToRight;
-
-
-            foreach (var player in playerRangList)
-            {
-                // add label with player name
-                Label label = new Label();
-                label.Name = "lbl" + player.Name;
-                label.Text = player.Name;
-                label.TextAlign = ContentAlignment.BottomCenter;
-                label.Size = new Size(100, 100);
-                label.Font = new Font("Consolas", 8);
-                //transparent
-                label.BackColor = Color.FromArgb(0, 0, 0, 0);
-                // add image to the label
-                label.Image = playerImageManager.GetDefaultImage();
-                // add the label to the panel
-                pnlflwTeamImages.Controls.Add(label);
-
-                //// add event handler for each
-                label.Click += new EventHandler(PictureBox_Click);
-
-            }
-
-
-        }
-
-        private void PictureBox_Click(object? sender, EventArgs e)
-        {
-            // open file explorer and let user choose image
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG";
-            openFileDialog.InitialDirectory = playerImageManager.GetImageDirectoryPath();
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                // get the label that was clicked
-                Label lblPicture = (Label)sender;
-                // set the image of the picture box
-                lblPicture.Image = Image.FromFile(openFileDialog.FileName);
-
-            }
-
-
-        }
-
-        private void DisplayLoadedResultsAndMetches()
-        {
             try
             {
                 // load results based on settings
@@ -150,6 +110,10 @@ namespace DesktopWinForms
                 MessageBox.Show(ex.Message, "Oops :(");
             }
 
+        }
+
+        private void DisplayLoadedResultsAndMetches()
+        {
             // sort the resluts by GroupId
             HashSet<Results> sortedResults = results.OrderBy(x => x.GroupId).ToHashSet();
 
@@ -160,7 +124,6 @@ namespace DesktopWinForms
             }
             // sort menuStripFavTeamComboBox
             menuStripFavTeamComboBox.Sorted = true;
-
         }
 
         private void DisplayFavoritePlayers()
@@ -211,52 +174,116 @@ namespace DesktopWinForms
 
         private void GetPlayersFromFavoriteTeam()
         {
+            // remove all data from playerSet
             playerSet.Clear();
+            // remove all data from playerRangList
             playerRangList.Clear();
+            // clear favTeamMetch
+            favTeamMetch.Clear();
 
             // get players from favorite team and add them to playerSet
             foreach (Matches match in matches)
             {
+                // if home team is favorite team
                 if (match.HomeTeamCountry == settingsFavorite.FavoriteTeam)
                 {
-                    // add players from starting eleven and substitutes
-                    match.HomeTeamStatistics.StartingEleven.ForEach(x => playerSet.Add(x));
-                    match.HomeTeamStatistics.Substitutes.ForEach(x => playerSet.Add(x));
-
-                    // add players to playerRangList if playerRangList is empty
-                    if (playerRangList.Count == 0)
-                    {
-                        // copy playerSet to playerRangList
-                        playerRangList = playerSet.ToHashSet();
-                    }
-
-                    // set up default image for each player
-                    foreach (Player player in playerRangList)
-                    {
-                        player.Image = playerImageManager.GetDefaultImage();
-                    }
-
-                    // add goal and yellow cards to playerRangList if player scored a goal
-                    match.HomeTeamEvents.ForEach(x =>
-                    {
-                        if (x.TypeOfEvent == "goal")
-                        {
-                            // get player from playerRangList
-                            Player player = playerRangList.FirstOrDefault(y => y.Name == x.Player);
-                            // add goal to player
-                            player.Goals++;
-                        }
-                        else if (x.TypeOfEvent == "yellow-card")
-                        {
-                            // get player from playerRangList
-                            Player player = playerRangList.FirstOrDefault(y => y.Name == x.Player);
-                            // add yellow card to player
-                            player.YellowCards++;
-                        }
-                    });
-
+                    GetFavHomeTeamData(match);
+                }
+                if (match.AwayTeamCountry == settingsFavorite.FavoriteTeam)
+                {
+                    GetFavAwayTeamData(match);
                 }
             }
+        }
+
+        private void GetFavAwayTeamData(Matches match)
+        {
+            // add players from starting eleven and substitutes
+            match.AwayTeamStatistics.StartingEleven.ForEach(x =>
+            {
+                playerSet.Add(x);
+                x.Image = playerImageManager.GetDefaultImage();
+                x.GamesPlayed++;
+                playerRangList.Add(x);
+            });
+            match.AwayTeamStatistics.Substitutes.ForEach(x =>
+            {
+                playerSet.Add(x);
+                x.Image = playerImageManager.GetDefaultImage();
+                x.GamesPlayed++;
+                playerRangList.Add(x);
+            });
+            // add goal and yellow cards to playerRangList if player scored a goal
+            match.AwayTeamEvents.ForEach(x =>
+            {
+                if (x.TypeOfEvent == "goal")
+                {
+                    // get player from playerRangList
+                    Player player = playerRangList.First(y => y.Name == x.Player);
+                    player.Goals++;
+                }
+                if (x.TypeOfEvent == "yellow-card")
+                {
+                    // get player from playerRangList
+                    Player player = playerRangList.First(y => y.Name == x.Player);
+                    player.YellowCards++;
+                }
+                if (x.TypeOfEvent == "substitution-in")
+                {
+                    Player player = playerRangList.First(y => y.Name == x.Player);
+                    // add Games Played
+                    player.GamesPlayed++;
+                }
+            });
+
+            // add metch to FavTeamMetch
+            favTeamMetch.Add(match);
+        }
+
+        private void GetFavHomeTeamData(Matches match)
+        {
+            // add players from starting eleven and substitutes
+            match.HomeTeamStatistics.StartingEleven.ForEach(x =>
+            {
+                playerSet.Add(x);
+                x.Image = playerImageManager.GetDefaultImage();
+                x.GamesPlayed++;
+                playerRangList.Add(x);
+            });
+            match.HomeTeamStatistics.Substitutes.ForEach(x =>
+            {
+                playerSet.Add(x);
+                x.Image = playerImageManager.GetDefaultImage();
+                x.GamesPlayed++;
+                playerRangList.Add(x);
+            });
+
+            // add goal and yellow cards to playerRangList if player scored a goal
+            match.HomeTeamEvents.ForEach(x =>
+            {
+                if (x.TypeOfEvent == "goal")
+                {
+                    // get player from playerRangList
+                    Player player = playerRangList.First(y => y.Name == x.Player);
+                    // add goal to player
+                    player.Goals++;
+                }
+                if (x.TypeOfEvent == "yellow-card")
+                {
+                    Player player = playerRangList.First(y => y.Name == x.Player);
+                    // add yellow card to player
+                    player.YellowCards++;
+                }
+                if (x.TypeOfEvent == "substitution-in")
+                {
+                    Player player = playerRangList.First(y => y.Name == x.Player);
+                    // add Games Played
+                    player.GamesPlayed++;
+                }
+            });
+
+            // add metch to FavTeamMetch
+            favTeamMetch.Add(match);
         }
 
         private void CheckIfSettingsFileExists()
@@ -423,19 +450,11 @@ namespace DesktopWinForms
             lblDebug01.Text = menuStripFavTeamComboBox.Text;
             // set favorite team in settingsFavorite only name is needed "Croatia (CRO)"
             settingsFavorite.FavoriteTeam = menuStripFavTeamComboBox.Text.Substring(0, menuStripFavTeamComboBox.Text.IndexOf("(") - 1);
-
             GetPlayersFromFavoriteTeam();
-
-            // display players from selected favorite team in dataGridAllPlayers
             DisplayPlayersFromFavoriteTeam();
-
-            // create image avatars for players
-            DisplayTeamImages();
-
             RemoveFavPlayersFromPanel();
-
-            // display player rang list
             DisplayPlayerRangList();
+            DisplayFavoriteTeamMatches();
         }
 
         private void dataGridAllPlayers_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -496,7 +515,6 @@ namespace DesktopWinForms
                     DropPlayersToAllPlayers(players);
                 };
             }
-
         }
 
         private void DropPlayersToFavoriteTeam(IEnumerable<Player> players)
@@ -576,5 +594,52 @@ namespace DesktopWinForms
             };
         }
 
+        private void dataGridPlayerRangList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // check if the cell is in the column CellImage
+            if (e.ColumnIndex == dataGridPlayerRangList.Columns["CellImage"].Index)
+            {
+                // open file explorer and let user choose image
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG";
+                openFileDialog.InitialDirectory = playerImageManager.GetImageDirectoryPath();
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // get cell that was clicked
+                    DataGridViewImageCell cell = (DataGridViewImageCell)dataGridPlayerRangList.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    // set the image of the picture box
+                    cell.Value = Image.FromFile(openFileDialog.FileName);
+                }
+            }
+        }
+
+        private void dataGridPlayerRangList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // check if the cell is in the column CellImage
+            if (e.ColumnIndex == dataGridPlayerRangList.Columns["CellImage"].Index)
+            {
+                // get the player from the row
+                Player player = (Player)dataGridPlayerRangList.Rows[e.RowIndex].DataBoundItem;
+
+                // set the tool tip text of the cell
+                dataGridPlayerRangList.Rows[e.RowIndex].Cells[e.ColumnIndex].ToolTipText = $"Kliknite za promijenu slike {player.Name}";
+            }
+        }
+
+        private void rbSort_Click(object sender, EventArgs e)
+        {
+            // set radio button to checked
+            RadioButton rb = (RadioButton)sender;
+            rb.Checked = true;
+            // display player rang list
+            DisplayPlayerRangList();
+
+        } 
+
+        private void menuStripFilePrintStats_Click(object sender, EventArgs e)
+            => Utilities.PrintoutFavoriteTeamStatistics(playerRangList, favTeamMetch, settingsFavorite);
+
     }
+
+
 }
