@@ -14,10 +14,28 @@ namespace DesktopWinForms
 {
     public partial class LoadingForm : Form
     {
-        public LoadingForm(Func<Task> worker)
+        public Action Worker { get; set; }
+
+        public LoadingForm(Action worker)
         {
             InitializeComponent();
+
+            if (worker == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            Worker = worker;
         }
 
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            Task.Factory.StartNew(Worker).ContinueWith(task => 
+            { 
+                this.Close(); 
+            }, TaskScheduler.FromCurrentSynchronizationContext());
+        }
     }
 }

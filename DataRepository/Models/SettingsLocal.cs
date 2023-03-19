@@ -2,7 +2,7 @@
 namespace DataRepository.Models
 
 {
-    public class Settings
+    public class SettingsLocal
     {
         private const char DELIMIT = '|';
 
@@ -13,10 +13,10 @@ namespace DataRepository.Models
         internal string FormatForFileLine() => $"{Championship}{DELIMIT}{Language}";
 
         // parse from file line
-        internal static Settings ParseFromFileLine(string line)
+        internal static SettingsLocal ParseFromFileLine(string line)
         {
             string[] parts = line.Split(DELIMIT);
-            return new Settings
+            return new SettingsLocal
             {
                 Championship = parts[0],
                 Language = parts.Length > 1 ? parts[1] : string.Empty

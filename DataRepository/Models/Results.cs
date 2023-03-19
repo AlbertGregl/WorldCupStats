@@ -12,7 +12,7 @@ namespace DataRepository.Models
     public class Results : IComparable<Results>
     {
         [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonProperty("country", NullValueHandling = NullValueHandling.Ignore)]
         public string? Country { get; set; }
@@ -24,31 +24,31 @@ namespace DataRepository.Models
         public string? FifaCode { get; set; }
 
         [JsonProperty("group_id", NullValueHandling = NullValueHandling.Ignore)]
-        public int GroupId { get; set; }
+        public int? GroupId { get; set; }
 
         [JsonProperty("group_letter", NullValueHandling = NullValueHandling.Ignore)]
-        public char GroupLetter { get; set; }
+        public char? GroupLetter { get; set; }
 
         [JsonProperty("wins", NullValueHandling = NullValueHandling.Ignore)]
-        public int Wins { get; set; }
+        public int? Wins { get; set; }
 
         [JsonProperty("draws", NullValueHandling = NullValueHandling.Ignore)]
-        public int Draws { get; set; }
+        public int? Draws { get; set; }
 
         [JsonProperty("losses", NullValueHandling = NullValueHandling.Ignore)]
-        public int Losses { get; set; }
+        public int? Losses { get; set; }
 
         [JsonProperty("games_played", NullValueHandling = NullValueHandling.Ignore)]
-        public int GamesPlayed { get; set; }
+        public int? GamesPlayed { get; set; }
 
         [JsonProperty("points", NullValueHandling = NullValueHandling.Ignore)]
-        public int Points { get; set; }
+        public int? Points { get; set; }
 
         [JsonProperty("goals_for", NullValueHandling = NullValueHandling.Ignore)]
-        public int GoalsAgainst { get; set; }
+        public int? GoalsAgainst { get; set; }
 
         [JsonProperty("goals_against", NullValueHandling = NullValueHandling.Ignore)]
-        public int GoalDifferential { get; set; }
+        public int? GoalDifferential { get; set; }
 
         // implemetn IComparable with ID, FifaCode and GroupId
         public int CompareTo(Results? other)

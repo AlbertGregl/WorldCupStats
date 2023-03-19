@@ -51,6 +51,7 @@
             Controls.Add(progressBar);
             Name = "LoadingForm";
             StartPosition = FormStartPosition.CenterScreen;
+            TopMost = true;
             ResumeLayout(false);
         }
 

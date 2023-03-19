@@ -22,14 +22,29 @@ namespace DataRepository.Models
         [JsonProperty("position", NullValueHandling = NullValueHandling.Ignore)]
         public string? Position { get; set; }
 
-
         public bool Favorite { get; set; }
 
-        // compare by shirt number
+        // rang list props
+        public Image? Image { get; set; }
+        public int Goals { get; set; }
+        public int YellowCards { get; set; }
+
+        // compare by shirt number or Goal or YellowCard
         public int CompareTo(Player? other)
         {
-            if (other == null) return 1;
-            return ShirtNumber.CompareTo(other.ShirtNumber);
+            if (other == null)
+            {
+                return 1;
+            }
+            if (ShirtNumber != other.ShirtNumber)
+            {
+                return ShirtNumber.CompareTo(other.ShirtNumber);
+            }
+            if (Goals != other.Goals)
+            {
+                return Goals.CompareTo(other.Goals);
+            }
+            return YellowCards.CompareTo(other.YellowCards);
         }
 
         public override bool Equals(object? obj)

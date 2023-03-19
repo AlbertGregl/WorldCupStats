@@ -23,10 +23,10 @@ namespace DataRepository.Dal
             return false;
         }
 
-        public Settings LoadSettings()
-            => Settings.ParseFromFileLine(File.ReadAllText(FILE_PATH_SET));
+        public SettingsLocal LoadSettings()
+            => SettingsLocal.ParseFromFileLine(File.ReadAllText(FILE_PATH_SET));
 
-        public void SaveSettings(Settings settings) 
+        public void SaveSettings(SettingsLocal settings) 
             => File.WriteAllText(FILE_PATH_SET, settings.FormatForFileLine());
 
 

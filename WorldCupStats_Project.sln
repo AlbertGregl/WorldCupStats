@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataRepository", "DataRepository\DataRepository.csproj", "{0303B551-25FA-4CD5-AE1F-36CB7CF9E566}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopWinForms", "DesktopWinForms\DesktopWinForms.csproj", "{96D6B9BE-13A8-484B-9E71-2E0F234E5165}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesktopWinForms", "DesktopWinForms\DesktopWinForms.csproj", "{96D6B9BE-13A8-484B-9E71-2E0F234E5165}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,9 +5,9 @@ namespace DataRepository.Dal
     public interface ISettingsRepository
     {
         // save settings
-        void SaveSettings(Settings settings);
+        void SaveSettings(SettingsLocal settings);
         // load settings
-        Settings LoadSettings();
+        SettingsLocal LoadSettings();
         // create settings file
         bool SettingsFileCreated();
         // save favorite settings
