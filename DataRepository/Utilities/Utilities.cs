@@ -11,7 +11,6 @@ namespace DataRepository.Utilities
     public class Utilities
     {
 
-
         public static void PrintoutFavoriteTeamStatistics(HashSet<Player> playerRangList, ISet<Matches> favTeamMetch, SettingsFavorite settingsFavorite)
         {
             // Display the print dialog and get the selected printer
@@ -113,5 +112,7 @@ namespace DataRepository.Utilities
             // Print the document
             printDocument.Print();
         }
+
+
     }
 }

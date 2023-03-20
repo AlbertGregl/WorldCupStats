@@ -117,4 +117,67 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="cntxMenuStripFavPlayer" xml:space="preserve">
+    <value>Prebaci Igrača</value>
+  </data>
+  <data name="dataGridAttendance" xml:space="preserve">
+    <value>Posjetitelji</value>
+  </data>
+  <data name="dataGridAwayTeam" xml:space="preserve">
+    <value>Gost</value>
+  </data>
+  <data name="dataGridCaptain" xml:space="preserve">
+    <value>Kapetan</value>
+  </data>
+  <data name="dataGridHomeTeam" xml:space="preserve">
+    <value>Domaćin</value>
+  </data>
+  <data name="dataGridImage" xml:space="preserve">
+    <value>Slika</value>
+  </data>
+  <data name="dataGridLoacation" xml:space="preserve">
+    <value>Lokacija</value>
+  </data>
+  <data name="dataGridName" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="dataGridNumber" xml:space="preserve">
+    <value>Broj</value>
+  </data>
+  <data name="dataGridPosition" xml:space="preserve">
+    <value>Pozicija</value>
+  </data>
+  <data name="lblFavPlayers" xml:space="preserve">
+    <value>Omiljeni Igrači, obaberi tri (3):</value>
+  </data>
+  <data name="lblFavTeamMatches" xml:space="preserve">
+    <value>Rang lista prema broju posjetitelja</value>
+  </data>
+  <data name="lblRangList" xml:space="preserve">
+    <value>Rang lista</value>
+  </data>
+  <data name="MainForm" xml:space="preserve">
+    <value>Rang Liste Svjetskog Nogometnog Prvenstva</value>
+  </data>
+  <data name="menuStripFavTeamComboBox" xml:space="preserve">
+    <value>Omiljena reprezentacija &lt;odaberi&gt;</value>
+  </data>
+  <data name="menuStripFile" xml:space="preserve">
+    <value>Datoteka</value>
+  </data>
+  <data name="menuStripFilePrintStats" xml:space="preserve">
+    <value>Ispis Rang Lista</value>
+  </data>
+  <data name="menuStripSettings" xml:space="preserve">
+    <value>Postavke</value>
+  </data>
+  <data name="rbSortGamesPlayed" xml:space="preserve">
+    <value>Sudjelovao</value>
+  </data>
+  <data name="rbSortGoals" xml:space="preserve">
+    <value>Golovi</value>
+  </data>
+  <data name="rbSortYellowCards" xml:space="preserve">
+    <value>Žuti kartoni</value>
+  </data>
 </root>

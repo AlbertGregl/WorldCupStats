@@ -1,5 +1,6 @@
 ﻿using DataRepository.Dal;
 using DataRepository.Models;
+using DesktopWinForms.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

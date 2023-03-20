@@ -337,12 +337,12 @@
             cntxMenuStrip.ImageScalingSize = new Size(20, 20);
             cntxMenuStrip.Items.AddRange(new ToolStripItem[] { cntxMenuStripFavPlayer });
             cntxMenuStrip.Name = "cntxMenuStrip";
-            cntxMenuStrip.Size = new Size(173, 26);
+            cntxMenuStrip.Size = new Size(181, 48);
             // 
             // cntxMenuStripFavPlayer
             // 
             cntxMenuStripFavPlayer.Name = "cntxMenuStripFavPlayer";
-            cntxMenuStripFavPlayer.Size = new Size(172, 22);
+            cntxMenuStripFavPlayer.Size = new Size(180, 22);
             cntxMenuStripFavPlayer.Text = "Prebaci Igrača";
             // 
             // dataGridPlayerRangList

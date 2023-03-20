@@ -59,13 +59,12 @@ namespace DataRepository.Models
         public override bool Equals(object? obj)
         {
             return obj is Player player &&
-                   Name == player.Name &&
                    ShirtNumber == player.ShirtNumber;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Name, ShirtNumber);
+            return HashCode.Combine(ShirtNumber);
         }
     }
 }

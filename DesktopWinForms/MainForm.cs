@@ -1,6 +1,7 @@
 ﻿using DataRepository.Dal;
 using DataRepository.Models;
 using DataRepository.Utilities;
+using DesktopWinForms.Properties;
 
 namespace DesktopWinForms
 {
@@ -28,7 +29,6 @@ namespace DesktopWinForms
             // prepare settings object
             AppSettings = new SettingsLocal();
 
-
             // initialize settings
             settingsRepo = RepositoryFactory.GetSettingsRepo();
             // create favorite settings file with default values
@@ -44,6 +44,7 @@ namespace DesktopWinForms
             CheckIfSettingsFileExists();
             // if settings favorite file does not exist set default values
             CheckIfSettingsFavoriteFileExists();
+
             // load results & matches and display them
             using (LoadingForm loadingForm = new LoadingForm(LoadResultsAndMetches))
             {
@@ -61,6 +62,93 @@ namespace DesktopWinForms
             DisplayPlayerRangList();
             // display favorite team matches in dataGridFavTeamMatches
             DisplayFavoriteTeamMatches();
+
+            // change current lozalizable language
+            SetLanguage();
+        }
+
+        private void SetLanguage()
+        {
+            // change current lozalizable language to english
+            if (AppSettings.Language == "eng")
+            {
+                SetLanguageToEnglish();
+
+            }
+            // change current lozalizable language to croatian
+            else if (AppSettings.Language == "cro")
+            {
+                SetLanguageToCroatian();
+            }
+        }
+
+        private void SetLanguageToCroatian()
+        {
+            this.Text = language_hr_HR.ResourceManager.GetString("MainForm");
+            menuStripFile.Text = language_hr_HR.ResourceManager.GetString("menuStripFile");
+            menuStripSettings.Text = language_hr_HR.ResourceManager.GetString("menuStripSettings");
+            menuStripFilePrintStats.Text = language_hr_HR.ResourceManager.GetString("menuStripFilePrintStats");
+            menuStripFavTeamComboBox.Text = language_hr_HR.ResourceManager.GetString("menuStripFavTeamComboBox");
+            lblFavPlayers.Text = language_hr_HR.ResourceManager.GetString("lblFavPlayers");
+            lblFavTeamMatches.Text = language_hr_HR.ResourceManager.GetString("lblFavTeamMatches");
+            lblRangList.Text = language_hr_HR.ResourceManager.GetString("lblRangList");
+            rbSortGamesPlayed.Text = language_hr_HR.ResourceManager.GetString("rbSortGamesPlayed");
+            rbSortGoals.Text = language_hr_HR.ResourceManager.GetString("rbSortGoals");
+            rbSortYellowCards.Text = language_hr_HR.ResourceManager.GetString("rbSortYellowCards");
+            // data grid view columns
+            dataGridAllPlayers.Columns[0].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridName");
+            dataGridAllPlayers.Columns[1].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridNumber");
+            dataGridAllPlayers.Columns[2].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridPosition");
+            dataGridAllPlayers.Columns[3].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridCaptain");
+            dataGridFavPlayers.Columns[0].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridName");
+            dataGridFavPlayers.Columns[1].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridNumber");
+            dataGridFavPlayers.Columns[2].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridPosition");
+            dataGridFavPlayers.Columns[3].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridCaptain");
+            dataGridFavTeamMatches.Columns[0].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridLoacation");
+            dataGridFavTeamMatches.Columns[1].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridAttendance");
+            dataGridFavTeamMatches.Columns[2].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridHomeTeam");
+            dataGridFavTeamMatches.Columns[3].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridAwayTeam");
+            dataGridPlayerRangList.Columns[0].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridImage");
+            dataGridPlayerRangList.Columns[1].HeaderText = language_hr_HR.ResourceManager.GetString("rbSortGamesPlayed");
+            dataGridPlayerRangList.Columns[2].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridName");
+            dataGridPlayerRangList.Columns[3].HeaderText = language_hr_HR.ResourceManager.GetString("rbSortGoals");
+            dataGridPlayerRangList.Columns[4].HeaderText = language_hr_HR.ResourceManager.GetString("rbSortYellowCards");
+            cntxMenuStripFavPlayer.Text = language_hr_HR.ResourceManager.GetString("cntxMenuStripFavPlayer");
+        }
+
+        private void SetLanguageToEnglish()
+        {
+            // new resource manager for english language
+            this.Text = language_en_US.ResourceManager.GetString("MainForm");
+            menuStripFile.Text = language_en_US.ResourceManager.GetString("menuStripFile");
+            menuStripSettings.Text = language_en_US.ResourceManager.GetString("menuStripSettings");
+            menuStripFilePrintStats.Text = language_en_US.ResourceManager.GetString("menuStripFilePrintStats");
+            menuStripFavTeamComboBox.Text = language_en_US.ResourceManager.GetString("menuStripFavTeamComboBox");
+            lblFavPlayers.Text = language_en_US.ResourceManager.GetString("lblFavPlayers");
+            lblFavTeamMatches.Text = language_en_US.ResourceManager.GetString("lblFavTeamMatches");
+            lblRangList.Text = language_en_US.ResourceManager.GetString("lblRangList");
+            rbSortGamesPlayed.Text = language_en_US.ResourceManager.GetString("rbSortGamesPlayed");
+            rbSortGoals.Text = language_en_US.ResourceManager.GetString("rbSortGoals");
+            rbSortYellowCards.Text = language_en_US.ResourceManager.GetString("rbSortYellowCards");
+            // data grid view columns
+            dataGridAllPlayers.Columns[0].HeaderText = language_en_US.ResourceManager.GetString("dataGridName");
+            dataGridAllPlayers.Columns[1].HeaderText = language_en_US.ResourceManager.GetString("dataGridNumber");
+            dataGridAllPlayers.Columns[2].HeaderText = language_en_US.ResourceManager.GetString("dataGridPosition");
+            dataGridAllPlayers.Columns[3].HeaderText = language_en_US.ResourceManager.GetString("dataGridCaptain");
+            dataGridFavPlayers.Columns[0].HeaderText = language_en_US.ResourceManager.GetString("dataGridName");
+            dataGridFavPlayers.Columns[1].HeaderText = language_en_US.ResourceManager.GetString("dataGridNumber");
+            dataGridFavPlayers.Columns[2].HeaderText = language_en_US.ResourceManager.GetString("dataGridPosition");
+            dataGridFavPlayers.Columns[3].HeaderText = language_en_US.ResourceManager.GetString("dataGridCaptain");
+            dataGridFavTeamMatches.Columns[0].HeaderText = language_en_US.ResourceManager.GetString("dataGridLoacation");
+            dataGridFavTeamMatches.Columns[1].HeaderText = language_en_US.ResourceManager.GetString("dataGridAttendance");
+            dataGridFavTeamMatches.Columns[2].HeaderText = language_en_US.ResourceManager.GetString("dataGridHomeTeam");
+            dataGridFavTeamMatches.Columns[3].HeaderText = language_en_US.ResourceManager.GetString("dataGridAwayTeam");
+            dataGridPlayerRangList.Columns[0].HeaderText = language_en_US.ResourceManager.GetString("dataGridImage");
+            dataGridPlayerRangList.Columns[1].HeaderText = language_en_US.ResourceManager.GetString("rbSortGamesPlayed");
+            dataGridPlayerRangList.Columns[2].HeaderText = language_en_US.ResourceManager.GetString("dataGridName");
+            dataGridPlayerRangList.Columns[3].HeaderText = language_en_US.ResourceManager.GetString("rbSortGoals");
+            dataGridPlayerRangList.Columns[4].HeaderText = language_en_US.ResourceManager.GetString("rbSortYellowCards");
+            cntxMenuStripFavPlayer.Text = language_en_US.ResourceManager.GetString("cntxMenuStripFavPlayer");
         }
 
         private void DisplayFavoriteTeamMatches()
@@ -145,7 +233,7 @@ namespace DesktopWinForms
             // display players in dataGridFavPlayers
             dataGridFavPlayers.DataSource = favPlayerSet.ToList();
             CustomizeFavoriteColumnAppearance(dataGridFavPlayers);
-            dataGridFavPlayers.Refresh();
+            //dataGridFavPlayers.Refresh();
 
             // display players in dataGridAllPlayers
             dataGridAllPlayers.DataSource = playerSet.ToList();
@@ -187,11 +275,27 @@ namespace DesktopWinForms
                 // if home team is favorite team
                 if (match.HomeTeamCountry == settingsFavorite.FavoriteTeam)
                 {
-                    GetFavHomeTeamData(match);
+                    try
+                    {
+                        GetFavHomeTeamData(match);
+                    }
+                    catch (Exception ex)
+                    {
+                        //alert user
+                        MessageBox.Show(ex.Message, "Oops :(");
+                    }
                 }
                 if (match.AwayTeamCountry == settingsFavorite.FavoriteTeam)
                 {
-                    GetFavAwayTeamData(match);
+                    try
+                    {
+                        GetFavAwayTeamData(match);
+                    }
+                    catch (Exception ex)
+                    {
+                        //alert user
+                        MessageBox.Show(ex.Message, "Oops :(");
+                    }
                 }
             }
         }
@@ -408,10 +512,8 @@ namespace DesktopWinForms
 
         //handle the DragEnter and DragDrop events of the dataGridFavPlayers
         private void dataGridPlayers_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.Move;
-        }
-
+            => e.Effect = DragDropEffects.Move;
+     
         private async void dataGridFavPlayers_DragDrop(object sender, DragEventArgs e)
         {
             // implement drag-drop
@@ -621,8 +723,18 @@ namespace DesktopWinForms
                 // get the player from the row
                 Player player = (Player)dataGridPlayerRangList.Rows[e.RowIndex].DataBoundItem;
 
-                // set the tool tip text of the cell
-                dataGridPlayerRangList.Rows[e.RowIndex].Cells[e.ColumnIndex].ToolTipText = $"Kliknite za promijenu slike {player.Name}";
+                // set the tool tip text of the cell based on language
+                if (AppSettings.Language == "cro")
+                {
+                    dataGridPlayerRangList.Rows[e.RowIndex].Cells[e.ColumnIndex].ToolTipText = $"Kliknite za promijenu slike {player.Name}";
+                }
+                else if (AppSettings.Language == "eng")
+                {
+                    dataGridPlayerRangList.Rows[e.RowIndex].Cells[e.ColumnIndex].ToolTipText = $"Click to change image of {player.Name}";
+                }
+
+
+
             }
         }
 
@@ -634,12 +746,11 @@ namespace DesktopWinForms
             // display player rang list
             DisplayPlayerRangList();
 
-        } 
+        }
 
         private void menuStripFilePrintStats_Click(object sender, EventArgs e)
             => Utilities.PrintoutFavoriteTeamStatistics(playerRangList, favTeamMetch, settingsFavorite);
 
     }
-
 
 }
