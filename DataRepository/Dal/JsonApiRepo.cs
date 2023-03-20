@@ -1,10 +1,8 @@
 ﻿using DataRepository.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using RestSharp;
+using Newtonsoft.Json;
+using DataRepository.ConverterJson;
+
 
 namespace DataRepository.Dal
 {
@@ -19,21 +17,30 @@ namespace DataRepository.Dal
 
         public ISet<Matches> GetAllMetches(string championship)
         {
-            var options = new RestClientOptions("")
-            {
-                MaxTimeout = -1,
-            };
-            var client = new RestClient(options);
-            var request = new RestRequest("https://worldcup-vua.nullbit.hr/men/matches", Method.Get);
-            //RestResponse response = await client.ExecuteAsync(request);
-            
-            //Console.WriteLine(response.Content);
+            string url = BASE_URL + championship + MATCHES_URL;
 
-            throw new NotImplementedException();
+            // code from 'web.postman.co'
+            var client = new RestClient();
+            var request = new RestRequest(url, Method.Get);
+            var response = client.Execute(request);
+
+            // serialize json
+            return JsonConvert.DeserializeObject<ISet<Matches>?>(response.Content, Converter.JsonSettings);
         }
+
+
         public ISet<Results> GetAllResults(string championship)
         {
-            throw new NotImplementedException();
+            string url = BASE_URL + championship + RESULTS_URL;
+
+            // code from 'web.postman.co'
+            var client = new RestClient();
+            var request = new RestRequest(url, Method.Get);
+            var response = client.Execute(request);
+
+            // serialize json
+            return JsonConvert.DeserializeObject<ISet<Results>?>(response.Content, Converter.JsonSettings);
+
         }
 
 

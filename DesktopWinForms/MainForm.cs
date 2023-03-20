@@ -195,7 +195,8 @@ namespace DesktopWinForms
             catch (Exception ex)
             {
                 //alert user
-                MessageBox.Show(ex.Message, "Oops :(");
+                //MessageBox.Show(ex.Message, "Oops :(");
+                MessageBox.Show("Oops :(", "Some Error?");
             }
 
         }
@@ -282,7 +283,8 @@ namespace DesktopWinForms
                     catch (Exception ex)
                     {
                         //alert user
-                        MessageBox.Show(ex.Message, "Oops :(");
+                        //MessageBox.Show(ex.Message, "Oops :(");
+                        MessageBox.Show("Oops :(", "Some Error?");
                     }
                 }
                 if (match.AwayTeamCountry == settingsFavorite.FavoriteTeam)
@@ -294,7 +296,8 @@ namespace DesktopWinForms
                     catch (Exception ex)
                     {
                         //alert user
-                        MessageBox.Show(ex.Message, "Oops :(");
+                        //MessageBox.Show(ex.Message, "Oops :(");
+                        MessageBox.Show("Oops :(", "Some Error?");
                     }
                 }
             }

@@ -5,5 +5,8 @@
     <Setting Name="ResourcesDir" Type="System.String" Scope="User">
       <Value Profile="(Default)">..\..\..\..\Resources\</Value>
     </Setting>
+    <Setting Name="DataSource" Type="System.String" Scope="User">
+      <Value Profile="(Default)">file</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

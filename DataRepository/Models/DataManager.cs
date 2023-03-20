@@ -1,4 +1,5 @@
 ﻿using DataRepository.Dal;
+using DataRepository.Properties;
 
 namespace DataRepository.Models
 {
@@ -11,7 +12,16 @@ namespace DataRepository.Models
 
         public DataManager()
         {
-            dataRepo = RepositoryFactory.GetDataRepo();
+            // get data from api or file based on settings
+            if (Settings.Default.DataSource == "api")
+            {
+                dataRepo = RepositoryFactory.GetApiDataRepo();
+            }
+            else
+            {
+                dataRepo = RepositoryFactory.GetFileDataRepo();
+            }
+
         }
 
         public ISet<Results> GetResultsByChampionship (string championship)
