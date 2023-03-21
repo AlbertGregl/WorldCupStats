@@ -5,22 +5,26 @@ namespace DataRepository.Models
 {
     public class DataManager
     {
-        private readonly IDataRepository dataRepo;
+        // readonly removed to implement automatic switch to file data repository
+        private IDataRepository dataRepo;
 
         private ISet<Results>? results;
         private ISet<Matches>? matches;
 
         public DataManager()
         {
-            // get data from api or file based on settings
-            if (Settings.Default.DataSource == "api")
+
+            try
             {
+                // Try to get data from API first
                 dataRepo = RepositoryFactory.GetApiDataRepo();
             }
-            else
+            catch (Exception ex)
             {
+
                 dataRepo = RepositoryFactory.GetFileDataRepo();
             }
+    
 
         }
 
@@ -37,5 +41,9 @@ namespace DataRepository.Models
             matches = dataRepo.GetAllMetches(championship);
             return new HashSet<Matches>(matches);
         }
+
+        // set data repository if API call failed
+        public void SetFileDataRepo() => dataRepo = RepositoryFactory.GetFileDataRepo();
+
     }
 }

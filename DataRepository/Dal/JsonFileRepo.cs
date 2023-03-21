@@ -7,6 +7,7 @@ namespace DataRepository.Dal
 {
     internal class JsonFileRepo : IDataRepository
     {
+
         // directory path
         private static string _filePath = Settings.Default.ResourcesDir + @"worldcup.sfg.io\";
         // relative path to "group_results.json"

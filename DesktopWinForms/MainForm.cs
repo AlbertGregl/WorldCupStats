@@ -196,7 +196,13 @@ namespace DesktopWinForms
             {
                 //alert user
                 //MessageBox.Show(ex.Message, "Oops :(");
-                MessageBox.Show("Oops :(", "Some Error?");
+                // show message box above all
+                MessageBox.Show("Oops :(", "Some Error?", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
+                //MessageBox.Show("Oops :(", "Some Error?");
+                dataManager.SetFileDataRepo();
+                // load results based on settings
+                results = dataManager.GetResultsByChampionship(AppSettings.Championship);
+                matches = dataManager.GetMatchesByChampionship(AppSettings.Championship);
             }
 
         }
