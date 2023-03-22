@@ -9,30 +9,34 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DataRepository\DataRepository.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Properties\language_en-US.Designer.cs">
+    <Compile Update="Resources\english.en-US.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>language_en-US.resx</DependentUpon>
+      <DependentUpon>english.en-US.resx</DependentUpon>
     </Compile>
-    <Compile Update="Properties\language_hr-HR.Designer.cs">
+    <Compile Update="Resources\croatian.hr-HR.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>language_hr-HR.resx</DependentUpon>
+      <DependentUpon>croatian.hr-HR.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Properties\language_en-US.resx">
+    <EmbeddedResource Update="Resources\english.en-US.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>language_en-US.Designer.cs</LastGenOutput>
+      <LastGenOutput>english.en-US.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Properties\language_hr-HR.resx">
+    <EmbeddedResource Update="Resources\croatian.hr-HR.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>language_hr-HR.Designer.cs</LastGenOutput>
+      <LastGenOutput>croatian.hr-HR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

@@ -2,7 +2,7 @@
 using RestSharp;
 using Newtonsoft.Json;
 using DataRepository.ConverterJson;
-
+using DataRepository.Exceptions;
 
 namespace DataRepository.Dal
 {
@@ -23,9 +23,15 @@ namespace DataRepository.Dal
             var client = new RestClient();
             var request = new RestRequest(url, Method.Get);
             var response = client.Execute(request);
-
-            // serialize json
-            return JsonConvert.DeserializeObject<ISet<Matches>?>(response.Content, Converter.JsonSettings);
+            try
+            {
+                // serialize json
+                return JsonConvert.DeserializeObject<ISet<Matches>?>(response.Content, Converter.JsonSettings);
+            }
+            catch (Exception)
+            {
+                throw new ApiGetException($"API ({url}) is unavailable.");
+            }
         }
 
 
@@ -37,9 +43,15 @@ namespace DataRepository.Dal
             var client = new RestClient();
             var request = new RestRequest(url, Method.Get);
             var response = client.Execute(request);
-
-            // serialize json
-            return JsonConvert.DeserializeObject<ISet<Results>?>(response.Content, Converter.JsonSettings);
+            try
+            {
+                // serialize json
+                return JsonConvert.DeserializeObject<ISet<Results>?>(response.Content, Converter.JsonSettings);
+            }
+            catch (Exception)
+            {
+                throw new ApiGetException($"API ({url}) is unavailable.");
+            }
 
         }
 

@@ -22,14 +22,14 @@ namespace DesktopWinForms.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class language_hr_HR {
+    internal class english {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal language_hr_HR() {
+        internal english() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace DesktopWinForms.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DesktopWinForms.Properties.language_hr-HR", typeof(language_hr_HR).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DesktopWinForms.Properties.english", typeof(english).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Prebaci Igrača.
+        ///   Looks up a localized string similar to Transfer Player.
         /// </summary>
         internal static string cntxMenuStripFavPlayer {
             get {
@@ -70,7 +70,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Posjetitelji.
+        ///   Looks up a localized string similar to Attendance.
         /// </summary>
         internal static string dataGridAttendance {
             get {
@@ -79,7 +79,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Gost.
+        ///   Looks up a localized string similar to Away Team.
         /// </summary>
         internal static string dataGridAwayTeam {
             get {
@@ -88,7 +88,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kapetan.
+        ///   Looks up a localized string similar to Captain.
         /// </summary>
         internal static string dataGridCaptain {
             get {
@@ -97,7 +97,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Domaćin.
+        ///   Looks up a localized string similar to Home Team.
         /// </summary>
         internal static string dataGridHomeTeam {
             get {
@@ -106,7 +106,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Slika.
+        ///   Looks up a localized string similar to Image.
         /// </summary>
         internal static string dataGridImage {
             get {
@@ -115,7 +115,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lokacija.
+        ///   Looks up a localized string similar to Location.
         /// </summary>
         internal static string dataGridLoacation {
             get {
@@ -124,7 +124,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ime.
+        ///   Looks up a localized string similar to Name.
         /// </summary>
         internal static string dataGridName {
             get {
@@ -133,7 +133,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Broj.
+        ///   Looks up a localized string similar to Number.
         /// </summary>
         internal static string dataGridNumber {
             get {
@@ -142,7 +142,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pozicija.
+        ///   Looks up a localized string similar to Position.
         /// </summary>
         internal static string dataGridPosition {
             get {
@@ -151,7 +151,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Omiljeni Igrači, obaberi tri (3):.
+        ///   Looks up a localized string similar to Favorite Players, choose (3):.
         /// </summary>
         internal static string lblFavPlayers {
             get {
@@ -160,7 +160,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rang lista prema broju posjetitelja.
+        ///   Looks up a localized string similar to Rang List by Attendence.
         /// </summary>
         internal static string lblFavTeamMatches {
             get {
@@ -169,7 +169,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rang lista.
+        ///   Looks up a localized string similar to Rang List.
         /// </summary>
         internal static string lblRangList {
             get {
@@ -178,7 +178,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rang Liste Svjetskog Nogometnog Prvenstva.
+        ///   Looks up a localized string similar to World Cup Stats.
         /// </summary>
         internal static string MainForm {
             get {
@@ -187,7 +187,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Omiljena reprezentacija &lt;odaberi&gt;.
+        ///   Looks up a localized string similar to Favorite Team &lt;choose&gt;.
         /// </summary>
         internal static string menuStripFavTeamComboBox {
             get {
@@ -196,7 +196,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Datoteka.
+        ///   Looks up a localized string similar to File.
         /// </summary>
         internal static string menuStripFile {
             get {
@@ -205,7 +205,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ispis Rang Lista.
+        ///   Looks up a localized string similar to Print out Rang List.
         /// </summary>
         internal static string menuStripFilePrintStats {
             get {
@@ -214,7 +214,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Postavke.
+        ///   Looks up a localized string similar to Settings.
         /// </summary>
         internal static string menuStripSettings {
             get {
@@ -223,7 +223,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sudjelovao.
+        ///   Looks up a localized string similar to Played.
         /// </summary>
         internal static string rbSortGamesPlayed {
             get {
@@ -232,7 +232,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Golovi.
+        ///   Looks up a localized string similar to Goals.
         /// </summary>
         internal static string rbSortGoals {
             get {
@@ -241,7 +241,7 @@ namespace DesktopWinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Žuti kartoni.
+        ///   Looks up a localized string similar to Yellow Cards.
         /// </summary>
         internal static string rbSortYellowCards {
             get {

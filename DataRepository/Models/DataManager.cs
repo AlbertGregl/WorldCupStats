@@ -1,5 +1,7 @@
 ﻿using DataRepository.Dal;
+using DataRepository.Exceptions;
 using DataRepository.Properties;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DataRepository.Models
 {
@@ -19,12 +21,13 @@ namespace DataRepository.Models
                 // Try to get data from API first
                 dataRepo = RepositoryFactory.GetApiDataRepo();
             }
-            catch (Exception ex)
+            catch (ApiGetException ex)
             {
-
+                // save log message;
+                ErrorLog(ex.Message);
+                // if API call failed, get data from file
                 dataRepo = RepositoryFactory.GetFileDataRepo();
             }
-    
 
         }
 
@@ -44,6 +47,18 @@ namespace DataRepository.Models
 
         // set data repository if API call failed
         public void SetFileDataRepo() => dataRepo = RepositoryFactory.GetFileDataRepo();
+
+        // log error with Logger
+        public void ErrorLog(string error)
+        {
+            // prepare log object
+            Log log = new Log
+            {
+                dateTime = DateTime.Now,
+                errorMessage = error
+            };
+            Logger.SaveLog(log);
+        } 
 
     }
 }

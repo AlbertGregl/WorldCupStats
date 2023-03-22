@@ -1,7 +1,8 @@
 ﻿using DataRepository.Dal;
 using DataRepository.Models;
 using DataRepository.Utilities;
-using DesktopWinForms.Properties;
+using System.Reflection;
+using System.Resources;
 
 namespace DesktopWinForms
 {
@@ -67,88 +68,67 @@ namespace DesktopWinForms
             SetLanguage();
         }
 
+
         private void SetLanguage()
         {
-            // change current lozalizable language to english
-            if (AppSettings.Language == "eng")
+            try
             {
-                SetLanguageToEnglish();
+                ResourceManager resourceManager = new ResourceManager("DesktopWinForms.Resources.croatian", Assembly.GetExecutingAssembly());
+                // change current lozalizable language to english
+                if (AppSettings.Language == "eng")
+                {
+                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+                    resourceManager = new ResourceManager("DesktopWinForms.Resources.english", Assembly.GetExecutingAssembly());
+                }
+                // change current lozalizable language to croatian
+                else if (AppSettings.Language == "cro")
+                {
+                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("hr-HR");
+                    resourceManager = new ResourceManager("DesktopWinForms.Resources.croatian", Assembly.GetExecutingAssembly());
+                }
+                TranslateMainForm(resourceManager);
+            }
+            catch (Exception ex)
+            {
+                dataManager.ErrorLog(ex.Message + ", " + ex.StackTrace);
+            }
 
-            }
-            // change current lozalizable language to croatian
-            else if (AppSettings.Language == "cro")
-            {
-                SetLanguageToCroatian();
-            }
         }
 
-        private void SetLanguageToCroatian()
+        private void TranslateMainForm(ResourceManager resourceManager)
         {
-            this.Text = language_hr_HR.ResourceManager.GetString("MainForm");
-            menuStripFile.Text = language_hr_HR.ResourceManager.GetString("menuStripFile");
-            menuStripSettings.Text = language_hr_HR.ResourceManager.GetString("menuStripSettings");
-            menuStripFilePrintStats.Text = language_hr_HR.ResourceManager.GetString("menuStripFilePrintStats");
-            menuStripFavTeamComboBox.Text = language_hr_HR.ResourceManager.GetString("menuStripFavTeamComboBox");
-            lblFavPlayers.Text = language_hr_HR.ResourceManager.GetString("lblFavPlayers");
-            lblFavTeamMatches.Text = language_hr_HR.ResourceManager.GetString("lblFavTeamMatches");
-            lblRangList.Text = language_hr_HR.ResourceManager.GetString("lblRangList");
-            rbSortGamesPlayed.Text = language_hr_HR.ResourceManager.GetString("rbSortGamesPlayed");
-            rbSortGoals.Text = language_hr_HR.ResourceManager.GetString("rbSortGoals");
-            rbSortYellowCards.Text = language_hr_HR.ResourceManager.GetString("rbSortYellowCards");
+            this.Text = resourceManager.GetString("MainForm");
+            menuStripFile.Text = resourceManager.GetString("menuStripFile");
+            menuStripSettings.Text = resourceManager.GetString("menuStripSettings");
+            menuStripFilePrintStats.Text = resourceManager.GetString("menuStripFilePrintStats");
+            menuStripFavTeamComboBox.Text = resourceManager.GetString("menuStripFavTeamComboBox");
+            lblFavPlayers.Text = resourceManager.GetString("lblFavPlayers");
+            lblFavTeamMatches.Text = resourceManager.GetString("lblFavTeamMatches");
+            lblRangList.Text = resourceManager.GetString("lblRangList");
+            rbSortGamesPlayed.Text = resourceManager.GetString("rbSortGamesPlayed");
+            rbSortGoals.Text = resourceManager.GetString("rbSortGoals");
+            rbSortYellowCards.Text = resourceManager.GetString("rbSortYellowCards");
             // data grid view columns
-            dataGridAllPlayers.Columns[0].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridName");
-            dataGridAllPlayers.Columns[1].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridNumber");
-            dataGridAllPlayers.Columns[2].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridPosition");
-            dataGridAllPlayers.Columns[3].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridCaptain");
-            dataGridFavPlayers.Columns[0].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridName");
-            dataGridFavPlayers.Columns[1].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridNumber");
-            dataGridFavPlayers.Columns[2].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridPosition");
-            dataGridFavPlayers.Columns[3].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridCaptain");
-            dataGridFavTeamMatches.Columns[0].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridLoacation");
-            dataGridFavTeamMatches.Columns[1].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridAttendance");
-            dataGridFavTeamMatches.Columns[2].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridHomeTeam");
-            dataGridFavTeamMatches.Columns[3].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridAwayTeam");
-            dataGridPlayerRangList.Columns[0].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridImage");
-            dataGridPlayerRangList.Columns[1].HeaderText = language_hr_HR.ResourceManager.GetString("rbSortGamesPlayed");
-            dataGridPlayerRangList.Columns[2].HeaderText = language_hr_HR.ResourceManager.GetString("dataGridName");
-            dataGridPlayerRangList.Columns[3].HeaderText = language_hr_HR.ResourceManager.GetString("rbSortGoals");
-            dataGridPlayerRangList.Columns[4].HeaderText = language_hr_HR.ResourceManager.GetString("rbSortYellowCards");
-            cntxMenuStripFavPlayer.Text = language_hr_HR.ResourceManager.GetString("cntxMenuStripFavPlayer");
-        }
-
-        private void SetLanguageToEnglish()
-        {
-            // new resource manager for english language
-            this.Text = language_en_US.ResourceManager.GetString("MainForm");
-            menuStripFile.Text = language_en_US.ResourceManager.GetString("menuStripFile");
-            menuStripSettings.Text = language_en_US.ResourceManager.GetString("menuStripSettings");
-            menuStripFilePrintStats.Text = language_en_US.ResourceManager.GetString("menuStripFilePrintStats");
-            menuStripFavTeamComboBox.Text = language_en_US.ResourceManager.GetString("menuStripFavTeamComboBox");
-            lblFavPlayers.Text = language_en_US.ResourceManager.GetString("lblFavPlayers");
-            lblFavTeamMatches.Text = language_en_US.ResourceManager.GetString("lblFavTeamMatches");
-            lblRangList.Text = language_en_US.ResourceManager.GetString("lblRangList");
-            rbSortGamesPlayed.Text = language_en_US.ResourceManager.GetString("rbSortGamesPlayed");
-            rbSortGoals.Text = language_en_US.ResourceManager.GetString("rbSortGoals");
-            rbSortYellowCards.Text = language_en_US.ResourceManager.GetString("rbSortYellowCards");
-            // data grid view columns
-            dataGridAllPlayers.Columns[0].HeaderText = language_en_US.ResourceManager.GetString("dataGridName");
-            dataGridAllPlayers.Columns[1].HeaderText = language_en_US.ResourceManager.GetString("dataGridNumber");
-            dataGridAllPlayers.Columns[2].HeaderText = language_en_US.ResourceManager.GetString("dataGridPosition");
-            dataGridAllPlayers.Columns[3].HeaderText = language_en_US.ResourceManager.GetString("dataGridCaptain");
-            dataGridFavPlayers.Columns[0].HeaderText = language_en_US.ResourceManager.GetString("dataGridName");
-            dataGridFavPlayers.Columns[1].HeaderText = language_en_US.ResourceManager.GetString("dataGridNumber");
-            dataGridFavPlayers.Columns[2].HeaderText = language_en_US.ResourceManager.GetString("dataGridPosition");
-            dataGridFavPlayers.Columns[3].HeaderText = language_en_US.ResourceManager.GetString("dataGridCaptain");
-            dataGridFavTeamMatches.Columns[0].HeaderText = language_en_US.ResourceManager.GetString("dataGridLoacation");
-            dataGridFavTeamMatches.Columns[1].HeaderText = language_en_US.ResourceManager.GetString("dataGridAttendance");
-            dataGridFavTeamMatches.Columns[2].HeaderText = language_en_US.ResourceManager.GetString("dataGridHomeTeam");
-            dataGridFavTeamMatches.Columns[3].HeaderText = language_en_US.ResourceManager.GetString("dataGridAwayTeam");
-            dataGridPlayerRangList.Columns[0].HeaderText = language_en_US.ResourceManager.GetString("dataGridImage");
-            dataGridPlayerRangList.Columns[1].HeaderText = language_en_US.ResourceManager.GetString("rbSortGamesPlayed");
-            dataGridPlayerRangList.Columns[2].HeaderText = language_en_US.ResourceManager.GetString("dataGridName");
-            dataGridPlayerRangList.Columns[3].HeaderText = language_en_US.ResourceManager.GetString("rbSortGoals");
-            dataGridPlayerRangList.Columns[4].HeaderText = language_en_US.ResourceManager.GetString("rbSortYellowCards");
-            cntxMenuStripFavPlayer.Text = language_en_US.ResourceManager.GetString("cntxMenuStripFavPlayer");
+            dataGridAllPlayers.Columns[0].HeaderText = resourceManager.GetString("dataGridImage");
+            dataGridAllPlayers.Columns[1].HeaderText = resourceManager.GetString("dataGridName");
+            dataGridAllPlayers.Columns[2].HeaderText = resourceManager.GetString("dataGridNumber");
+            dataGridAllPlayers.Columns[3].HeaderText = resourceManager.GetString("dataGridPosition");
+            dataGridAllPlayers.Columns[4].HeaderText = resourceManager.GetString("dataGridCaptain");
+            dataGridFavPlayers.Columns[0].HeaderText = resourceManager.GetString("dataGridImage");
+            dataGridFavPlayers.Columns[1].HeaderText = resourceManager.GetString("dataGridName");
+            dataGridFavPlayers.Columns[2].HeaderText = resourceManager.GetString("dataGridNumber");
+            dataGridFavPlayers.Columns[3].HeaderText = resourceManager.GetString("dataGridPosition");
+            dataGridFavPlayers.Columns[4].HeaderText = resourceManager.GetString("dataGridCaptain");
+            dataGridFavTeamMatches.Columns[0].HeaderText = resourceManager.GetString("dataGridLoacation");
+            dataGridFavTeamMatches.Columns[1].HeaderText = resourceManager.GetString("dataGridAttendance");
+            dataGridFavTeamMatches.Columns[2].HeaderText = resourceManager.GetString("dataGridHomeTeam");
+            dataGridFavTeamMatches.Columns[3].HeaderText = resourceManager.GetString("dataGridAwayTeam");
+            dataGridPlayerRangList.Columns[0].HeaderText = resourceManager.GetString("dataGridImage");
+            dataGridPlayerRangList.Columns[1].HeaderText = resourceManager.GetString("rbSortGamesPlayed");
+            dataGridPlayerRangList.Columns[2].HeaderText = resourceManager.GetString("dataGridName");
+            dataGridPlayerRangList.Columns[3].HeaderText = resourceManager.GetString("rbSortGoals");
+            dataGridPlayerRangList.Columns[4].HeaderText = resourceManager.GetString("rbSortYellowCards");
+            cntxMenuStripFavPlayer.Text = resourceManager.GetString("cntxMenuStripFavPlayer");
         }
 
         private void DisplayFavoriteTeamMatches()
@@ -194,15 +174,16 @@ namespace DesktopWinForms
             }
             catch (Exception ex)
             {
-                //alert user
-                //MessageBox.Show(ex.Message, "Oops :(");
-                // show message box above all
-                MessageBox.Show("Oops :(", "Some Error?", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
-                //MessageBox.Show("Oops :(", "Some Error?");
+                // save log message;
+                dataManager.ErrorLog(ex.Message);
+                // load results from file
                 dataManager.SetFileDataRepo();
                 // load results based on settings
                 results = dataManager.GetResultsByChampionship(AppSettings.Championship);
                 matches = dataManager.GetMatchesByChampionship(AppSettings.Championship);
+                // display that data is loaded from file (lblConnection = offline)
+                lblConnection.Text = "Offline";
+                lblConnection.ForeColor = Color.Red;
             }
 
         }
@@ -273,6 +254,8 @@ namespace DesktopWinForms
             playerSet.Clear();
             // remove all data from playerRangList
             playerRangList.Clear();
+            // remove all data from favPlayerSet
+            favPlayerSet.Clear();
             // clear favTeamMetch
             favTeamMetch.Clear();
 
@@ -288,9 +271,7 @@ namespace DesktopWinForms
                     }
                     catch (Exception ex)
                     {
-                        //alert user
-                        //MessageBox.Show(ex.Message, "Oops :(");
-                        MessageBox.Show("Oops :(", "Some Error?");
+                        dataManager.ErrorLog(ex.Message + ", " + ex.StackTrace);
                     }
                 }
                 if (match.AwayTeamCountry == settingsFavorite.FavoriteTeam)
@@ -301,9 +282,7 @@ namespace DesktopWinForms
                     }
                     catch (Exception ex)
                     {
-                        //alert user
-                        //MessageBox.Show(ex.Message, "Oops :(");
-                        MessageBox.Show("Oops :(", "Some Error?");
+                        dataManager.ErrorLog(ex.Message + ", " + ex.StackTrace);
                     }
                 }
             }
@@ -522,7 +501,7 @@ namespace DesktopWinForms
         //handle the DragEnter and DragDrop events of the dataGridFavPlayers
         private void dataGridPlayers_DragEnter(object sender, DragEventArgs e)
             => e.Effect = DragDropEffects.Move;
-     
+
         private async void dataGridFavPlayers_DragDrop(object sender, DragEventArgs e)
         {
             // implement drag-drop
@@ -707,8 +686,8 @@ namespace DesktopWinForms
 
         private void dataGridPlayerRangList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // check if the cell is in the column CellImage
-            if (e.ColumnIndex == dataGridPlayerRangList.Columns["CellImage"].Index)
+            // check if the cell is in the column dataGridPlayerRangListImage
+            if (e.ColumnIndex == dataGridPlayerRangList.Columns["dataGridPlayerRangListImage"].Index)
             {
                 // open file explorer and let user choose image
                 OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -721,13 +700,15 @@ namespace DesktopWinForms
                     // set the image of the picture box
                     cell.Value = Image.FromFile(openFileDialog.FileName);
                 }
+                dataGridFavPlayers.Refresh();
+                dataGridAllPlayers.Refresh();
             }
         }
 
         private void dataGridPlayerRangList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            // check if the cell is in the column CellImage
-            if (e.ColumnIndex == dataGridPlayerRangList.Columns["CellImage"].Index)
+            // check if the cell is in the column dataGridPlayerRangListImage
+            if (e.ColumnIndex == dataGridPlayerRangList.Columns["dataGridPlayerRangListImage"].Index)
             {
                 // get the player from the row
                 Player player = (Player)dataGridPlayerRangList.Rows[e.RowIndex].DataBoundItem;
@@ -741,9 +722,6 @@ namespace DesktopWinForms
                 {
                     dataGridPlayerRangList.Rows[e.RowIndex].Cells[e.ColumnIndex].ToolTipText = $"Click to change image of {player.Name}";
                 }
-
-
-
             }
         }
 

@@ -5,7 +5,8 @@ namespace DataRepository.Exceptions
     [Serializable]
     internal class ApiGetException : Exception
     {
-        public ApiGetException()
+        // create constructor with default message
+        public ApiGetException() : base("API is unavailable.")
         {
         }
 
