@@ -1,4 +1,5 @@
 ﻿using DataRepository.Models;
+using DataRepository.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,10 @@ namespace DataRepository.Dal
     internal class SettingsFileRepo : ISettingsRepository
     {
         // relative path to "settings.txt" file in the project
-        private string FILE_PATH_SET = Application.StartupPath + "settings.txt";
+        private string FILE_PATH_SET = Settings.Default.ResourcesDir + @"settings\settings.txt";
         // relative path to "settings_favorite.txt" file in the project
-        private string FILE_PATH_SET_FAV = Application.StartupPath + "settings_favorite.txt";
-
+        private string FILE_PATH_SET_FAV = Settings.Default.ResourcesDir + @"settings\settings_favorite.txt";
+        
         public bool SettingsFileCreated()
         {
             if (File.Exists(FILE_PATH_SET))

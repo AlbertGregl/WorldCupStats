@@ -15,7 +15,6 @@ namespace DataRepository.Models
 
         public DataManager()
         {
-
             try
             {
                 // Try to get data from API first

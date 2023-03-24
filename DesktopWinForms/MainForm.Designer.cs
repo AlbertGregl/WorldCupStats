@@ -108,7 +108,7 @@
             lblDebug01.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblDebug01.Location = new Point(23, 40);
             lblDebug01.Name = "lblDebug01";
-            lblDebug01.Size = new Size(99, 19);
+            lblDebug01.Size = new Size(120, 23);
             lblDebug01.TabIndex = 0;
             lblDebug01.Text = "<<select>>";
             // 
@@ -116,9 +116,9 @@
             // 
             lblFavPlayers.AutoSize = true;
             lblFavPlayers.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFavPlayers.Location = new Point(597, 51);
+            lblFavPlayers.Location = new Point(606, 57);
             lblFavPlayers.Name = "lblFavPlayers";
-            lblFavPlayers.Size = new Size(272, 17);
+            lblFavPlayers.Size = new Size(306, 20);
             lblFavPlayers.TabIndex = 7;
             lblFavPlayers.Text = "Omiljeni Igrači, obaberi tri (3):";
             // 
@@ -147,7 +147,7 @@
             dataGridAllPlayers.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridAllPlayers.RowHeadersWidth = 51;
             dataGridAllPlayers.RowTemplate.Height = 64;
-            dataGridAllPlayers.Size = new Size(538, 875);
+            dataGridAllPlayers.Size = new Size(565, 887);
             dataGridAllPlayers.TabIndex = 0;
             dataGridAllPlayers.CellMouseClick += dataGridAllPlayers_CellMouseClick;
             dataGridAllPlayers.DragDrop += dataGridAllPlayers_DragDrop;
@@ -159,6 +159,7 @@
             DataGridAllPlayersImage.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             DataGridAllPlayersImage.DataPropertyName = "Image";
             DataGridAllPlayersImage.HeaderText = "Image";
+            DataGridAllPlayersImage.MinimumWidth = 6;
             DataGridAllPlayersImage.Name = "DataGridAllPlayersImage";
             DataGridAllPlayersImage.ReadOnly = true;
             DataGridAllPlayersImage.ToolTipText = "Kliknite za promjenu slike.";
@@ -187,7 +188,7 @@
             shirtNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
             shirtNumberDataGridViewTextBoxColumn.Name = "shirtNumberDataGridViewTextBoxColumn";
             shirtNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            shirtNumberDataGridViewTextBoxColumn.Width = 60;
+            shirtNumberDataGridViewTextBoxColumn.Width = 69;
             // 
             // positionDataGridViewTextBoxColumn
             // 
@@ -214,7 +215,7 @@
             captainDataGridViewCheckBoxColumn.MinimumWidth = 6;
             captainDataGridViewCheckBoxColumn.Name = "captainDataGridViewCheckBoxColumn";
             captainDataGridViewCheckBoxColumn.ReadOnly = true;
-            captainDataGridViewCheckBoxColumn.Width = 62;
+            captainDataGridViewCheckBoxColumn.Width = 70;
             // 
             // playerBindingSource3
             // 
@@ -232,7 +233,7 @@
             dataGridFavPlayers.Columns.AddRange(new DataGridViewColumn[] { dataGridFavPlayersImage, nameDataGridViewTextBoxColumn1, shirtNumberDataGridViewTextBoxColumn1, positionDataGridViewTextBoxColumn1, captainDataGridViewCheckBoxColumn1 });
             dataGridFavPlayers.DataSource = playerBindingSource3;
             dataGridFavPlayers.GridColor = Color.DarkGoldenrod;
-            dataGridFavPlayers.Location = new Point(597, 74);
+            dataGridFavPlayers.Location = new Point(606, 80);
             dataGridFavPlayers.Name = "dataGridFavPlayers";
             dataGridFavPlayers.ReadOnly = true;
             dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -245,7 +246,7 @@
             dataGridFavPlayers.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             dataGridFavPlayers.RowHeadersWidth = 51;
             dataGridFavPlayers.RowTemplate.Height = 64;
-            dataGridFavPlayers.Size = new Size(556, 279);
+            dataGridFavPlayers.Size = new Size(628, 279);
             dataGridFavPlayers.TabIndex = 8;
             dataGridFavPlayers.CellMouseClick += dataGridFavPlayers_CellMouseClick;
             dataGridFavPlayers.DragDrop += dataGridFavPlayers_DragDrop;
@@ -257,6 +258,7 @@
             dataGridFavPlayersImage.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dataGridFavPlayersImage.DataPropertyName = "Image";
             dataGridFavPlayersImage.HeaderText = "Image";
+            dataGridFavPlayersImage.MinimumWidth = 6;
             dataGridFavPlayersImage.Name = "dataGridFavPlayersImage";
             dataGridFavPlayersImage.ReadOnly = true;
             dataGridFavPlayersImage.ToolTipText = "Kliknite za promjenu slike.";
@@ -285,7 +287,7 @@
             shirtNumberDataGridViewTextBoxColumn1.MinimumWidth = 6;
             shirtNumberDataGridViewTextBoxColumn1.Name = "shirtNumberDataGridViewTextBoxColumn1";
             shirtNumberDataGridViewTextBoxColumn1.ReadOnly = true;
-            shirtNumberDataGridViewTextBoxColumn1.Width = 60;
+            shirtNumberDataGridViewTextBoxColumn1.Width = 69;
             // 
             // positionDataGridViewTextBoxColumn1
             // 
@@ -312,7 +314,7 @@
             captainDataGridViewCheckBoxColumn1.MinimumWidth = 6;
             captainDataGridViewCheckBoxColumn1.Name = "captainDataGridViewCheckBoxColumn1";
             captainDataGridViewCheckBoxColumn1.ReadOnly = true;
-            captainDataGridViewCheckBoxColumn1.Width = 62;
+            captainDataGridViewCheckBoxColumn1.Width = 70;
             // 
             // menuStripMain
             // 
@@ -322,7 +324,7 @@
             menuStripMain.Location = new Point(0, 0);
             menuStripMain.Name = "menuStripMain";
             menuStripMain.Padding = new Padding(6, 6, 0, 6);
-            menuStripMain.Size = new Size(1918, 37);
+            menuStripMain.Size = new Size(1918, 40);
             menuStripMain.TabIndex = 9;
             menuStripMain.Text = "menuStrip1";
             // 
@@ -331,13 +333,13 @@
             menuStripFile.DropDownItems.AddRange(new ToolStripItem[] { menuStripFilePrintStats });
             menuStripFile.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             menuStripFile.Name = "menuStripFile";
-            menuStripFile.Size = new Size(84, 25);
+            menuStripFile.Size = new Size(95, 28);
             menuStripFile.Text = "Datoteka";
             // 
             // menuStripFilePrintStats
             // 
             menuStripFilePrintStats.Name = "menuStripFilePrintStats";
-            menuStripFilePrintStats.Size = new Size(204, 22);
+            menuStripFilePrintStats.Size = new Size(236, 26);
             menuStripFilePrintStats.Text = "Ispis rang lista";
             menuStripFilePrintStats.Click += menuStripFilePrintStats_Click;
             // 
@@ -346,7 +348,7 @@
             menuStripSettings.CheckOnClick = true;
             menuStripSettings.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             menuStripSettings.Name = "menuStripSettings";
-            menuStripSettings.Size = new Size(84, 25);
+            menuStripSettings.Size = new Size(95, 28);
             menuStripSettings.Text = "Postavke";
             menuStripSettings.Click += menuStripSettings_Click;
             // 
@@ -354,7 +356,7 @@
             // 
             menuStripFavTeamComboBox.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             menuStripFavTeamComboBox.Name = "menuStripFavTeamComboBox";
-            menuStripFavTeamComboBox.Size = new Size(350, 25);
+            menuStripFavTeamComboBox.Size = new Size(350, 28);
             menuStripFavTeamComboBox.Text = "Omiljena reprezentacija <odaberi>";
             menuStripFavTeamComboBox.SelectedIndexChanged += cmbFavRep_SelectedIndexChanged;
             // 
@@ -364,12 +366,12 @@
             cntxMenuStrip.ImageScalingSize = new Size(20, 20);
             cntxMenuStrip.Items.AddRange(new ToolStripItem[] { cntxMenuStripFavPlayer });
             cntxMenuStrip.Name = "cntxMenuStrip";
-            cntxMenuStrip.Size = new Size(173, 26);
+            cntxMenuStrip.Size = new Size(189, 26);
             // 
             // cntxMenuStripFavPlayer
             // 
             cntxMenuStripFavPlayer.Name = "cntxMenuStripFavPlayer";
-            cntxMenuStripFavPlayer.Size = new Size(172, 22);
+            cntxMenuStripFavPlayer.Size = new Size(188, 22);
             cntxMenuStripFavPlayer.Text = "Prebaci Igrača";
             // 
             // dataGridPlayerRangList
@@ -386,7 +388,7 @@
             dataGridPlayerRangList.Columns.AddRange(new DataGridViewColumn[] { dataGridPlayerRangListImage, GamesPlayed, dataGridViewTextBoxColumn1, Goals, YellowCards });
             dataGridPlayerRangList.DataSource = playerBindingSource3;
             dataGridPlayerRangList.GridColor = Color.DarkGoldenrod;
-            dataGridPlayerRangList.Location = new Point(1237, 74);
+            dataGridPlayerRangList.Location = new Point(1254, 74);
             dataGridPlayerRangList.Name = "dataGridPlayerRangList";
             dataGridPlayerRangList.ReadOnly = true;
             dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -399,7 +401,7 @@
             dataGridPlayerRangList.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
             dataGridPlayerRangList.RowHeadersWidth = 51;
             dataGridPlayerRangList.RowTemplate.Height = 64;
-            dataGridPlayerRangList.Size = new Size(584, 867);
+            dataGridPlayerRangList.Size = new Size(638, 879);
             dataGridPlayerRangList.TabIndex = 11;
             dataGridPlayerRangList.CellContentClick += dataGridPlayerRangList_CellContentClick;
             dataGridPlayerRangList.CellFormatting += dataGridPlayerRangList_CellFormatting;
@@ -430,9 +432,10 @@
             dataGridViewCellStyle12.SelectionBackColor = Color.Goldenrod;
             GamesPlayed.DefaultCellStyle = dataGridViewCellStyle12;
             GamesPlayed.HeaderText = "Sudjelovao";
+            GamesPlayed.MinimumWidth = 6;
             GamesPlayed.Name = "GamesPlayed";
             GamesPlayed.ReadOnly = true;
-            GamesPlayed.Width = 102;
+            GamesPlayed.Width = 117;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -457,7 +460,7 @@
             Goals.MinimumWidth = 6;
             Goals.Name = "Goals";
             Goals.ReadOnly = true;
-            Goals.Width = 74;
+            Goals.Width = 85;
             // 
             // YellowCards
             // 
@@ -470,15 +473,15 @@
             YellowCards.MinimumWidth = 120;
             YellowCards.Name = "YellowCards";
             YellowCards.ReadOnly = true;
-            YellowCards.Width = 120;
+            YellowCards.Width = 133;
             // 
             // lblRangList
             // 
             lblRangList.AutoSize = true;
             lblRangList.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            lblRangList.Location = new Point(1244, 51);
+            lblRangList.Location = new Point(1261, 51);
             lblRangList.Name = "lblRangList";
-            lblRangList.Size = new Size(88, 17);
+            lblRangList.Size = new Size(99, 20);
             lblRangList.TabIndex = 12;
             lblRangList.Text = "Rang lista";
             // 
@@ -488,7 +491,7 @@
             rbSortYellowCards.Location = new Point(422, 13);
             rbSortYellowCards.Name = "rbSortYellowCards";
             rbSortYellowCards.Padding = new Padding(3, 0, 3, 0);
-            rbSortYellowCards.Size = new Size(115, 18);
+            rbSortYellowCards.Size = new Size(131, 22);
             rbSortYellowCards.TabIndex = 13;
             rbSortYellowCards.Text = "Žuti kartoni";
             rbSortYellowCards.UseVisualStyleBackColor = true;
@@ -500,7 +503,7 @@
             rbSortGoals.Location = new Point(343, 13);
             rbSortGoals.Name = "rbSortGoals";
             rbSortGoals.Padding = new Padding(3, 0, 3, 0);
-            rbSortGoals.Size = new Size(73, 18);
+            rbSortGoals.Size = new Size(83, 22);
             rbSortGoals.TabIndex = 14;
             rbSortGoals.Text = "Golovi";
             rbSortGoals.UseVisualStyleBackColor = true;
@@ -513,9 +516,9 @@
             grpRangListButtons.Controls.Add(rbSortGoals);
             grpRangListButtons.Controls.Add(rbSortYellowCards);
             grpRangListButtons.FlatStyle = FlatStyle.Flat;
-            grpRangListButtons.Location = new Point(1237, 40);
+            grpRangListButtons.Location = new Point(1254, 40);
             grpRangListButtons.Name = "grpRangListButtons";
-            grpRangListButtons.Size = new Size(584, 37);
+            grpRangListButtons.Size = new Size(603, 37);
             grpRangListButtons.TabIndex = 15;
             grpRangListButtons.TabStop = false;
             // 
@@ -525,7 +528,7 @@
             rbSortGamesPlayed.Checked = true;
             rbSortGamesPlayed.Location = new Point(117, 13);
             rbSortGamesPlayed.Name = "rbSortGamesPlayed";
-            rbSortGamesPlayed.Size = new Size(95, 18);
+            rbSortGamesPlayed.Size = new Size(109, 22);
             rbSortGamesPlayed.TabIndex = 15;
             rbSortGamesPlayed.TabStop = true;
             rbSortGamesPlayed.Text = "Sudjelovao";
@@ -546,7 +549,7 @@
             dataGridFavTeamMatches.Columns.AddRange(new DataGridViewColumn[] { locationDataGridViewTextBoxColumn, attendanceDataGridViewTextBoxColumn, homeTeamCountryDataGridViewTextBoxColumn, awayTeamCountryDataGridViewTextBoxColumn });
             dataGridFavTeamMatches.DataSource = matchesBindingSource;
             dataGridFavTeamMatches.GridColor = Color.DarkGoldenrod;
-            dataGridFavTeamMatches.Location = new Point(597, 401);
+            dataGridFavTeamMatches.Location = new Point(606, 407);
             dataGridFavTeamMatches.Name = "dataGridFavTeamMatches";
             dataGridFavTeamMatches.ReadOnly = true;
             dataGridViewCellStyle21.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -559,7 +562,7 @@
             dataGridFavTeamMatches.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             dataGridFavTeamMatches.RowHeadersWidth = 51;
             dataGridFavTeamMatches.RowTemplate.Height = 29;
-            dataGridFavTeamMatches.Size = new Size(556, 534);
+            dataGridFavTeamMatches.Size = new Size(628, 546);
             dataGridFavTeamMatches.TabIndex = 16;
             // 
             // locationDataGridViewTextBoxColumn
@@ -570,9 +573,10 @@
             dataGridViewCellStyle17.SelectionBackColor = Color.Goldenrod;
             locationDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle17;
             locationDataGridViewTextBoxColumn.HeaderText = "Lokacija";
+            locationDataGridViewTextBoxColumn.MinimumWidth = 6;
             locationDataGridViewTextBoxColumn.Name = "locationDataGridViewTextBoxColumn";
             locationDataGridViewTextBoxColumn.ReadOnly = true;
-            locationDataGridViewTextBoxColumn.Width = 88;
+            locationDataGridViewTextBoxColumn.Width = 101;
             // 
             // attendanceDataGridViewTextBoxColumn
             // 
@@ -582,9 +586,10 @@
             dataGridViewCellStyle18.SelectionBackColor = Color.Goldenrod;
             attendanceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle18;
             attendanceDataGridViewTextBoxColumn.HeaderText = "Posjetitelji";
+            attendanceDataGridViewTextBoxColumn.MinimumWidth = 6;
             attendanceDataGridViewTextBoxColumn.Name = "attendanceDataGridViewTextBoxColumn";
             attendanceDataGridViewTextBoxColumn.ReadOnly = true;
-            attendanceDataGridViewTextBoxColumn.Width = 116;
+            attendanceDataGridViewTextBoxColumn.Width = 133;
             // 
             // homeTeamCountryDataGridViewTextBoxColumn
             // 
@@ -594,9 +599,10 @@
             dataGridViewCellStyle19.SelectionBackColor = Color.Goldenrod;
             homeTeamCountryDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle19;
             homeTeamCountryDataGridViewTextBoxColumn.HeaderText = "Domaćin";
+            homeTeamCountryDataGridViewTextBoxColumn.MinimumWidth = 6;
             homeTeamCountryDataGridViewTextBoxColumn.Name = "homeTeamCountryDataGridViewTextBoxColumn";
             homeTeamCountryDataGridViewTextBoxColumn.ReadOnly = true;
-            homeTeamCountryDataGridViewTextBoxColumn.Width = 81;
+            homeTeamCountryDataGridViewTextBoxColumn.Width = 93;
             // 
             // awayTeamCountryDataGridViewTextBoxColumn
             // 
@@ -606,9 +612,10 @@
             dataGridViewCellStyle20.SelectionBackColor = Color.Goldenrod;
             awayTeamCountryDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle20;
             awayTeamCountryDataGridViewTextBoxColumn.HeaderText = "Gost";
+            awayTeamCountryDataGridViewTextBoxColumn.MinimumWidth = 6;
             awayTeamCountryDataGridViewTextBoxColumn.Name = "awayTeamCountryDataGridViewTextBoxColumn";
             awayTeamCountryDataGridViewTextBoxColumn.ReadOnly = true;
-            awayTeamCountryDataGridViewTextBoxColumn.Width = 60;
+            awayTeamCountryDataGridViewTextBoxColumn.Width = 69;
             // 
             // matchesBindingSource
             // 
@@ -618,23 +625,23 @@
             // 
             lblFavTeamMatches.AutoSize = true;
             lblFavTeamMatches.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFavTeamMatches.Location = new Point(597, 378);
+            lblFavTeamMatches.Location = new Point(606, 384);
             lblFavTeamMatches.Name = "lblFavTeamMatches";
-            lblFavTeamMatches.Size = new Size(288, 17);
+            lblFavTeamMatches.Size = new Size(324, 20);
             lblFavTeamMatches.TabIndex = 17;
             lblFavTeamMatches.Text = "Rang lista prema broju posjetitelja";
             // 
             // lblConnection
             // 
             lblConnection.AutoSize = true;
-            lblConnection.Location = new Point(1844, 37);
+            lblConnection.Location = new Point(1861, 37);
             lblConnection.Name = "lblConnection";
-            lblConnection.Size = new Size(0, 14);
+            lblConnection.Size = new Size(0, 18);
             lblConnection.TabIndex = 18;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 14F);
+            AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1918, 977);
             Controls.Add(lblConnection);

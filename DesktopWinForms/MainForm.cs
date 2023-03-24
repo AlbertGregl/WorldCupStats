@@ -9,17 +9,17 @@ namespace DesktopWinForms
     public partial class MainForm : Form
     {
         private static DataManager dataManager = new DataManager();
-        private static ISet<Results> results = new HashSet<Results>();
-        private static ISet<Matches> matches = new HashSet<Matches>();
-        private static ISet<Matches> favTeamMetch = new HashSet<Matches>();
+        private ISet<Results> results = new HashSet<Results>();
+        private ISet<Matches> matches = new HashSet<Matches>();
+        private ISet<Matches> favTeamMetch = new HashSet<Matches>();
 
         private readonly ISettingsRepository settingsRepo;
         public SettingsLocal AppSettings { get; set; }
         private SettingsFavorite settingsFavorite;
 
-        private static HashSet<Player> playerSet = new HashSet<Player>();
-        private static HashSet<Player> favPlayerSet = new HashSet<Player>();
-        private static HashSet<Player> playerRangList = new HashSet<Player>();
+        private ISet<Player> playerSet = new HashSet<Player>();
+        private ISet<Player> favPlayerSet = new HashSet<Player>();
+        private ISet<Player> playerRangList = new HashSet<Player>();
         private static PlayerImageManager playerImageManager = new PlayerImageManager();
 
 
@@ -168,7 +168,6 @@ namespace DesktopWinForms
 
             try
             {
-                // load results based on settings
                 results = dataManager.GetResultsByChampionship(AppSettings.Championship);
                 matches = dataManager.GetMatchesByChampionship(AppSettings.Championship);
             }
@@ -191,10 +190,10 @@ namespace DesktopWinForms
         private void DisplayLoadedResultsAndMetches()
         {
             // sort the resluts by GroupId
-            HashSet<Results> sortedResults = results.OrderBy(x => x.GroupId).ToHashSet();
+            results.OrderBy(x => x.GroupId).ToHashSet();
 
             // display Country and FifaCode in comboBox
-            foreach (var item in sortedResults)
+            foreach (var item in results)
             {
                 menuStripFavTeamComboBox.Items.Add($"{item.Country} ({item.FifaCode})");
             }
@@ -700,6 +699,7 @@ namespace DesktopWinForms
                     // set the image of the picture box
                     cell.Value = Image.FromFile(openFileDialog.FileName);
                 }
+                // show images in all data grids
                 dataGridFavPlayers.Refresh();
                 dataGridAllPlayers.Refresh();
             }

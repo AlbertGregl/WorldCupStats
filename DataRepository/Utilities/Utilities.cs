@@ -11,7 +11,7 @@ namespace DataRepository.Utilities
     public class Utilities
     {
 
-        public static void PrintoutFavoriteTeamStatistics(HashSet<Player> playerRangList, ISet<Matches> favTeamMetch, SettingsFavorite settingsFavorite)
+        public static void PrintoutFavoriteTeamStatistics(ISet<Player> playerRangList, ISet<Matches> favTeamMetch, SettingsFavorite settingsFavorite)
         {
             // Display the print dialog and get the selected printer
             PrintDialog printDialog = new PrintDialog();
