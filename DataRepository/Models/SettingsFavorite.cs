@@ -13,8 +13,8 @@ namespace DataRepository.Models
         public string? FavoriteTeam { get; set; }
         public HashSet<int>? FavoritePlayerShirtNums { get; set; }
 
-        // prepare for file writing
-        internal string FormatForFileLine()
+    // prepare for file writing
+    internal string FormatForFileLine()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(FavoriteTeam);
@@ -29,7 +29,7 @@ namespace DataRepository.Models
         }
 
         // parse from file line
-        internal static SettingsFavorite ParseFromFileLine(string line)
+    internal static SettingsFavorite ParseFromFileLine(string line)
         {
             string[] parts = line.Split(DELIMIT);
 

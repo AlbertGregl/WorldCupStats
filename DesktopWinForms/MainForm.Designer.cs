@@ -108,7 +108,7 @@
             lblDebug01.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblDebug01.Location = new Point(23, 40);
             lblDebug01.Name = "lblDebug01";
-            lblDebug01.Size = new Size(120, 23);
+            lblDebug01.Size = new Size(99, 19);
             lblDebug01.TabIndex = 0;
             lblDebug01.Text = "<<select>>";
             // 
@@ -118,7 +118,7 @@
             lblFavPlayers.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             lblFavPlayers.Location = new Point(606, 57);
             lblFavPlayers.Name = "lblFavPlayers";
-            lblFavPlayers.Size = new Size(306, 20);
+            lblFavPlayers.Size = new Size(272, 17);
             lblFavPlayers.TabIndex = 7;
             lblFavPlayers.Text = "Omiljeni Igrači, obaberi tri (3):";
             // 
@@ -188,7 +188,7 @@
             shirtNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
             shirtNumberDataGridViewTextBoxColumn.Name = "shirtNumberDataGridViewTextBoxColumn";
             shirtNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            shirtNumberDataGridViewTextBoxColumn.Width = 69;
+            shirtNumberDataGridViewTextBoxColumn.Width = 60;
             // 
             // positionDataGridViewTextBoxColumn
             // 
@@ -215,7 +215,7 @@
             captainDataGridViewCheckBoxColumn.MinimumWidth = 6;
             captainDataGridViewCheckBoxColumn.Name = "captainDataGridViewCheckBoxColumn";
             captainDataGridViewCheckBoxColumn.ReadOnly = true;
-            captainDataGridViewCheckBoxColumn.Width = 70;
+            captainDataGridViewCheckBoxColumn.Width = 62;
             // 
             // playerBindingSource3
             // 
@@ -287,7 +287,7 @@
             shirtNumberDataGridViewTextBoxColumn1.MinimumWidth = 6;
             shirtNumberDataGridViewTextBoxColumn1.Name = "shirtNumberDataGridViewTextBoxColumn1";
             shirtNumberDataGridViewTextBoxColumn1.ReadOnly = true;
-            shirtNumberDataGridViewTextBoxColumn1.Width = 69;
+            shirtNumberDataGridViewTextBoxColumn1.Width = 60;
             // 
             // positionDataGridViewTextBoxColumn1
             // 
@@ -314,7 +314,7 @@
             captainDataGridViewCheckBoxColumn1.MinimumWidth = 6;
             captainDataGridViewCheckBoxColumn1.Name = "captainDataGridViewCheckBoxColumn1";
             captainDataGridViewCheckBoxColumn1.ReadOnly = true;
-            captainDataGridViewCheckBoxColumn1.Width = 70;
+            captainDataGridViewCheckBoxColumn1.Width = 62;
             // 
             // menuStripMain
             // 
@@ -324,7 +324,7 @@
             menuStripMain.Location = new Point(0, 0);
             menuStripMain.Name = "menuStripMain";
             menuStripMain.Padding = new Padding(6, 6, 0, 6);
-            menuStripMain.Size = new Size(1918, 40);
+            menuStripMain.Size = new Size(1918, 37);
             menuStripMain.TabIndex = 9;
             menuStripMain.Text = "menuStrip1";
             // 
@@ -333,13 +333,13 @@
             menuStripFile.DropDownItems.AddRange(new ToolStripItem[] { menuStripFilePrintStats });
             menuStripFile.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             menuStripFile.Name = "menuStripFile";
-            menuStripFile.Size = new Size(95, 28);
+            menuStripFile.Size = new Size(84, 25);
             menuStripFile.Text = "Datoteka";
             // 
             // menuStripFilePrintStats
             // 
             menuStripFilePrintStats.Name = "menuStripFilePrintStats";
-            menuStripFilePrintStats.Size = new Size(236, 26);
+            menuStripFilePrintStats.Size = new Size(204, 22);
             menuStripFilePrintStats.Text = "Ispis rang lista";
             menuStripFilePrintStats.Click += menuStripFilePrintStats_Click;
             // 
@@ -348,7 +348,7 @@
             menuStripSettings.CheckOnClick = true;
             menuStripSettings.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             menuStripSettings.Name = "menuStripSettings";
-            menuStripSettings.Size = new Size(95, 28);
+            menuStripSettings.Size = new Size(84, 25);
             menuStripSettings.Text = "Postavke";
             menuStripSettings.Click += menuStripSettings_Click;
             // 
@@ -356,7 +356,7 @@
             // 
             menuStripFavTeamComboBox.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             menuStripFavTeamComboBox.Name = "menuStripFavTeamComboBox";
-            menuStripFavTeamComboBox.Size = new Size(350, 28);
+            menuStripFavTeamComboBox.Size = new Size(350, 25);
             menuStripFavTeamComboBox.Text = "Omiljena reprezentacija <odaberi>";
             menuStripFavTeamComboBox.SelectedIndexChanged += cmbFavRep_SelectedIndexChanged;
             // 
@@ -366,12 +366,12 @@
             cntxMenuStrip.ImageScalingSize = new Size(20, 20);
             cntxMenuStrip.Items.AddRange(new ToolStripItem[] { cntxMenuStripFavPlayer });
             cntxMenuStrip.Name = "cntxMenuStrip";
-            cntxMenuStrip.Size = new Size(189, 26);
+            cntxMenuStrip.Size = new Size(173, 26);
             // 
             // cntxMenuStripFavPlayer
             // 
             cntxMenuStripFavPlayer.Name = "cntxMenuStripFavPlayer";
-            cntxMenuStripFavPlayer.Size = new Size(188, 22);
+            cntxMenuStripFavPlayer.Size = new Size(172, 22);
             cntxMenuStripFavPlayer.Text = "Prebaci Igrača";
             // 
             // dataGridPlayerRangList
@@ -435,7 +435,7 @@
             GamesPlayed.MinimumWidth = 6;
             GamesPlayed.Name = "GamesPlayed";
             GamesPlayed.ReadOnly = true;
-            GamesPlayed.Width = 117;
+            GamesPlayed.Width = 102;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -460,7 +460,7 @@
             Goals.MinimumWidth = 6;
             Goals.Name = "Goals";
             Goals.ReadOnly = true;
-            Goals.Width = 85;
+            Goals.Width = 74;
             // 
             // YellowCards
             // 
@@ -473,7 +473,7 @@
             YellowCards.MinimumWidth = 120;
             YellowCards.Name = "YellowCards";
             YellowCards.ReadOnly = true;
-            YellowCards.Width = 133;
+            YellowCards.Width = 120;
             // 
             // lblRangList
             // 
@@ -481,7 +481,7 @@
             lblRangList.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             lblRangList.Location = new Point(1261, 51);
             lblRangList.Name = "lblRangList";
-            lblRangList.Size = new Size(99, 20);
+            lblRangList.Size = new Size(88, 17);
             lblRangList.TabIndex = 12;
             lblRangList.Text = "Rang lista";
             // 
@@ -491,7 +491,7 @@
             rbSortYellowCards.Location = new Point(422, 13);
             rbSortYellowCards.Name = "rbSortYellowCards";
             rbSortYellowCards.Padding = new Padding(3, 0, 3, 0);
-            rbSortYellowCards.Size = new Size(131, 22);
+            rbSortYellowCards.Size = new Size(115, 18);
             rbSortYellowCards.TabIndex = 13;
             rbSortYellowCards.Text = "Žuti kartoni";
             rbSortYellowCards.UseVisualStyleBackColor = true;
@@ -503,7 +503,7 @@
             rbSortGoals.Location = new Point(343, 13);
             rbSortGoals.Name = "rbSortGoals";
             rbSortGoals.Padding = new Padding(3, 0, 3, 0);
-            rbSortGoals.Size = new Size(83, 22);
+            rbSortGoals.Size = new Size(73, 18);
             rbSortGoals.TabIndex = 14;
             rbSortGoals.Text = "Golovi";
             rbSortGoals.UseVisualStyleBackColor = true;
@@ -528,7 +528,7 @@
             rbSortGamesPlayed.Checked = true;
             rbSortGamesPlayed.Location = new Point(117, 13);
             rbSortGamesPlayed.Name = "rbSortGamesPlayed";
-            rbSortGamesPlayed.Size = new Size(109, 22);
+            rbSortGamesPlayed.Size = new Size(95, 18);
             rbSortGamesPlayed.TabIndex = 15;
             rbSortGamesPlayed.TabStop = true;
             rbSortGamesPlayed.Text = "Sudjelovao";
@@ -576,7 +576,7 @@
             locationDataGridViewTextBoxColumn.MinimumWidth = 6;
             locationDataGridViewTextBoxColumn.Name = "locationDataGridViewTextBoxColumn";
             locationDataGridViewTextBoxColumn.ReadOnly = true;
-            locationDataGridViewTextBoxColumn.Width = 101;
+            locationDataGridViewTextBoxColumn.Width = 88;
             // 
             // attendanceDataGridViewTextBoxColumn
             // 
@@ -589,7 +589,7 @@
             attendanceDataGridViewTextBoxColumn.MinimumWidth = 6;
             attendanceDataGridViewTextBoxColumn.Name = "attendanceDataGridViewTextBoxColumn";
             attendanceDataGridViewTextBoxColumn.ReadOnly = true;
-            attendanceDataGridViewTextBoxColumn.Width = 133;
+            attendanceDataGridViewTextBoxColumn.Width = 116;
             // 
             // homeTeamCountryDataGridViewTextBoxColumn
             // 
@@ -602,7 +602,7 @@
             homeTeamCountryDataGridViewTextBoxColumn.MinimumWidth = 6;
             homeTeamCountryDataGridViewTextBoxColumn.Name = "homeTeamCountryDataGridViewTextBoxColumn";
             homeTeamCountryDataGridViewTextBoxColumn.ReadOnly = true;
-            homeTeamCountryDataGridViewTextBoxColumn.Width = 93;
+            homeTeamCountryDataGridViewTextBoxColumn.Width = 81;
             // 
             // awayTeamCountryDataGridViewTextBoxColumn
             // 
@@ -615,7 +615,7 @@
             awayTeamCountryDataGridViewTextBoxColumn.MinimumWidth = 6;
             awayTeamCountryDataGridViewTextBoxColumn.Name = "awayTeamCountryDataGridViewTextBoxColumn";
             awayTeamCountryDataGridViewTextBoxColumn.ReadOnly = true;
-            awayTeamCountryDataGridViewTextBoxColumn.Width = 69;
+            awayTeamCountryDataGridViewTextBoxColumn.Width = 60;
             // 
             // matchesBindingSource
             // 
@@ -627,7 +627,7 @@
             lblFavTeamMatches.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             lblFavTeamMatches.Location = new Point(606, 384);
             lblFavTeamMatches.Name = "lblFavTeamMatches";
-            lblFavTeamMatches.Size = new Size(324, 20);
+            lblFavTeamMatches.Size = new Size(288, 17);
             lblFavTeamMatches.TabIndex = 17;
             lblFavTeamMatches.Text = "Rang lista prema broju posjetitelja";
             // 
@@ -636,12 +636,12 @@
             lblConnection.AutoSize = true;
             lblConnection.Location = new Point(1861, 37);
             lblConnection.Name = "lblConnection";
-            lblConnection.Size = new Size(0, 18);
+            lblConnection.Size = new Size(0, 14);
             lblConnection.TabIndex = 18;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 18F);
+            AutoScaleDimensions = new SizeF(7F, 14F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1918, 977);
             Controls.Add(lblConnection);

@@ -1,30 +1,6 @@
-24/03/2023 09:59:26|Sequence contains no matching element,    at System.Linq.ThrowHelper.ThrowNoMatchException()
+1.4.2023. 21:48:02|Sequence contains no matching element,    at System.Linq.ThrowHelper.ThrowNoMatchException()
    at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
-   at DesktopWinForms.MainForm.<GetFavAwayTeamData>b__26_2(TeamEvent x) in C:\Users\alber\OneDrive\Desktop\OOP_praktikum\WorldCupStats_Project\DesktopWinForms\MainForm.cs:line 319
+   at DesktopWinForms.MainForm.<GetFavAwayTeamData>b__29_2(TeamEvent x) in D:\WorccoLabFiles\Algebra\OOP_praktikum\WorldCupStats_Project\DesktopWinForms\MainForm.cs:line 354
    at System.Collections.Generic.List`1.ForEach(Action`1 action)
-   at DesktopWinForms.MainForm.GetFavAwayTeamData(Matches match) in C:\Users\alber\OneDrive\Desktop\OOP_praktikum\WorldCupStats_Project\DesktopWinForms\MainForm.cs:line 308
-   at DesktopWinForms.MainForm.GetPlayersFromFavoriteTeam() in C:\Users\alber\OneDrive\Desktop\OOP_praktikum\WorldCupStats_Project\DesktopWinForms\MainForm.cs:line 280
-24/03/2023 10:00:03|Sequence contains no matching element,    at System.Linq.ThrowHelper.ThrowNoMatchException()
-   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
-   at DesktopWinForms.MainForm.<GetFavAwayTeamData>b__26_2(TeamEvent x) in C:\Users\alber\OneDrive\Desktop\OOP_praktikum\WorldCupStats_Project\DesktopWinForms\MainForm.cs:line 319
-   at System.Collections.Generic.List`1.ForEach(Action`1 action)
-   at DesktopWinForms.MainForm.GetFavAwayTeamData(Matches match) in C:\Users\alber\OneDrive\Desktop\OOP_praktikum\WorldCupStats_Project\DesktopWinForms\MainForm.cs:line 308
-   at DesktopWinForms.MainForm.GetPlayersFromFavoriteTeam() in C:\Users\alber\OneDrive\Desktop\OOP_praktikum\WorldCupStats_Project\DesktopWinForms\MainForm.cs:line 280
-24/03/2023 10:00:31|Sequence contains no matching element,    at System.Linq.ThrowHelper.ThrowNoMatchException()
-   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
-   at DesktopWinForms.MainForm.<GetFavAwayTeamData>b__26_2(TeamEvent x) in C:\Users\alber\OneDrive\Desktop\OOP_praktikum\WorldCupStats_Project\DesktopWinForms\MainForm.cs:line 319
-   at System.Collections.Generic.List`1.ForEach(Action`1 action)
-   at DesktopWinForms.MainForm.GetFavAwayTeamData(Matches match) in C:\Users\alber\OneDrive\Desktop\OOP_praktikum\WorldCupStats_Project\DesktopWinForms\MainForm.cs:line 308
-   at DesktopWinForms.MainForm.GetPlayersFromFavoriteTeam() in C:\Users\alber\OneDrive\Desktop\OOP_praktikum\WorldCupStats_Project\DesktopWinForms\MainForm.cs:line 280
-24/03/2023 10:00:37|Sequence contains no matching element,    at System.Linq.ThrowHelper.ThrowNoMatchException()
-   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
-   at DesktopWinForms.MainForm.<GetFavAwayTeamData>b__26_2(TeamEvent x) in C:\Users\alber\OneDrive\Desktop\OOP_praktikum\WorldCupStats_Project\DesktopWinForms\MainForm.cs:line 319
-   at System.Collections.Generic.List`1.ForEach(Action`1 action)
-   at DesktopWinForms.MainForm.GetFavAwayTeamData(Matches match) in C:\Users\alber\OneDrive\Desktop\OOP_praktikum\WorldCupStats_Project\DesktopWinForms\MainForm.cs:line 308
-   at DesktopWinForms.MainForm.GetPlayersFromFavoriteTeam() in C:\Users\alber\OneDrive\Desktop\OOP_praktikum\WorldCupStats_Project\DesktopWinForms\MainForm.cs:line 280
-24/03/2023 10:33:46|Sequence contains no matching element,    at System.Linq.ThrowHelper.ThrowNoMatchException()
-   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
-   at DesktopWinForms.MainForm.<GetFavAwayTeamData>b__26_2(TeamEvent x) in C:\Users\alber\OneDrive\Desktop\OOP_praktikum\WorldCupStats_Project\DesktopWinForms\MainForm.cs:line 319
-   at System.Collections.Generic.List`1.ForEach(Action`1 action)
-   at DesktopWinForms.MainForm.GetFavAwayTeamData(Matches match) in C:\Users\alber\OneDrive\Desktop\OOP_praktikum\WorldCupStats_Project\DesktopWinForms\MainForm.cs:line 308
-   at DesktopWinForms.MainForm.GetPlayersFromFavoriteTeam() in C:\Users\alber\OneDrive\Desktop\OOP_praktikum\WorldCupStats_Project\DesktopWinForms\MainForm.cs:line 280
+   at DesktopWinForms.MainForm.GetFavAwayTeamData(Matches match) in D:\WorccoLabFiles\Algebra\OOP_praktikum\WorldCupStats_Project\DesktopWinForms\MainForm.cs:line 343
+   at DesktopWinForms.MainForm.GetPlayersFromFavoriteTeam() in D:\WorccoLabFiles\Algebra\OOP_praktikum\WorldCupStats_Project\DesktopWinForms\MainForm.cs:line 288

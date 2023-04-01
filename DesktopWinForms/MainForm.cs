@@ -3,6 +3,7 @@ using DataRepository.Models;
 using DataRepository.Utilities;
 using System.Reflection;
 using System.Resources;
+using System.Text.RegularExpressions;
 
 namespace DesktopWinForms
 {
@@ -22,6 +23,8 @@ namespace DesktopWinForms
         private ISet<Player> playerRangList = new HashSet<Player>();
         private static PlayerImageManager playerImageManager = new PlayerImageManager();
 
+        // dictionary with team name as key and set of players as value
+        private Dictionary<string, ISet<Player>> teamDictionary = new Dictionary<string, ISet<Player>>();
 
         public MainForm()
         {
@@ -52,6 +55,7 @@ namespace DesktopWinForms
                 //show loading form if operation takes longer than expected
                 loadingForm.ShowDialog();
             }
+
             DisplayLoadedResultsAndMetches();
             // load players from favorite team and display them
             GetPlayersFromFavoriteTeam();
@@ -249,14 +253,28 @@ namespace DesktopWinForms
 
         private void GetPlayersFromFavoriteTeam()
         {
-            // remove all data from playerSet
-            playerSet.Clear();
-            // remove all data from playerRangList
-            playerRangList.Clear();
-            // remove all data from favPlayerSet
-            favPlayerSet.Clear();
-            // clear favTeamMetch
-            favTeamMetch.Clear();
+            ClearDataGrids();
+
+            // if team exists in teamDictionary then use dictionary to get players
+            //  -> user has already selected that team and players are already loaded
+            if (teamDictionary.ContainsKey(settingsFavorite.FavoriteTeam))
+            {
+                playerSet = teamDictionary[settingsFavorite.FavoriteTeam];
+                playerRangList = playerSet.ToHashSet();
+                // add match to favTeamMetch
+                GetFavTeamMetch();
+                // set playrSet and playerFavSet based on teamDictionary
+                foreach (Player player in teamDictionary[settingsFavorite.FavoriteTeam])
+                {
+                    if (player.Favorite)
+                    {
+                        playerSet.Remove(player);
+                        favPlayerSet.Add(player);
+                    }
+                }
+
+                return;
+            }
 
             // get players from favorite team and add them to playerSet
             foreach (Matches match in matches)
@@ -285,6 +303,33 @@ namespace DesktopWinForms
                     }
                 }
             }
+
+            // add players to teamDictionary
+            teamDictionary.Add(settingsFavorite.FavoriteTeam, playerSet);
+        }
+
+        private void GetFavTeamMetch()
+        {
+            foreach (Matches match in matches)
+            {
+                if (match.HomeTeamCountry == settingsFavorite.FavoriteTeam || match.AwayTeamCountry == settingsFavorite.FavoriteTeam)
+                {
+                    // add metch to FavTeamMetch
+                    favTeamMetch.Add(match);
+                }
+            }
+        }
+
+        private void ClearDataGrids()
+        {
+            // remove all data from playerSet
+            playerSet.Clear();
+            // remove all data from playerRangList
+            playerRangList.Clear();
+            // remove all data from favPlayerSet
+            favPlayerSet.Clear();
+            // clear favTeamMetch
+            favTeamMetch.Clear();
         }
 
         private void GetFavAwayTeamData(Matches match)
@@ -629,12 +674,31 @@ namespace DesktopWinForms
             favPlayerSet = favPlayerSet.OrderBy(x => x.ShirtNumber).ToHashSet();
             playerSet = playerSet.OrderBy(x => x.ShirtNumber).ToHashSet();
 
+            SetFavPlayersInDictionary();
+
             CustomizeFavoriteColumnAppearance(dataGridFavPlayers);
 
             // display players
             dataGridFavPlayers.DataSource = favPlayerSet.ToList();
             dataGridAllPlayers.DataSource = playerSet.ToList();
 
+        }
+
+        private void SetFavPlayersInDictionary()
+        {
+            // foreach player in favPlayerSet set Favorite = true for player in teamDictionary
+            foreach (var player in teamDictionary[settingsFavorite.FavoriteTeam])
+            {
+                // if player is in favPlayerSet then set Favorite = true
+                if (favPlayerSet.Contains(player))
+                {
+                    player.Favorite = true;
+                }
+                else
+                {
+                    player.Favorite = false;
+                }
+            }
         }
 
         private void DropPlayersToAllPlayers(IEnumerable<Player> players)
@@ -656,6 +720,8 @@ namespace DesktopWinForms
             // sort the players by shirt number
             favPlayerSet = favPlayerSet.OrderBy(x => x.ShirtNumber).ToHashSet();
             playerSet = playerSet.OrderBy(x => x.ShirtNumber).ToHashSet();
+
+            SetFavPlayersInDictionary();
 
             CustomizeFavoriteColumnAppearance(dataGridFavPlayers);
 
