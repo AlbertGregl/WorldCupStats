@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Reflection;
+using System.Resources;
 
 namespace DesktopWinForms
 {
@@ -21,27 +14,26 @@ namespace DesktopWinForms
         public CloseForm(string language)
         {
             InitializeComponent();
-
-            //set up buttons and labes based on language
-            if (language == "eng")
-            {
-                this.Text = "Exit";
-                btnYes.Text = "Yes";
-                btnNo.Text = "No";
-                lblClose.Text = "Do you want to exit?";
-            }
-            else
-            {
-                this.Text = "Izlaz";
-                btnYes.Text = "Da";
-                btnNo.Text = "Ne";
-                lblClose.Text = "Zatvori Aplikaciju?";
-            }
+            SetLanguage(language);
         }
 
-        private void CloseForm_Load(object sender, EventArgs e)
+        private void SetLanguage(string language)
         {
-
+            ResourceManager resourceManager = new ResourceManager("DesktopWinForms.Resources.croatian", Assembly.GetExecutingAssembly());
+            // change current lozalizable language to english
+            if (language == "eng")
+            {
+                resourceManager = new ResourceManager("DesktopWinForms.Resources.english", Assembly.GetExecutingAssembly());
+            }
+            // change current lozalizable language to croatian
+            else if (language == "cro")
+            {
+                resourceManager = new ResourceManager("DesktopWinForms.Resources.croatian", Assembly.GetExecutingAssembly());
+            }
+            this.Text = resourceManager.GetString("Close_Form");
+            btnYes.Text = resourceManager.GetString("Close_btnYes");
+            btnNo.Text = resourceManager.GetString("Close_btnNo");
+            lblClose.Text = resourceManager.GetString("Close_lblClose");
         }
 
         private void btnYes_Click(object sender, EventArgs e)

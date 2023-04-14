@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Close_btnNo" xml:space="preserve">
+    <value>Ne</value>
+  </data>
+  <data name="Close_btnYes" xml:space="preserve">
+    <value>Da</value>
+  </data>
+  <data name="Close_Form" xml:space="preserve">
+    <value>Izlaz</value>
+  </data>
+  <data name="Close_lblClose" xml:space="preserve">
+    <value>Zatvori Aplikaciju?</value>
+  </data>
   <data name="cntxMenuStripFavPlayer" xml:space="preserve">
     <value>Prebaci Igrača</value>
   </data>
@@ -179,5 +191,32 @@
   </data>
   <data name="rbSortYellowCards" xml:space="preserve">
     <value>Žuti kartoni</value>
+  </data>
+  <data name="Set_btnSettingsAccept" xml:space="preserve">
+    <value>Prihvati</value>
+  </data>
+  <data name="Set_btnSettingsCancel" xml:space="preserve">
+    <value>Odustani</value>
+  </data>
+  <data name="Set_lblChampionship" xml:space="preserve">
+    <value>Prvenstvo</value>
+  </data>
+  <data name="Set_lblLanguage" xml:space="preserve">
+    <value>Jezik</value>
+  </data>
+  <data name="Set_lblSettingsHeading" xml:space="preserve">
+    <value>Postavke</value>
+  </data>
+  <data name="Set_radioButtonCro" xml:space="preserve">
+    <value>Hrvatski</value>
+  </data>
+  <data name="Set_radioButtonEng" xml:space="preserve">
+    <value>ENGLISH</value>
+  </data>
+  <data name="Set_radioButtonMen" xml:space="preserve">
+    <value>Muškarci</value>
+  </data>
+  <data name="Set_radioButtonWomen" xml:space="preserve">
+    <value>Žene</value>
   </data>
 </root>

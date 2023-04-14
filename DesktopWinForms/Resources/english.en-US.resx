@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Close_btnNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Close_btnYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Close_Form" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="Close_lblClose" xml:space="preserve">
+    <value>Do you want to exit?</value>
+  </data>
   <data name="cntxMenuStripFavPlayer" xml:space="preserve">
     <value>Transfer Player</value>
   </data>
@@ -179,5 +191,32 @@
   </data>
   <data name="rbSortYellowCards" xml:space="preserve">
     <value>Yellow Cards</value>
+  </data>
+  <data name="Set_btnSettingsAccept" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="Set_btnSettingsCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Set_lblChampionship" xml:space="preserve">
+    <value>Championship</value>
+  </data>
+  <data name="Set_lblLanguage" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Set_lblSettingsHeading" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Set_radioButtonCro" xml:space="preserve">
+    <value>HRVATSKI</value>
+  </data>
+  <data name="Set_radioButtonEng" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Set_radioButtonMen" xml:space="preserve">
+    <value>Men</value>
+  </data>
+  <data name="Set_radioButtonWomen" xml:space="preserve">
+    <value>Women</value>
   </data>
 </root>

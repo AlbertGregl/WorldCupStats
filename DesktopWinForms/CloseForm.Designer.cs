@@ -89,7 +89,6 @@
             StartPosition = FormStartPosition.CenterParent;
             Text = "Izlaz";
             TopMost = true;
-            Load += CloseForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

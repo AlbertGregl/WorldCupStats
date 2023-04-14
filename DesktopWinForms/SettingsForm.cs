@@ -1,15 +1,5 @@
-﻿using DataRepository.Dal;
-using DataRepository.Models;
-using DesktopWinForms.Properties;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Reflection;
+using System.Resources;
 
 namespace DesktopWinForms
 {
@@ -21,6 +11,7 @@ namespace DesktopWinForms
         private const string eng = "eng";
         private const string women = "women";
         private const string men = "men";
+        private const string startupSettings = "Početne Postavk";
         private string name = "";
 
         public SettingsForm()
@@ -43,7 +34,7 @@ namespace DesktopWinForms
 
         private void SettingsForm_Load(object sender, EventArgs e)
         {
-            if (name != "Početne Postavke")
+            if (name != startupSettings)
             {
                 SetLanguage();
                 SetChampionship();
@@ -52,43 +43,39 @@ namespace DesktopWinForms
 
         public void SetLanguage()
         {
-
-            if (MainForm.AppSettings.Language == eng)
+            try
             {
+                ResourceManager resourceManager = new ResourceManager("DesktopWinForms.Resources.croatian", Assembly.GetExecutingAssembly());
                 // change current lozalizable language to english
-                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
-
-                // change radio button state
-                radioButtonEng.Checked = true;
-                // change all labels and buttons to english in Settings Form
-                lblSettingsHeading.Text = "Settings";
-                lblLanguage.Text = "Language";
-                lblChampionship.Text = "Championship";
-                radioButtonCro.Text = "HRVATSKI";
-                radioButtonEng.Text = "English";
-                radioButtonWomen.Text = "Womenn";
-                radioButtonMen.Text = "Men";
-                btnSettingsAccept.Text = "Accept";
-                btnSettingsCancel.Text = "Cancel";
-            }
-            else
-            {
+                if (MainForm.AppSettings.Language == eng)
+                {
+                    radioButtonEng.Checked = true;
+                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+                    resourceManager = new ResourceManager("DesktopWinForms.Resources.english", Assembly.GetExecutingAssembly());
+                }
                 // change current lozalizable language to croatian
-                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("hr-HR");
-
-                // change radio button state
-                radioButtonCro.Checked = true;
-                // change all labels and buttons to croatian in Settings Form
-                lblSettingsHeading.Text = "Postavke";
-                lblLanguage.Text = "Jezik";
-                lblChampionship.Text = "Prvenstvo";
-                radioButtonCro.Text = "Hrvatski";
-                radioButtonEng.Text = "ENGLISH";
-                radioButtonWomen.Text = "Žene";
-                radioButtonMen.Text = "Muškarci";
-                btnSettingsAccept.Text = "Prihvati";
-                btnSettingsCancel.Text = "Odustani";
+                else if (MainForm.AppSettings.Language == cro)
+                {
+                    radioButtonCro.Checked = true;
+                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("hr-HR");
+                    resourceManager = new ResourceManager("DesktopWinForms.Resources.croatian", Assembly.GetExecutingAssembly());
+                }
+                // change all labels and buttons to english in Settings Form
+                lblSettingsHeading.Text = resourceManager.GetString("Set_lblSettingsHeading");
+                lblLanguage.Text = resourceManager.GetString("Set_lblLanguage");
+                lblChampionship.Text = resourceManager.GetString("Set_lblChampionship");
+                radioButtonCro.Text = resourceManager.GetString("Set_radioButtonCro");
+                radioButtonEng.Text = resourceManager.GetString("Set_radioButtonEng");
+                radioButtonWomen.Text = resourceManager.GetString("Set_radioButtonWomen");
+                radioButtonMen.Text = resourceManager.GetString("Set_radioButtonMen");
+                btnSettingsAccept.Text = resourceManager.GetString("Set_btnSettingsAccept");
+                btnSettingsCancel.Text = resourceManager.GetString("Set_btnSettingsCancel");
             }
+            catch (Exception)
+            {
+                // something went wrong
+            }
+
         }
 
         public void SetChampionship()
