@@ -8,7 +8,30 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="btnImg.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DataRepository\DataRepository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\btnImg.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\settingsWPF.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SettingsWPF.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\SettingsWPF.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>settingsWPF.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>

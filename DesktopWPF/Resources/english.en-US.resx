@@ -117,14 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btnSaveSettings" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="FormClosingName" xml:space="preserve">
     <value>Exit</value>
   </data>
   <data name="FormClosingText" xml:space="preserve">
     <value>Are you sure you want to exit?</value>
   </data>
+  <data name="FormRestartName" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="FormRestartText" xml:space="preserve">
+    <value>To change the resolution application needs to be restarted.
+Restart now?</value>
+  </data>
   <data name="lbLanguage" xml:space="preserve">
     <value>Language</value>
+  </data>
+  <data name="lblScreenResolution" xml:space="preserve">
+    <value>Screen Resolution</value>
   </data>
   <data name="lbWorldCup" xml:space="preserve">
     <value>World Cup</value>
@@ -138,8 +151,17 @@
   <data name="rbEnglish" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="rbFullScreen" xml:space="preserve">
+    <value>Full Screen</value>
+  </data>
+  <data name="rbMediumScreen" xml:space="preserve">
+    <value>Medium (1024x768px)</value>
+  </data>
   <data name="rbMen" xml:space="preserve">
     <value>Men</value>
+  </data>
+  <data name="rbSmallScreen" xml:space="preserve">
+    <value>Small (800x600px)</value>
   </data>
   <data name="rbWomen" xml:space="preserve">
     <value>Women</value>

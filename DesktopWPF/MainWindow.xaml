@@ -5,33 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" Closing="MainWindowForm_Closing">
-    <TabControl x:Name="MainWindowTab" SelectionChanged="TabControl_SelectionChanged">
+        Title="World Cup Stats" Height="450" Width="800" Loaded="Window_Loaded" Closing="MainWindowForm_Closing" WindowStartupLocation="CenterScreen">
+    <TabControl Background="Goldenrod" x:Name="MainWindowTab" SelectionChanged="TabControl_SelectionChanged">
         <TabItem x:Name="TabSettings" Header="Settings">
-            <Grid Background="#FFE5E5E5">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="90"/>
+                    <RowDefinition Height="90" />
+                    <RowDefinition Height="32" />
+                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*"/>
-                    <ColumnDefinition Width="11*"/>
-                    <ColumnDefinition Width="11*"/>
-                    <ColumnDefinition Width="50*"/>
-                    <ColumnDefinition Width="11*"/>
-                    <ColumnDefinition Width="19*"/>
-                    <ColumnDefinition Width="687*"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="90"/>
                 </Grid.ColumnDefinitions>
-                <Grid HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="71" Grid.ColumnSpan="4">
-                    <Label x:Name="lbLanguage" Content="Language" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <RadioButton x:Name="rbEnglish" Content="English" HorizontalAlignment="Left" Margin="0,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.066,-0.309" IsChecked="True"/>
-                    <RadioButton x:Name="rbCroatian" Content="HRVATSKI" HorizontalAlignment="Center" Margin="0,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.066,-0.309"/>
+                <Grid HorizontalAlignment="Left" Height="85" VerticalAlignment="Top" Width="85" Grid.Column="0">
+                    <Label x:Name="lbLanguage" Content="Language" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <RadioButton x:Name="rbEnglish" Content="English" HorizontalAlignment="Left" Margin="0,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.066,-0.309" IsChecked="True" GroupName="rbgLanguage"/>
+                    <RadioButton x:Name="rbCroatian" Content="HRVATSKI" HorizontalAlignment="Left" Margin="0,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.066,-0.309" GroupName="rbgLanguage"/>
                 </Grid>
-                <Grid HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="66" Grid.Column="5" Grid.ColumnSpan="2">
-                    <Label x:Name="lbWorldCup" Content="World Cup" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                    <RadioButton x:Name="rbMen" Content="Men" HorizontalAlignment="Left" Margin="0,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.066,-0.309" IsChecked="True"/>
-                    <RadioButton x:Name="rbWomen" Content="Women" HorizontalAlignment="Left" Margin="0,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.066,-0.309"/>
+                <Grid HorizontalAlignment="Center" Height="85" VerticalAlignment="Top" Width="90" Grid.Column="1">
+                    <Label x:Name="lbWorldCup" Content="World Cup" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <RadioButton x:Name="rbMen" Content="Men" HorizontalAlignment="Left" Margin="0,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.066,-0.309" IsChecked="True" GroupName="rbgWorldCup"/>
+                    <RadioButton x:Name="rbWomen" Content="Women" HorizontalAlignment="Left" Margin="0,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.066,-0.309" GroupName="rbgWorldCup"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="90" VerticalAlignment="Center" Width="170" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+                    <Label x:Name="lblScreenResolution" Content="Screen Resolution" HorizontalAlignment="Left" Margin="7,0,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <RadioButton x:Name="rbSmallScreen" Content="Small (800x600px)" HorizontalAlignment="Left" Margin="0,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.066,-0.309" IsChecked="True" GroupName="rbgScreenResolution"/>
+                    <RadioButton x:Name="rbMediumScreen" Content="Medium (1024x768px)" HorizontalAlignment="Left" Margin="0,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.066,-0.309" GroupName="rbgScreenResolution"/>
+                    <RadioButton x:Name="rbFullScreen" Content="Full Screen" HorizontalAlignment="Left" Margin="0,68,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.066,-0.309" GroupName="rbgScreenResolution"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="30" VerticalAlignment="Center" Width="180" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" RenderTransformOrigin="0.426,0.19">
+                    <Button x:Name="btnSaveSettings" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Width="118" Foreground="#FF020202" BorderBrush="Goldenrod" Height="30" Click="btnSaveSettings_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Resources/btnImg.png"/>
+                        </Button.Background>
+                        <Button.OpacityMask>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.OpacityMask>
+                    </Button>
+
                 </Grid>
             </Grid>
         </TabItem>
         <TabItem x:Name="TabWorldCup" Header="World Cup">
-            <Grid Background="#FFE5E5E5"/>
+            <Grid />
         </TabItem>
     </TabControl>
 
