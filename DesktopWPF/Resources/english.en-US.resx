@@ -142,6 +142,9 @@ Restart now?</value>
   <data name="lblFavoriteTeam" xml:space="preserve">
     <value>Favorite Team:</value>
   </data>
+  <data name="lblResultDisplay" xml:space="preserve">
+    <value>Result:</value>
+  </data>
   <data name="lblRivalTeam" xml:space="preserve">
     <value>Rival Team</value>
   </data>

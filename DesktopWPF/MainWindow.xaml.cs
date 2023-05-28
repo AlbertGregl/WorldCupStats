@@ -125,6 +125,7 @@ namespace DesktopWPF
             lblFavoriteTeam.Content = resourceManager.GetString("lblFavoriteTeam");
             lblRivalTeam.Content = resourceManager.GetString("lblRivalTeam");
             btnSetFavTeam.Content = resourceManager.GetString("btnSetFavTeam");
+            lblResultDisplay.Content = resourceManager.GetString("lblResultDisplay");
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -398,6 +399,28 @@ namespace DesktopWPF
         {
             // if selections changes unhide btnSetFavTeam
             btnSetFavTeam.Visibility = Visibility.Visible;
+        }
+
+        private void cmbRivalTeam_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+            //set selected item trimed for name only
+            string rivalTeam = cmbRivalTeam.SelectedItem.ToString().Substring(0, cmbRivalTeam.SelectedItem.ToString().IndexOf("(") - 1);
+
+            string favoriteTeam = settingsFavorite.FavoriteTeam;
+            // search for rival team and favorite team metch in matches
+            foreach (var match in matches)
+            {
+                if (favoriteTeam == match.HomeTeamCountry && rivalTeam == match.AwayTeamCountry)
+                {
+                    lblMatchResult.Content = match.HomeTeam.Goals + " : " + match.AwayTeam.Goals;
+                }
+                else if (rivalTeam == match.HomeTeamCountry && favoriteTeam == match.AwayTeamCountry)
+                {
+                    lblMatchResult.Content = match.AwayTeam.Goals + " : " + match.HomeTeam.Goals;
+                }
+            }
+
         }
     }
 }

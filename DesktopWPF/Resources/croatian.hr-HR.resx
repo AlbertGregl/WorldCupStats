@@ -142,6 +142,9 @@ Ponovno pokreni sada?</value>
   <data name="lblFavoriteTeam" xml:space="preserve">
     <value>Omiljena Reprezentacija:</value>
   </data>
+  <data name="lblResultDisplay" xml:space="preserve">
+    <value>Rezultat:</value>
+  </data>
   <data name="lblRivalTeam" xml:space="preserve">
     <value>Protivnička Reprezenzacija</value>
   </data>
