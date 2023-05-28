@@ -32,10 +32,15 @@ namespace DesktopWinForms
         {
             base.OnLoad(e);
 
-            Task.Factory.StartNew(Worker).ContinueWith(task => 
-            { 
-                this.Close(); 
+            Task.Factory.StartNew(Worker).ContinueWith(task =>
+            {
+                this.Close();
             }, TaskScheduler.FromCurrentSynchronizationContext());
+        }
+
+        private void LoadingForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

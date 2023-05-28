@@ -5,9 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopWPF"
         mc:Ignorable="d"
-        Title="Loading Window" Height="49" Width="766">
+        Title="Loading Window" Height="49" Width="766" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <ProgressBar x:Name="progressBar" HorizontalAlignment="Center" Height="33" VerticalAlignment="Center" Width="766"/>
-
+        <ProgressBar x:Name="progressBar" HorizontalAlignment="Center" Height="33" VerticalAlignment="Center" Width="766" IsIndeterminate="True"/>
     </Grid>
 </Window>

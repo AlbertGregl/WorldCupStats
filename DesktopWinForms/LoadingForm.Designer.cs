@@ -36,22 +36,25 @@
             progressBar.BackColor = SystemColors.ControlLight;
             progressBar.ForeColor = Color.DarkGoldenrod;
             progressBar.Location = new Point(2, 1);
+            progressBar.Margin = new Padding(3, 2, 3, 2);
             progressBar.Name = "progressBar";
-            progressBar.Size = new Size(743, 28);
+            progressBar.Size = new Size(650, 21);
             progressBar.Style = ProgressBarStyle.Marquee;
             progressBar.TabIndex = 0;
             // 
             // LoadingForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
-            ClientSize = new Size(748, 31);
+            ClientSize = new Size(654, 23);
             ControlBox = false;
             Controls.Add(progressBar);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "LoadingForm";
             StartPosition = FormStartPosition.CenterScreen;
             TopMost = true;
+            Load += LoadingForm_Load;
             ResumeLayout(false);
         }
 

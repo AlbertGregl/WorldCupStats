@@ -1,27 +1,47 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
+
+
 
 namespace DesktopWPF
 {
     /// <summary>
     /// Interaction logic for LoadingWindow.xaml
     /// </summary>
-    public partial class LoadingWindow : Window
+
+    public partial class LoadingWindow : Window, IDisposable
     {
-        public LoadingWindow()
+        public Action Worker { get; set; }
+
+        public LoadingWindow(Action worker)
         {
             InitializeComponent();
+
+            if (worker == null)
+            {
+                throw new ArgumentNullException(nameof(worker));
+            }
+
+            Worker = worker;
+        }
+
+        protected override async void OnContentRendered(EventArgs e)
+        {
+            base.OnContentRendered(e);
+
+            await Task.Run(Worker);
+
+
+            Dispose();
+        }
+
+        public void Dispose()
+        {
+            Close();
+
         }
     }
 }

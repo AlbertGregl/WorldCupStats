@@ -6,6 +6,11 @@ using System.Threading;
 using System.Windows;
 using System.Resources;
 using System.Net.Security;
+using System.Data.Common;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DesktopWPF
 {
@@ -14,6 +19,10 @@ namespace DesktopWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static DataManager dataManager = new DataManager();
+        private ISet<Results> results = new HashSet<Results>();
+        private ISet<Matches> matches = new HashSet<Matches>();
+
         private const string cro = "cro";
         private const string eng = "eng";
         private const string women = "women";
@@ -43,8 +52,24 @@ namespace DesktopWPF
             AppSettings = new SettingsLocal();
             // check if settings file exists
             CheckIfSettingsFileExists();
+            // if settings favorite file does not exist set default values
+            CheckIfSettingsFavoriteFileExists();
             // change current lozalizable language
             SetLanguage();
+        }
+
+        private void CheckIfSettingsFavoriteFileExists()
+        {
+            if (!settingsRepo.SettingsFavoriteFileCreated())
+            {
+                settingsFavorite.FavoriteTeam = "Croatia";
+                settingsFavorite.FavoritePlayerShirtNums = new HashSet<int>() { 0 };
+            }
+            else
+            {
+                // load settings favorite from file
+                settingsFavorite = settingsRepo.LoadSettingsFavorite();
+            }
         }
 
         private void SetLanguage()
@@ -93,16 +118,69 @@ namespace DesktopWPF
             rbFullScreen.Content = resourceManager.GetString("rbFullScreen");
             btnSaveSettings.Content = resourceManager.GetString("btnSaveSettings");
             lblFavoriteTeam.Content = resourceManager.GetString("lblFavoriteTeam");
+            lblRivalTeam.Content = resourceManager.GetString("lblRivalTeam");
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // load results & matches and display them
-            //using (LoadingWindow loadingWindow = new LoadingWindow(LoadResultsAndMetches))
-            //{
-            //    //show loading form if operation takes longer than expected
-            //    loadingWindow.ShowDialog();
-            //}
+
+            using (LoadingWindow loadingWindow = new LoadingWindow(LoadResultsAndMetches))
+            {
+                //show loading form if operation takes longer than expected
+                loadingWindow.ShowDialog();
+            }
+
+            // fill up favorite team combo box with data
+            FillUpFavoriteTeamComboBoxes();
+
+        }
+
+        private void FillUpFavoriteTeamComboBoxes()
+        {
+            // sort the resluts by GroupId
+            results.OrderBy(x => x.GroupId).ToHashSet();
+
+            // display Country and FifaCode in comboBox
+            foreach (var item in results)
+            {
+                cmbFavoriteTeam.Items.Add($"{item.Country} ({item.FifaCode})");
+
+                // record fav team fifa code in tag from fav settings
+                if (item.Country == settingsFavorite.FavoriteTeam)
+                {
+                    cmbFavoriteTeam.Tag = item.FifaCode;
+                }
+            }
+            // sort cmbFavoriteTeam
+            cmbFavoriteTeam.Items.SortDescriptions.Add(new System.ComponentModel.SortDescription("", System.ComponentModel.ListSortDirection.Ascending));
+
+            // display fav team in cmbFavoriteTeam
+            cmbFavoriteTeam.SelectedItem = $"{settingsFavorite.FavoriteTeam} ({cmbFavoriteTeam.Tag})";
+        }
+
+        private void LoadResultsAndMetches()
+        {
+            try
+            {
+                results = dataManager.GetResultsByChampionship(AppSettings.Championship);
+                matches = dataManager.GetMatchesByChampionship(AppSettings.Championship);
+            }
+            catch (Exception ex)
+            {
+                // save log message;
+                dataManager.ErrorLog(ex.Message);
+                // load results from file
+                dataManager.SetFileDataRepo();
+                // load results based on settings
+                results = dataManager.GetResultsByChampionship(AppSettings.Championship);
+                matches = dataManager.GetMatchesByChampionship(AppSettings.Championship);
+                // display that data is loaded from file (lblConnection = offline)
+                lblConnection.Content = "Offline";
+            }
+
+
         }
 
 

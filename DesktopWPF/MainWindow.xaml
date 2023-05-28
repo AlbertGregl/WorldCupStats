@@ -53,7 +53,10 @@
         <TabItem x:Name="TabWorldCup" Header="World Cup">
             <Grid >
                 <Label x:Name="lblFavoriteTeam" Content="Favorite Team" HorizontalAlignment="Left" Margin="32,10,0,0" VerticalAlignment="Top" Width="180"/>
-                <ComboBox x:Name="cmbFavoriteTeam" HorizontalAlignment="Left" Margin="37,41,0,0" VerticalAlignment="Top" Width="205" Height="38" FontWeight="Bold"/>
+                <ComboBox x:Name="cmbFavoriteTeam" HorizontalAlignment="Left" Margin="37,41,0,0" VerticalAlignment="Top" Width="200" Height="23" FontWeight="Bold"/>
+                <Label x:Name="lblConnection" Content="" HorizontalAlignment="Left" Margin="752,0,0,0" VerticalAlignment="Top" Width="42" Foreground="Red" FontWeight="Bold" FontSize="10"/>
+                <ComboBox x:Name="cmbRivalTeam" HorizontalAlignment="Left" Margin="257,41,0,0" VerticalAlignment="Top" Width="200" Height="23" FontWeight="Bold"/>
+                <Label x:Name="lblRivalTeam" Content="Rival Team" HorizontalAlignment="Left" Margin="257,10,0,0" VerticalAlignment="Top" Width="180"/>
             </Grid>
         </TabItem>
     </TabControl>
