@@ -92,12 +92,19 @@ namespace DesktopWPF
             rbMediumScreen.Content = resourceManager.GetString("rbMediumScreen");
             rbFullScreen.Content = resourceManager.GetString("rbFullScreen");
             btnSaveSettings.Content = resourceManager.GetString("btnSaveSettings");
+            lblFavoriteTeam.Content = resourceManager.GetString("lblFavoriteTeam");
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            // load results & matches and display them
+            //using (LoadingWindow loadingWindow = new LoadingWindow(LoadResultsAndMetches))
+            //{
+            //    //show loading form if operation takes longer than expected
+            //    loadingWindow.ShowDialog();
+            //}
         }
+
 
         private void ApplySelectedScreenResolution(string screenResolution)
         {
@@ -230,7 +237,6 @@ namespace DesktopWPF
             TabWorldCup.IsSelected = true;
         }
 
-
         private void SaveSettingsUtil()
         {
             Properties.SettingsWPF.Default.Save();
@@ -262,7 +268,6 @@ namespace DesktopWPF
         private void btnSaveSettings_Click(object sender, RoutedEventArgs e)
         {
             SaveAppSettings();
-
         }
 
     }

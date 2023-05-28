@@ -105,7 +105,15 @@ namespace DesktopWinForms
             menuStripFile.Text = resourceManager.GetString("menuStripFile");
             menuStripSettings.Text = resourceManager.GetString("menuStripSettings");
             menuStripFilePrintStats.Text = resourceManager.GetString("menuStripFilePrintStats");
-            menuStripFavTeamComboBox.Text = resourceManager.GetString("menuStripFavTeamComboBox");
+            // if favorite settings file does not exist set default values
+            if (settingsFavorite.FavoriteTeam != null)
+            {
+                menuStripFavTeamComboBox.Text = settingsFavorite.FavoriteTeam;
+            }
+            else
+            {
+                menuStripFavTeamComboBox.Text = resourceManager.GetString("menuStripFavTeamComboBox");
+            }
             lblFavPlayers.Text = resourceManager.GetString("lblFavPlayers");
             lblFavTeamMatches.Text = resourceManager.GetString("lblFavTeamMatches");
             lblRangList.Text = resourceManager.GetString("lblRangList");

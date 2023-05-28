@@ -136,6 +136,9 @@ Ponovno pokreni sada?</value>
   <data name="lbLanguage" xml:space="preserve">
     <value>Jezik</value>
   </data>
+  <data name="lblFavoriteTeam" xml:space="preserve">
+    <value>Omiljena Reprezentacija:</value>
+  </data>
   <data name="lblScreenResolution" xml:space="preserve">
     <value>Veličina Zaslona</value>
   </data>

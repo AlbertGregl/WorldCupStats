@@ -136,6 +136,9 @@ Restart now?</value>
   <data name="lbLanguage" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="lblFavoriteTeam" xml:space="preserve">
+    <value>Favorite Team:</value>
+  </data>
   <data name="lblScreenResolution" xml:space="preserve">
     <value>Screen Resolution</value>
   </data>
