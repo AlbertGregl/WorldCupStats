@@ -31,6 +31,7 @@ namespace DesktopWPF
         private string MSGBoxExitTitle = "";
         private string MSGBoxRestartText = "";
         private string MSGBoxRestartTitle = "";
+        private string MSGBoxFavTeamText = "";
 
         private readonly ISettingsRepository settingsRepo;
         public SettingsLocal AppSettings { get; set; }
@@ -56,6 +57,9 @@ namespace DesktopWPF
             CheckIfSettingsFavoriteFileExists();
             // change current lozalizable language
             SetLanguage();
+
+            // hide button for setting favorite team
+            btnSetFavTeam.Visibility = Visibility.Hidden;
         }
 
         private void CheckIfSettingsFavoriteFileExists()
@@ -112,6 +116,7 @@ namespace DesktopWPF
             MSGBoxExitText = resourceManager.GetString("FormClosingText");
             MSGBoxRestartTitle = resourceManager.GetString("FormRestartName");
             MSGBoxRestartText = resourceManager.GetString("FormRestartText");
+            MSGBoxFavTeamText = resourceManager.GetString("MSGBoxFavTeamText");
             lblScreenResolution.Content = resourceManager.GetString("lblScreenResolution");
             rbSmallScreen.Content = resourceManager.GetString("rbSmallScreen");
             rbMediumScreen.Content = resourceManager.GetString("rbMediumScreen");
@@ -119,13 +124,12 @@ namespace DesktopWPF
             btnSaveSettings.Content = resourceManager.GetString("btnSaveSettings");
             lblFavoriteTeam.Content = resourceManager.GetString("lblFavoriteTeam");
             lblRivalTeam.Content = resourceManager.GetString("lblRivalTeam");
-
+            btnSetFavTeam.Content = resourceManager.GetString("btnSetFavTeam");
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
+        {           
             // load results & matches and display them
-
             using (LoadingWindow loadingWindow = new LoadingWindow(LoadResultsAndMetches))
             {
                 //show loading form if operation takes longer than expected
@@ -133,24 +137,42 @@ namespace DesktopWPF
             }
 
             // fill up favorite team combo box with data
-            FillUpFavoriteTeamComboBoxes();
+            FillUpFavoriteTeamComboBox();
+            // fill up rival team combo box with data
+            FillUpRivalTeamComboBox();
 
         }
 
-        private void FillUpFavoriteTeamComboBoxes()
+        private void FillUpRivalTeamComboBox()
+        {
+            // serch for rival team in matches
+            foreach (var match in matches)
+            {
+                if (settingsFavorite.FavoriteTeam == match.HomeTeamCountry)
+                {
+                    cmbRivalTeam.Items.Add($"{match.AwayTeamCountry} ({match.AwayTeam.Code})");
+                }
+                else if (settingsFavorite.FavoriteTeam == match.AwayTeamCountry)
+                {
+                    cmbRivalTeam.Items.Add($"{match.HomeTeamCountry} ({match.HomeTeam.Code})");
+                }
+            }
+        }
+
+        private void FillUpFavoriteTeamComboBox()
         {
             // sort the resluts by GroupId
             results.OrderBy(x => x.GroupId).ToHashSet();
 
             // display Country and FifaCode in comboBox
-            foreach (var item in results)
+            foreach (var result in results)
             {
-                cmbFavoriteTeam.Items.Add($"{item.Country} ({item.FifaCode})");
+                cmbFavoriteTeam.Items.Add($"{result.Country} ({result.FifaCode})");
 
                 // record fav team fifa code in tag from fav settings
-                if (item.Country == settingsFavorite.FavoriteTeam)
+                if (result.Country == settingsFavorite.FavoriteTeam)
                 {
-                    cmbFavoriteTeam.Tag = item.FifaCode;
+                    cmbFavoriteTeam.Tag = result.FifaCode;
                 }
             }
             // sort cmbFavoriteTeam
@@ -158,6 +180,9 @@ namespace DesktopWPF
 
             // display fav team in cmbFavoriteTeam
             cmbFavoriteTeam.SelectedItem = $"{settingsFavorite.FavoriteTeam} ({cmbFavoriteTeam.Tag})";
+
+            // hide button for setting favorite team
+            btnSetFavTeam.Visibility = Visibility.Hidden;
         }
 
         private void LoadResultsAndMetches()
@@ -334,8 +359,8 @@ namespace DesktopWPF
             MessageBoxResult result = MessageBox.Show(MSGBoxExitText, MSGBoxExitTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
-                // save settings
-                
+                // before exit store favorite settings
+                settingsRepo.SaveSettingsFavorite(settingsFavorite);
             }
             if (result == MessageBoxResult.No)
             {
@@ -348,5 +373,31 @@ namespace DesktopWPF
             SaveAppSettings();
         }
 
+        private void btnSetFavTeam_Click(object sender, RoutedEventArgs e)
+        {
+            // set favorite team in settingsFavorite only name is needed "Croatia (CRO)"
+            settingsFavorite.FavoriteTeam = cmbFavoriteTeam.Text.Substring(0, cmbFavoriteTeam.Text.IndexOf("(") - 1);
+            // store favorite settings
+            settingsRepo.SaveSettingsFavorite(settingsFavorite);
+
+            // clear combo boxes
+            cmbFavoriteTeam.Items.Clear();
+            cmbRivalTeam.Items.Clear();
+
+            // fill up favorite team combo box with data
+            FillUpFavoriteTeamComboBox();
+            // fill up rival team combo box with data
+            FillUpRivalTeamComboBox();
+
+            // prompt descrete success message
+            MessageBox.Show(MSGBoxFavTeamText);
+            
+        }
+
+        private void cmbFavoriteTeam_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            // if selections changes unhide btnSetFavTeam
+            btnSetFavTeam.Visibility = Visibility.Visible;
+        }
     }
 }

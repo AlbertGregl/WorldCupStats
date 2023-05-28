@@ -120,6 +120,9 @@
   <data name="btnSaveSettings" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="btnSetFavTeam" xml:space="preserve">
+    <value>Change Favorite Team</value>
+  </data>
   <data name="FormClosingName" xml:space="preserve">
     <value>Exit</value>
   </data>
@@ -150,6 +153,9 @@ Restart now?</value>
   </data>
   <data name="MainWindowForm" xml:space="preserve">
     <value>World Cup Stats</value>
+  </data>
+  <data name="MSGBoxFavTeamText" xml:space="preserve">
+    <value>Favorite Team Changed.</value>
   </data>
   <data name="rbCroatian" xml:space="preserve">
     <value>HRVATSKI</value>

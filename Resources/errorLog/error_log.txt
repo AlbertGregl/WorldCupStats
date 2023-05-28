@@ -47,3 +47,15 @@
    at System.Collections.Generic.List`1.ForEach(Action`1 action)
    at DesktopWinForms.MainForm.GetFavAwayTeamData(Matches match) in D:\WorccoLabFiles\Algebra\OOP_praktikum\DesktopWinForms\MainForm.cs:line 353
    at DesktopWinForms.MainForm.GetPlayersFromFavoriteTeam() in D:\WorccoLabFiles\Algebra\OOP_praktikum\DesktopWinForms\MainForm.cs:line 298
+28.5.2023. 20:34:13|Sequence contains no matching element,    at System.Linq.ThrowHelper.ThrowNoMatchException()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at DesktopWinForms.MainForm.<GetFavAwayTeamData>b__29_2(TeamEvent x) in D:\WorccoLabFiles\Algebra\OOP_praktikum\DesktopWinForms\MainForm.cs:line 366
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DesktopWinForms.MainForm.GetFavAwayTeamData(Matches match) in D:\WorccoLabFiles\Algebra\OOP_praktikum\DesktopWinForms\MainForm.cs:line 361
+   at DesktopWinForms.MainForm.GetPlayersFromFavoriteTeam() in D:\WorccoLabFiles\Algebra\OOP_praktikum\DesktopWinForms\MainForm.cs:line 306
+28.5.2023. 20:35:08|Sequence contains no matching element,    at System.Linq.ThrowHelper.ThrowNoMatchException()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at DesktopWinForms.MainForm.<GetFavAwayTeamData>b__29_2(TeamEvent x) in D:\WorccoLabFiles\Algebra\OOP_praktikum\DesktopWinForms\MainForm.cs:line 366
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DesktopWinForms.MainForm.GetFavAwayTeamData(Matches match) in D:\WorccoLabFiles\Algebra\OOP_praktikum\DesktopWinForms\MainForm.cs:line 361
+   at DesktopWinForms.MainForm.GetPlayersFromFavoriteTeam() in D:\WorccoLabFiles\Algebra\OOP_praktikum\DesktopWinForms\MainForm.cs:line 306

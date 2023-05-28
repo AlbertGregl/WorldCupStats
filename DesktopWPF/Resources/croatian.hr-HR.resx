@@ -120,6 +120,9 @@
   <data name="btnSaveSettings" xml:space="preserve">
     <value>Spremi</value>
   </data>
+  <data name="btnSetFavTeam" xml:space="preserve">
+    <value>Promijeni omiljenu reprezentaciju</value>
+  </data>
   <data name="FormClosingName" xml:space="preserve">
     <value>Zatvori</value>
   </data>
@@ -140,7 +143,7 @@ Ponovno pokreni sada?</value>
     <value>Omiljena Reprezentacija:</value>
   </data>
   <data name="lblRivalTeam" xml:space="preserve">
-    <value>Suparnik</value>
+    <value>Protivnička Reprezenzacija</value>
   </data>
   <data name="lblScreenResolution" xml:space="preserve">
     <value>Veličina Zaslona</value>
@@ -150,6 +153,9 @@ Ponovno pokreni sada?</value>
   </data>
   <data name="MainWindowForm" xml:space="preserve">
     <value>Rang Liste Svjetskog Nogometnog Prvenstva</value>
+  </data>
+  <data name="MSGBoxFavTeamText" xml:space="preserve">
+    <value>Omiljena Reprezentacija Promijenjena.</value>
   </data>
   <data name="rbCroatian" xml:space="preserve">
     <value>Hrvatski</value>

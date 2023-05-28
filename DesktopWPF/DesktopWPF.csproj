@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ball.png" />
     <None Remove="btnImg.png" />
   </ItemGroup>
 
@@ -16,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="ball.png" />
     <Resource Include="Resources\btnImg.png" />
   </ItemGroup>
 

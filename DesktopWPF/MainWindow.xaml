@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopWPF"
         mc:Ignorable="d"
-        Title="World Cup Stats" Height="450" Width="800" Loaded="Window_Loaded" Closing="MainWindowForm_Closing" WindowStartupLocation="CenterScreen">
+        Title="World Cup Stats" Height="450" Width="800" Loaded="Window_Loaded" Closing="MainWindowForm_Closing" WindowStartupLocation="CenterScreen" Icon="/ball.png">
     <TabControl Background="Goldenrod" x:Name="MainWindowTab" SelectionChanged="TabControl_SelectionChanged">
         <TabItem x:Name="TabSettings" Header="Settings">
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -35,7 +35,7 @@
                     <RadioButton x:Name="rbFullScreen" Content="Full Screen" HorizontalAlignment="Left" Margin="0,68,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.066,-0.309" GroupName="rbgScreenResolution"/>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="30" VerticalAlignment="Center" Width="180" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" RenderTransformOrigin="0.426,0.19">
-                    <Button x:Name="btnSaveSettings" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Width="118" Foreground="#FF020202" BorderBrush="Goldenrod" Height="30" Click="btnSaveSettings_Click">
+                    <Button x:Name="btnSaveSettings" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Width="118" Foreground="White" BorderBrush="Goldenrod" Height="30" Click="btnSaveSettings_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="/Resources/btnImg.png"/>
                         </Button.Background>
@@ -51,12 +51,33 @@
             </Grid>
         </TabItem>
         <TabItem x:Name="TabWorldCup" Header="World Cup">
-            <Grid >
-                <Label x:Name="lblFavoriteTeam" Content="Favorite Team" HorizontalAlignment="Left" Margin="32,10,0,0" VerticalAlignment="Top" Width="180"/>
-                <ComboBox x:Name="cmbFavoriteTeam" HorizontalAlignment="Left" Margin="37,41,0,0" VerticalAlignment="Top" Width="200" Height="23" FontWeight="Bold"/>
-                <Label x:Name="lblConnection" Content="" HorizontalAlignment="Left" Margin="752,0,0,0" VerticalAlignment="Top" Width="42" Foreground="Red" FontWeight="Bold" FontSize="10"/>
-                <ComboBox x:Name="cmbRivalTeam" HorizontalAlignment="Left" Margin="257,41,0,0" VerticalAlignment="Top" Width="200" Height="23" FontWeight="Bold"/>
-                <Label x:Name="lblRivalTeam" Content="Rival Team" HorizontalAlignment="Left" Margin="257,10,0,0" VerticalAlignment="Top" Width="180"/>
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="Auto" MinWidth="314"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="lblFavoriteTeam" Content="Favorite Team" HorizontalAlignment="Left" Margin="32,10,0,0" VerticalAlignment="Top" Width="195" Height="26"/>
+                <ComboBox x:Name="cmbFavoriteTeam" HorizontalAlignment="Left" Margin="37,0,0,0" VerticalAlignment="Center" Width="200" Height="23" FontWeight="Bold" SelectionChanged="cmbFavoriteTeam_SelectionChanged"/>
+                <Label x:Name="lblConnection" Content="" HorizontalAlignment="Left" Margin="272,0,0,0" VerticalAlignment="Top" Width="42" Foreground="Red" FontWeight="Bold" FontSize="10" Grid.Column="2" Height="23"/>
+                <ComboBox x:Name="cmbRivalTeam" HorizontalAlignment="Left" Margin="3,0,0,0" VerticalAlignment="Center" Width="200" Height="23" FontWeight="Bold" Grid.Column="2"/>
+                <Label x:Name="lblRivalTeam" Content="Rival Team" HorizontalAlignment="Left" Margin="3,10,0,0" VerticalAlignment="Top" Width="200" Grid.Column="2" Height="26"/>
+                <Button x:Name="btnSetFavTeam" Content="Setup Favorite Team" HorizontalAlignment="Left" Margin="37,77,0,0" VerticalAlignment="Top" Height="23" Width="200" BorderBrush="Goldenrod" Foreground="White" FontWeight="Bold" Click="btnSetFavTeam_Click">
+                    <Button.OpacityMask>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.OpacityMask>
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Resources/btnImg.png"/>
+                    </Button.Background>
+                </Button>
+                <Label x:Name="lblMatchResult" Grid.Column="1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="79" FontSize="14" FontWeight="Bold"/>
             </Grid>
         </TabItem>
     </TabControl>
