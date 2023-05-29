@@ -139,8 +139,32 @@ Restart now?</value>
   <data name="lbLanguage" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="lblCountryRowTitle" xml:space="preserve">
+    <value>Country: </value>
+  </data>
+  <data name="lblDrawsRowTitle" xml:space="preserve">
+    <value>Draws</value>
+  </data>
   <data name="lblFavoriteTeam" xml:space="preserve">
     <value>Favorite Team:</value>
+  </data>
+  <data name="lblFifaCodeRowTitle" xml:space="preserve">
+    <value>FIFA Code: </value>
+  </data>
+  <data name="lblGamesPlayedRowTitle" xml:space="preserve">
+    <value>Games Played: </value>
+  </data>
+  <data name="lblGoalDifferentialRowTitle" xml:space="preserve">
+    <value>Goal Differential: </value>
+  </data>
+  <data name="lblGoalsAgainstRowTitle" xml:space="preserve">
+    <value>Goals Against: </value>
+  </data>
+  <data name="lblGoalsForRowTitle" xml:space="preserve">
+    <value>Goals For: </value>
+  </data>
+  <data name="lblLossesRowTitle" xml:space="preserve">
+    <value>Losses: </value>
   </data>
   <data name="lblResultDisplay" xml:space="preserve">
     <value>Result:</value>
@@ -150,6 +174,9 @@ Restart now?</value>
   </data>
   <data name="lblScreenResolution" xml:space="preserve">
     <value>Screen Resolution</value>
+  </data>
+  <data name="lblWinsRowTitle" xml:space="preserve">
+    <value>Wins: </value>
   </data>
   <data name="lbWorldCup" xml:space="preserve">
     <value>World Cup</value>
@@ -186,5 +213,8 @@ Restart now?</value>
   </data>
   <data name="TabWorldCup" xml:space="preserve">
     <value>World Cup</value>
+  </data>
+  <data name="TeamOverview" xml:space="preserve">
+    <value>Team Overview</value>
   </data>
 </root>

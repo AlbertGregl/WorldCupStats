@@ -45,9 +45,12 @@ namespace DataRepository.Models
         public int? Points { get; set; }
 
         [JsonProperty("goals_for", NullValueHandling = NullValueHandling.Ignore)]
-        public int? GoalsAgainst { get; set; }
+        public int? GoalsFor { get; set; }
 
         [JsonProperty("goals_against", NullValueHandling = NullValueHandling.Ignore)]
+        public int? GoalsAgainst { get; set; }
+
+        [JsonProperty("goal_differential", NullValueHandling = NullValueHandling.Ignore)]
         public int? GoalDifferential { get; set; }
 
         // implemetn IComparable with ID, FifaCode and GroupId

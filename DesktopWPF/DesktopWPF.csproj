@@ -10,6 +10,8 @@
   <ItemGroup>
     <None Remove="ball.png" />
     <None Remove="btnImg.png" />
+    <None Remove="Resources\ball.png" />
+    <None Remove="soccer_ball.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,8 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="ball.png" />
+    <Resource Include="Resources\ball.png" />
     <Resource Include="Resources\btnImg.png" />
+    <Resource Include="Resources\soccer_ball.png" />
   </ItemGroup>
 
   <ItemGroup>

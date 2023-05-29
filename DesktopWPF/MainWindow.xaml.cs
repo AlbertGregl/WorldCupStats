@@ -11,6 +11,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Media.Animation;
 
 namespace DesktopWPF
 {
@@ -403,24 +404,76 @@ namespace DesktopWPF
 
         private void cmbRivalTeam_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-
-            //set selected item trimed for name only
-            string rivalTeam = cmbRivalTeam.SelectedItem.ToString().Substring(0, cmbRivalTeam.SelectedItem.ToString().IndexOf("(") - 1);
-
-            string favoriteTeam = settingsFavorite.FavoriteTeam;
-            // search for rival team and favorite team metch in matches
-            foreach (var match in matches)
+            // check if cmbRivalTeam is not empty and cmbRivalTeam.SelectedItem is not null
+            if (cmbRivalTeam.Items.Count > 0 && cmbRivalTeam.SelectedItem != null)
             {
-                if (favoriteTeam == match.HomeTeamCountry && rivalTeam == match.AwayTeamCountry)
+                //set selected item trimed for name only
+                string rivalTeam = cmbRivalTeam.SelectedItem.ToString().Substring(0, cmbRivalTeam.SelectedItem.ToString().IndexOf("(") - 1);
+
+                string favoriteTeam = settingsFavorite.FavoriteTeam;
+                // search for rival team and favorite team metch in matches
+                foreach (var match in matches)
                 {
-                    lblMatchResult.Content = match.HomeTeam.Goals + " : " + match.AwayTeam.Goals;
-                }
-                else if (rivalTeam == match.HomeTeamCountry && favoriteTeam == match.AwayTeamCountry)
-                {
-                    lblMatchResult.Content = match.AwayTeam.Goals + " : " + match.HomeTeam.Goals;
+                    if (favoriteTeam == match.HomeTeamCountry && rivalTeam == match.AwayTeamCountry)
+                    {
+                        lblMatchResult.Content = match.HomeTeam.Goals + " : " + match.AwayTeam.Goals;
+                    }
+                    else if (rivalTeam == match.HomeTeamCountry && favoriteTeam == match.AwayTeamCountry)
+                    {
+                        lblMatchResult.Content = match.AwayTeam.Goals + " : " + match.HomeTeam.Goals;
+                    }
                 }
             }
 
+        }
+
+        private void btnTeamOvrwFavorite_Click(object sender, RoutedEventArgs e)
+        {
+            // check if cmbFavoriteTeam is not empty and cmbFavoriteTeam.SelectedItem is not null
+            if (cmbFavoriteTeam.Items.Count > 0 && cmbFavoriteTeam.SelectedItem != null)
+            {
+                string favoriteTeam = cmbFavoriteTeam.SelectedItem.ToString().Substring(0, cmbFavoriteTeam.SelectedItem.ToString().IndexOf("(") - 1);
+                int windowWidth = (int)this.ActualWidth;
+                int windowHeight = (int)this.ActualHeight;
+                string language = AppSettings.Language;
+
+                // find selected team in results
+                foreach (var result in results)
+                {
+                    if (result.Country == favoriteTeam)
+                    {
+                        // display team overview with selected team and with an animation lasting 0.5 seconds
+                        TeamOverviewWindow teamOverview = new TeamOverviewWindow(result, windowWidth, windowHeight, language);
+                        teamOverview.Show();
+                        DoubleAnimation animation = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
+                        teamOverview.BeginAnimation(OpacityProperty, animation);
+                    }
+                }
+            }
+        }
+
+        private void btnTeamOvrwRival_Click(object sender, RoutedEventArgs e)
+        {
+            // check if cmbRivalTeam is not empty and cmbRivalTeam.SelectedItem is not null
+            if (cmbRivalTeam.Items.Count > 0 && cmbRivalTeam.SelectedItem != null)
+            {
+                string rivalTeam = cmbRivalTeam.SelectedItem.ToString().Substring(0, cmbRivalTeam.SelectedItem.ToString().IndexOf("(") - 1);
+                int windowWidth = (int)this.ActualWidth;
+                int windowHeight = (int)this.ActualHeight;
+                string language = AppSettings.Language;
+                // find selected team in results
+                foreach (var result in results)
+                {
+                    if (result.Country == rivalTeam)
+                    {
+                        // display team overview with selected team and with an animation lasting 0.5 seconds
+                        TeamOverviewWindow teamOverview = new TeamOverviewWindow(result, windowWidth, windowHeight, language);
+                        teamOverview.Show();
+                        DoubleAnimation animation = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
+                        teamOverview.BeginAnimation(OpacityProperty, animation);
+                    }
+                }
+            }
         }
     }
 }

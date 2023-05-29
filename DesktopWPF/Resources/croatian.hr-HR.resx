@@ -139,8 +139,32 @@ Ponovno pokreni sada?</value>
   <data name="lbLanguage" xml:space="preserve">
     <value>Jezik</value>
   </data>
+  <data name="lblCountryRowTitle" xml:space="preserve">
+    <value>Zemlja: </value>
+  </data>
+  <data name="lblDrawsRowTitle" xml:space="preserve">
+    <value>Neriješeno: </value>
+  </data>
   <data name="lblFavoriteTeam" xml:space="preserve">
     <value>Omiljena Reprezentacija:</value>
+  </data>
+  <data name="lblFifaCodeRowTitle" xml:space="preserve">
+    <value>FIFA kod: </value>
+  </data>
+  <data name="lblGamesPlayedRowTitle" xml:space="preserve">
+    <value>Odigrane utakmice:</value>
+  </data>
+  <data name="lblGoalDifferentialRowTitle" xml:space="preserve">
+    <value>Gol razlika: </value>
+  </data>
+  <data name="lblGoalsAgainstRowTitle" xml:space="preserve">
+    <value>Primljeni golovi: </value>
+  </data>
+  <data name="lblGoalsForRowTitle" xml:space="preserve">
+    <value>Postignuti golovi: </value>
+  </data>
+  <data name="lblLossesRowTitle" xml:space="preserve">
+    <value>Izgubljeno: </value>
   </data>
   <data name="lblResultDisplay" xml:space="preserve">
     <value>Rezultat:</value>
@@ -150,6 +174,9 @@ Ponovno pokreni sada?</value>
   </data>
   <data name="lblScreenResolution" xml:space="preserve">
     <value>Veličina Zaslona</value>
+  </data>
+  <data name="lblWinsRowTitle" xml:space="preserve">
+    <value>Pobjede: </value>
   </data>
   <data name="lbWorldCup" xml:space="preserve">
     <value>Prvenstvo</value>
@@ -186,5 +213,8 @@ Ponovno pokreni sada?</value>
   </data>
   <data name="TabWorldCup" xml:space="preserve">
     <value>Prvenstvo</value>
+  </data>
+  <data name="TeamOverview" xml:space="preserve">
+    <value>Pregled Reprezentacije</value>
   </data>
 </root>
