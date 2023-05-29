@@ -94,7 +94,7 @@ namespace DesktopWinForms
             }
             catch (Exception ex)
             {
-                dataManager.ErrorLog(ex.Message + ", " + ex.StackTrace);
+                //dataManager.ErrorLog(ex.Message + ", " + ex.StackTrace);
             }
 
         }
@@ -186,7 +186,7 @@ namespace DesktopWinForms
             catch (Exception ex)
             {
                 // save log message;
-                dataManager.ErrorLog(ex.Message);
+                //dataManager.ErrorLog(ex.Message);
                 // load results from file
                 dataManager.SetFileDataRepo();
                 // load results based on settings
@@ -296,7 +296,7 @@ namespace DesktopWinForms
                     }
                     catch (Exception ex)
                     {
-                        dataManager.ErrorLog(ex.Message + ", " + ex.StackTrace);
+                        //dataManager.ErrorLog(ex.Message + ", " + ex.StackTrace);
                     }
                 }
                 if (match.AwayTeamCountry == settingsFavorite.FavoriteTeam)
@@ -307,7 +307,7 @@ namespace DesktopWinForms
                     }
                     catch (Exception ex)
                     {
-                        dataManager.ErrorLog(ex.Message + ", " + ex.StackTrace);
+                        //dataManager.ErrorLog(ex.Message + ", " + ex.StackTrace);
                     }
                 }
             }
@@ -362,7 +362,7 @@ namespace DesktopWinForms
             // add goal and yellow cards to playerRangList if player scored a goal
             match.AwayTeamEvents.ForEach(x =>
             {
-                if (x.TypeOfEvent == "goal")
+                if (x.TypeOfEvent == "goal" || x.TypeOfEvent == "goal-penalty")
                 {
                     // get player from playerRangList
                     Player player = playerRangList.First(y => y.Name == x.Player);
@@ -409,7 +409,7 @@ namespace DesktopWinForms
             // add goal and yellow cards to playerRangList if player scored a goal
             match.HomeTeamEvents.ForEach(x =>
             {
-                if (x.TypeOfEvent == "goal")
+                if (x.TypeOfEvent == "goal" || x.TypeOfEvent == "goal-penalty")
                 {
                     // get player from playerRangList
                     Player player = playerRangList.First(y => y.Name == x.Player);

@@ -208,6 +208,9 @@ Ponovno pokreni sada?</value>
   <data name="rbWomen" xml:space="preserve">
     <value>Žene</value>
   </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
   <data name="TabSettings" xml:space="preserve">
     <value>Postavke</value>
   </data>

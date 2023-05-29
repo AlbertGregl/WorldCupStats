@@ -5,10 +5,6 @@ using System.Reflection;
 using System.Threading;
 using System.Windows;
 using System.Resources;
-using System.Net.Security;
-using System.Data.Common;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Media.Animation;
@@ -23,6 +19,11 @@ namespace DesktopWPF
         private static DataManager dataManager = new DataManager();
         private ISet<Results> results = new HashSet<Results>();
         private ISet<Matches> matches = new HashSet<Matches>();
+
+        private static PlayerImageManager playerImageManager = new PlayerImageManager();
+
+        private ISet<Player> playersFavorite = new HashSet<Player>();
+        private ISet<Player> playersRival = new HashSet<Player>();
 
         private const string cro = "cro";
         private const string eng = "eng";
@@ -127,6 +128,8 @@ namespace DesktopWPF
             lblRivalTeam.Content = resourceManager.GetString("lblRivalTeam");
             btnSetFavTeam.Content = resourceManager.GetString("btnSetFavTeam");
             lblResultDisplay.Content = resourceManager.GetString("lblResultDisplay");
+            btnTeamOvrwFavorite.Content = resourceManager.GetString("TeamOverview");
+            btnTeamOvrwRival.Content = resourceManager.GetString("TeamOverview");
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -209,7 +212,6 @@ namespace DesktopWPF
 
 
         }
-
 
         private void ApplySelectedScreenResolution(string screenResolution)
         {
@@ -412,19 +414,106 @@ namespace DesktopWPF
 
                 string favoriteTeam = settingsFavorite.FavoriteTeam;
                 // search for rival team and favorite team metch in matches
-                foreach (var match in matches)
+                DisplayGameStats(rivalTeam, favoriteTeam);
+            }
+
+        }
+
+        private void DisplayGameStats(string rivalTeam, string favoriteTeam)
+        {
+            // clear playersFavorite and playersRival sets
+            playersFavorite.Clear();
+            playersRival.Clear();
+
+            foreach (var match in matches)
+            {
+                if (favoriteTeam == match.HomeTeamCountry && rivalTeam == match.AwayTeamCountry)
                 {
-                    if (favoriteTeam == match.HomeTeamCountry && rivalTeam == match.AwayTeamCountry)
+                    lblMatchResult.Content = match.HomeTeam.Goals + " : " + match.AwayTeam.Goals;
+                    try
                     {
-                        lblMatchResult.Content = match.HomeTeam.Goals + " : " + match.AwayTeam.Goals;
+                        playersFavorite = GetHomeTeamData(match);
+                        playersRival = GetAwayTeamData(match);
                     }
-                    else if (rivalTeam == match.HomeTeamCountry && favoriteTeam == match.AwayTeamCountry)
+                    catch (Exception ex)
                     {
-                        lblMatchResult.Content = match.AwayTeam.Goals + " : " + match.HomeTeam.Goals;
+                        //dataManager.ErrorLog(ex.Message + ", " + ex.StackTrace);
+                    }
+                }
+                else if (rivalTeam == match.HomeTeamCountry && favoriteTeam == match.AwayTeamCountry)
+                {
+                    lblMatchResult.Content = match.AwayTeam.Goals + " : " + match.HomeTeam.Goals;
+                    try
+                    {
+                        playersFavorite = GetAwayTeamData(match);
+                        playersRival = GetHomeTeamData(match);
+                    }
+                    catch (Exception ex)
+                    {
+                        //dataManager.ErrorLog(ex.Message + ", " + ex.StackTrace);
                     }
                 }
             }
+        }
 
+        private ISet<Player> GetHomeTeamData(Matches match)
+        {
+            ISet<Player> pSet = new HashSet<Player>();
+            // add players from starting eleven and substitutes
+            match.HomeTeamStatistics.StartingEleven.ForEach(x =>
+            {
+                pSet.Add(x);
+                x = playerImageManager.LoadPlayerImage(x);
+            });
+
+            // add goal and yellow cards to player
+            match.HomeTeamEvents.ForEach(x =>
+            {
+                if (x.TypeOfEvent == "goal" || x.TypeOfEvent == "goal-penalty")
+                {
+                    //pSet.Where(y => y.Name == x.Player).FirstOrDefault().Goals++;
+                    Player player = pSet.First(y => y.Name == x.Player);
+                    player.Goals++;
+                }
+                else if (x.TypeOfEvent == "yellow-card")
+                {
+                    //pSet.Where(y => y.Name == x.Player).FirstOrDefault().YellowCards++;
+                    Player player = pSet.First(y => y.Name == x.Player);
+                    player.YellowCards++;
+                }
+            });
+
+            return pSet;
+        }
+
+        private ISet<Player> GetAwayTeamData(Matches match)
+        {
+            ISet<Player> pSet = new HashSet<Player>();
+            // add players from starting eleven and substitutes
+            match.AwayTeamStatistics.StartingEleven.ForEach(x =>
+            {
+                pSet.Add(x);
+                x = playerImageManager.LoadPlayerImage(x);
+            });
+
+            // add goal and yellow cards to player
+            match.AwayTeamEvents.ForEach(x =>
+            {
+                if (x.TypeOfEvent == "goal" || x.TypeOfEvent == "goal-penalty")
+                {
+                    //pSet.Where(y => y.Name == x.Player).FirstOrDefault().Goals++;
+                    Player player = pSet.First(y => y.Name == x.Player);
+                    player.Goals++;
+                }
+                else if (x.TypeOfEvent == "yellow-card")
+                {
+                    //pSet.Where(y => y.Name == x.Player).FirstOrDefault().YellowCards++;
+                    Player player = pSet.First(y => y.Name == x.Player);
+                    player.YellowCards++;
+                }
+            });
+
+            return pSet;
         }
 
         private void btnTeamOvrwFavorite_Click(object sender, RoutedEventArgs e)
