@@ -346,14 +346,16 @@ namespace DesktopWinForms
             match.AwayTeamStatistics.StartingEleven.ForEach(x =>
             {
                 playerSet.Add(x);
-                x.Image = playerImageManager.GetDefaultImage();
+                //x.Image = playerImageManager.GetDefaultImage();
+                x = playerImageManager.LoadPlayerImage(x);
                 x.GamesPlayed++;
                 playerRangList.Add(x);
             });
             match.AwayTeamStatistics.Substitutes.ForEach(x =>
             {
                 playerSet.Add(x);
-                x.Image = playerImageManager.GetDefaultImage();
+                //x.Image = playerImageManager.GetDefaultImage();
+                x = playerImageManager.LoadPlayerImage(x);
                 x.GamesPlayed++;
                 playerRangList.Add(x);
             });
@@ -390,14 +392,16 @@ namespace DesktopWinForms
             match.HomeTeamStatistics.StartingEleven.ForEach(x =>
             {
                 playerSet.Add(x);
-                x.Image = playerImageManager.GetDefaultImage();
+                //x.Image = playerImageManager.GetDefaultImage();
+                x = playerImageManager.LoadPlayerImage(x);
                 x.GamesPlayed++;
                 playerRangList.Add(x);
             });
             match.HomeTeamStatistics.Substitutes.ForEach(x =>
             {
                 playerSet.Add(x);
-                x.Image = playerImageManager.GetDefaultImage();
+                //x.Image = playerImageManager.GetDefaultImage();
+                x = playerImageManager.LoadPlayerImage(x);
                 x.GamesPlayed++;
                 playerRangList.Add(x);
             });
@@ -772,6 +776,15 @@ namespace DesktopWinForms
                     DataGridViewImageCell cell = (DataGridViewImageCell)dataGridPlayerRangList.Rows[e.RowIndex].Cells[e.ColumnIndex];
                     // set the image of the picture box
                     cell.Value = Image.FromFile(openFileDialog.FileName);
+                    // get the player from the row
+                    Player player = (Player)dataGridPlayerRangList.Rows[e.RowIndex].DataBoundItem;
+                    // set the image of the player
+                    player.Image = (Image)cell.Value;
+                    // save relative image path of the player
+                    string imageName = Path.GetFileName(openFileDialog.FileName);
+                    player.ImagePath = playerImageManager.GetRelativeImagePath(imageName);
+                    // save the image of the player
+                    playerImageManager.SavePlayerImage(player);
                 }
                 // show images in all data grids
                 dataGridFavPlayers.Refresh();

@@ -24,8 +24,11 @@ namespace DataRepository.Models
 
         public bool Favorite { get; set; }
 
-        // rang list props
+        // image props
         public Image? Image { get; set; }
+        public string? ImagePath { get; set; }
+
+        // rang list props
         public int Goals { get; set; }
         public int YellowCards { get; set; }
         public int GamesPlayed { get; set; }
