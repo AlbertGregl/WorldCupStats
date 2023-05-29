@@ -458,16 +458,117 @@ namespace DesktopWPF
                 }
             }
 
+            // clear gridGameFields
+            ClearGridGameFields();
+
             // display favorite team players using PlayerControl
             DisplayFavoritePlayers();
 
+            // display rival team players using PlayerControl
+            DisplayRivalPlayers();
+
+        }
+
+        private void DisplayRivalPlayers()
+        {
+            foreach (Player p in playersRival)
+            {
+                if (p.Position == "Goalie")
+                {
+                    if (p.ImagePath == null)
+                    {
+                        p.ImagePath = playerImageManager.GetDefaultImagePath();
+                    }
+                    // fill gridGameField60 with PlayerControl
+                    gridGameField67.Children.Add(new PlayerControl(p));
+                }
+                if (p.Position == "Defender")
+                {
+                    if (p.ImagePath == null)
+                    {
+                        p.ImagePath = playerImageManager.GetDefaultImagePath();
+                    }
+                    //fill with PlayerControl if empty
+                    if (gridGameField66.Children.Count == 0)
+                    {
+                        gridGameField66.Children.Add(new PlayerControl(p));
+                    }
+                    else if (gridGameField56.Children.Count == 0)
+                    {
+                        gridGameField56.Children.Add(new PlayerControl(p));
+                    }
+                    else if (gridGameField76.Children.Count == 0)
+                    {
+                        gridGameField76.Children.Add(new PlayerControl(p));
+                    }
+                    else if (gridGameField46.Children.Count == 0)
+                    {
+                        gridGameField46.Children.Add(new PlayerControl(p));
+                    }
+                    else
+                    {
+                        gridGameField86.Children.Add(new PlayerControl(p));
+                    }
+                }
+                if (p.Position == "Midfield")
+                {
+                    {
+                        p.ImagePath = playerImageManager.GetDefaultImagePath();
+                    }
+                    //fill with PlayerControl if empty
+                    if (gridGameField65.Children.Count == 0)
+                    {
+                        gridGameField65.Children.Add(new PlayerControl(p));
+                    }
+                    else if (gridGameField55.Children.Count == 0)
+                    {
+                        gridGameField55.Children.Add(new PlayerControl(p));
+                    }
+                    else if (gridGameField75.Children.Count == 0)
+                    {
+                        gridGameField75.Children.Add(new PlayerControl(p));
+                    }
+                    else if (gridGameField45.Children.Count == 0)
+                    {
+                        gridGameField45.Children.Add(new PlayerControl(p));
+                    }
+                    else
+                    {
+                        gridGameField85.Children.Add(new PlayerControl(p));
+                    }
+                }
+                if (p.Position == "Forward")
+                {
+                    {
+                        p.ImagePath = playerImageManager.GetDefaultImagePath();
+                    }
+                    //fill with PlayerControl if empty
+                    if (gridGameField64.Children.Count == 0)
+                    {
+                        gridGameField64.Children.Add(new PlayerControl(p));
+                    }
+                    else if (gridGameField54.Children.Count == 0)
+                    {
+                        gridGameField54.Children.Add(new PlayerControl(p));
+                    }
+                    else if (gridGameField74.Children.Count == 0)
+                    {
+                        gridGameField74.Children.Add(new PlayerControl(p));
+                    }
+                    else if (gridGameField44.Children.Count == 0)
+                    {
+                        gridGameField44.Children.Add(new PlayerControl(p));
+                    }
+                    else
+                    {
+                        gridGameField84.Children.Add(new PlayerControl(p));
+                    }
+                }
+            }
         }
 
         private void DisplayFavoritePlayers()
         {
-            // clear gridGameFields
-            ClearGridGameFields();
-
             foreach (Player p in playersFavorite)
             {
                 if (p.Position == "Goalie")
@@ -478,6 +579,88 @@ namespace DesktopWPF
                     }
                     // fill gridGameField60 with PlayerControl
                     gridGameField60.Children.Add(new PlayerControl(p));
+                }
+                if (p.Position == "Defender")
+                {
+                    if (p.ImagePath == null)
+                    {
+                        p.ImagePath = playerImageManager.GetDefaultImagePath();
+                    }
+                    //fill with PlayerControl if empty
+                    if (gridGameField61.Children.Count == 0)
+                    {
+                        gridGameField61.Children.Add(new PlayerControl(p));
+                    }
+                    else if (gridGameField51.Children.Count == 0)
+                    {
+                        gridGameField51.Children.Add(new PlayerControl(p));
+                    }
+                    else if (gridGameField71.Children.Count == 0)
+                    {
+                        gridGameField71.Children.Add(new PlayerControl(p));
+                    }
+                    else if (gridGameField41.Children.Count == 0)
+                    {
+                        gridGameField41.Children.Add(new PlayerControl(p));
+                    }
+                    else
+                    {
+                        gridGameField81.Children.Add(new PlayerControl(p));
+                    }
+                }
+                if (p.Position == "Midfield")
+                {
+                    {
+                        p.ImagePath = playerImageManager.GetDefaultImagePath();
+                    }
+                    //fill with PlayerControl if empty
+                    if (gridGameField62.Children.Count == 0)
+                    {
+                        gridGameField62.Children.Add(new PlayerControl(p));
+                    }
+                    else if (gridGameField52.Children.Count == 0)
+                    {
+                        gridGameField52.Children.Add(new PlayerControl(p));
+                    }
+                    else if (gridGameField72.Children.Count == 0)
+                    {
+                        gridGameField72.Children.Add(new PlayerControl(p));
+                    }
+                    else if (gridGameField42.Children.Count == 0)
+                    {
+                        gridGameField42.Children.Add(new PlayerControl(p));
+                    }
+                    else
+                    {
+                        gridGameField82.Children.Add(new PlayerControl(p));
+                    }
+                }
+                if (p.Position == "Forward")
+                {
+                    {
+                        p.ImagePath = playerImageManager.GetDefaultImagePath();
+                    }
+                    //fill with PlayerControl if empty
+                    if (gridGameField63.Children.Count == 0)
+                    {
+                        gridGameField63.Children.Add(new PlayerControl(p));
+                    }
+                    else if (gridGameField53.Children.Count == 0)
+                    {
+                        gridGameField53.Children.Add(new PlayerControl(p));
+                    }
+                    else if (gridGameField73.Children.Count == 0)
+                    {
+                        gridGameField73.Children.Add(new PlayerControl(p));
+                    }
+                    else if (gridGameField43.Children.Count == 0)
+                    {
+                        gridGameField43.Children.Add(new PlayerControl(p));
+                    }
+                    else
+                    {
+                        gridGameField83.Children.Add(new PlayerControl(p));
+                    }
                 }
             }
 
@@ -516,7 +699,15 @@ namespace DesktopWPF
             gridGameField74.Children.Clear();
             gridGameField75.Children.Clear();
             gridGameField76.Children.Clear();
-            gridGameField77.Children.Clear();                
+            gridGameField77.Children.Clear();
+            gridGameField80.Children.Clear();
+            gridGameField81.Children.Clear();
+            gridGameField82.Children.Clear();
+            gridGameField83.Children.Clear();
+            gridGameField84.Children.Clear();
+            gridGameField85.Children.Clear();
+            gridGameField86.Children.Clear();
+            gridGameField87.Children.Clear();
         }
 
         private ISet<Player> GetHomeTeamData(Matches match)
