@@ -12,6 +12,7 @@
     <None Remove="btnImg.png" />
     <None Remove="Resources\ball.png" />
     <None Remove="soccer_ball.png" />
+    <None Remove="Soccer_field.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +23,7 @@
     <Resource Include="Resources\ball.png" />
     <Resource Include="Resources\btnImg.png" />
     <Resource Include="Resources\soccer_ball.png" />
+    <Resource Include="Resources\Soccer_field.png" />
   </ItemGroup>
 
   <ItemGroup>
