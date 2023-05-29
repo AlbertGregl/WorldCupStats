@@ -393,9 +393,12 @@ namespace DesktopWPF
             // fill up rival team combo box with data
             FillUpRivalTeamComboBox();
 
+            // clear grid game fields
+            ClearGridGameFields();
+
             // prompt descrete success message
             MessageBox.Show(MSGBoxFavTeamText);
-            
+
         }
 
         private void cmbFavoriteTeam_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -454,6 +457,66 @@ namespace DesktopWPF
                     }
                 }
             }
+
+            // display favorite team players using PlayerControl
+            DisplayFavoritePlayers();
+
+        }
+
+        private void DisplayFavoritePlayers()
+        {
+            // clear gridGameFields
+            ClearGridGameFields();
+
+            foreach (Player p in playersFavorite)
+            {
+                if (p.Position == "Goalie")
+                {
+                    if (p.ImagePath == null)
+                    {
+                        p.ImagePath = playerImageManager.GetDefaultImagePath();
+                    }
+                    // fill gridGameField60 with PlayerControl
+                    gridGameField60.Children.Add(new PlayerControl(p));
+                }
+            }
+
+        }
+
+        private void ClearGridGameFields()
+        {
+            gridGameField40.Children.Clear();
+            gridGameField41.Children.Clear();
+            gridGameField42.Children.Clear();
+            gridGameField43.Children.Clear();
+            gridGameField44.Children.Clear();
+            gridGameField45.Children.Clear();
+            gridGameField46.Children.Clear();                
+            gridGameField47.Children.Clear();
+            gridGameField50.Children.Clear();
+            gridGameField51.Children.Clear();
+            gridGameField52.Children.Clear();
+            gridGameField53.Children.Clear();
+            gridGameField54.Children.Clear();
+            gridGameField55.Children.Clear();
+            gridGameField56.Children.Clear();
+            gridGameField57.Children.Clear();
+            gridGameField60.Children.Clear();
+            gridGameField61.Children.Clear();
+            gridGameField62.Children.Clear();
+            gridGameField63.Children.Clear();
+            gridGameField64.Children.Clear();
+            gridGameField65.Children.Clear();
+            gridGameField66.Children.Clear();
+            gridGameField67.Children.Clear();
+            gridGameField70.Children.Clear();
+            gridGameField71.Children.Clear();
+            gridGameField72.Children.Clear();
+            gridGameField73.Children.Clear();
+            gridGameField74.Children.Clear();
+            gridGameField75.Children.Clear();
+            gridGameField76.Children.Clear();
+            gridGameField77.Children.Clear();                
         }
 
         private ISet<Player> GetHomeTeamData(Matches match)
@@ -472,14 +535,20 @@ namespace DesktopWPF
                 if (x.TypeOfEvent == "goal" || x.TypeOfEvent == "goal-penalty")
                 {
                     //pSet.Where(y => y.Name == x.Player).FirstOrDefault().Goals++;
-                    Player player = pSet.First(y => y.Name == x.Player);
-                    player.Goals++;
+                    Player player = pSet.FirstOrDefault(y => y.Name == x.Player);
+                    if (player != null)
+                    {
+                        player.Goals++;
+                    }                    
                 }
                 else if (x.TypeOfEvent == "yellow-card")
                 {
                     //pSet.Where(y => y.Name == x.Player).FirstOrDefault().YellowCards++;
-                    Player player = pSet.First(y => y.Name == x.Player);
-                    player.YellowCards++;
+                    Player player = pSet.FirstOrDefault(y => y.Name == x.Player);
+                    if (player != null)
+                    {
+                        player.YellowCards++;
+                    }
                 }
             });
 
@@ -502,14 +571,20 @@ namespace DesktopWPF
                 if (x.TypeOfEvent == "goal" || x.TypeOfEvent == "goal-penalty")
                 {
                     //pSet.Where(y => y.Name == x.Player).FirstOrDefault().Goals++;
-                    Player player = pSet.First(y => y.Name == x.Player);
-                    player.Goals++;
+                    Player player = pSet.FirstOrDefault(y => y.Name == x.Player);
+                    if (player != null)
+                    {
+                        player.Goals++;
+                    }
                 }
                 else if (x.TypeOfEvent == "yellow-card")
                 {
                     //pSet.Where(y => y.Name == x.Player).FirstOrDefault().YellowCards++;
-                    Player player = pSet.First(y => y.Name == x.Player);
-                    player.YellowCards++;
+                    Player player = pSet.FirstOrDefault(y => y.Name == x.Player);
+                    if (player != null)
+                    {
+                        player.YellowCards++;
+                    }                    
                 }
             });
 

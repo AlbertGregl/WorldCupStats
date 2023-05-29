@@ -173,7 +173,7 @@
                 <Grid x:Name="gridGameField86" Grid.Row="8" Grid.Column="6" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 <Grid x:Name="gridGameField87" Grid.Row="8" Grid.Column="7" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
-                <Canvas x:Name="cnvGameField" Grid.Row="4" Grid.ColumnSpan="8" Grid.RowSpan="5">
+                <Canvas x:Name="cnvGameField" Grid.Row="4" Grid.ColumnSpan="8" Grid.RowSpan="5" Panel.ZIndex="-1">
                     <Canvas.Background>
                         <ImageBrush ImageSource="Resources/Soccer_field.png"/>
                     </Canvas.Background>

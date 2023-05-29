@@ -365,20 +365,30 @@ namespace DesktopWinForms
                 if (x.TypeOfEvent == "goal" || x.TypeOfEvent == "goal-penalty")
                 {
                     // get player from playerRangList
-                    Player player = playerRangList.First(y => y.Name == x.Player);
-                    player.Goals++;
+                    Player player = playerRangList.FirstOrDefault(y => y.Name == x.Player);
+                    if (player != null)
+                    {
+                        player.Goals++;
+                    }                    
                 }
                 if (x.TypeOfEvent == "yellow-card")
                 {
                     // get player from playerRangList
-                    Player player = playerRangList.First(y => y.Name == x.Player);
-                    player.YellowCards++;
+                    Player player = playerRangList.FirstOrDefault(y => y.Name == x.Player);
+                    if (player != null)
+                    {
+                        player.YellowCards++;
+                    }
                 }
                 if (x.TypeOfEvent == "substitution-in")
                 {
-                    Player player = playerRangList.First(y => y.Name == x.Player);
+                    Player player = playerRangList.FirstOrDefault(y => y.Name == x.Player);
                     // add Games Played
-                    player.GamesPlayed++;
+                    if (player != null)
+                    {
+                        player.GamesPlayed++;
+                    }
+                    
                 }
             });
 
@@ -412,21 +422,30 @@ namespace DesktopWinForms
                 if (x.TypeOfEvent == "goal" || x.TypeOfEvent == "goal-penalty")
                 {
                     // get player from playerRangList
-                    Player player = playerRangList.First(y => y.Name == x.Player);
+                    Player player = playerRangList.FirstOrDefault(y => y.Name == x.Player);
                     // add goal to player
-                    player.Goals++;
+                    if (player != null)
+                    {
+                        player.Goals++;
+                    }                    
                 }
                 if (x.TypeOfEvent == "yellow-card")
                 {
-                    Player player = playerRangList.First(y => y.Name == x.Player);
+                    Player player = playerRangList.FirstOrDefault(y => y.Name == x.Player);
                     // add yellow card to player
-                    player.YellowCards++;
+                    if (player != null)
+                    {
+                        player.YellowCards++;
+                    }                    
                 }
                 if (x.TypeOfEvent == "substitution-in")
                 {
-                    Player player = playerRangList.First(y => y.Name == x.Player);
+                    Player player = playerRangList.FirstOrDefault(y => y.Name == x.Player);
                     // add Games Played
-                    player.GamesPlayed++;
+                    if (player != null)
+                    {
+                        player.GamesPlayed++;
+                    }
                 }
             });
 

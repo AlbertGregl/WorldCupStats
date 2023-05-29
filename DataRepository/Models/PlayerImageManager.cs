@@ -87,5 +87,7 @@ namespace DataRepository.Models
                 return _filePath + fileName;
             }
         }
+
+        public string GetDefaultImagePath() => _filePath + IMAGE_PATH;
     }
 }
