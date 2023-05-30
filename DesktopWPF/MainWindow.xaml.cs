@@ -380,6 +380,7 @@ namespace DesktopWPF
                 }
                 if (p.Position == "Midfield")
                 {
+                    if (p.ImagePath == null)
                     {
                         p.ImagePath = playerImageManager.GetDefaultImagePath();
                     }
@@ -407,6 +408,7 @@ namespace DesktopWPF
                 }
                 if (p.Position == "Forward")
                 {
+                    if (p.ImagePath == null)
                     {
                         p.ImagePath = playerImageManager.GetDefaultImagePath();
                     }
@@ -478,6 +480,7 @@ namespace DesktopWPF
                 }
                 if (p.Position == "Midfield")
                 {
+                    if (p.ImagePath == null)
                     {
                         p.ImagePath = playerImageManager.GetDefaultImagePath();
                     }
@@ -505,6 +508,7 @@ namespace DesktopWPF
                 }
                 if (p.Position == "Forward")
                 {
+                    if (p.ImagePath == null)
                     {
                         p.ImagePath = playerImageManager.GetDefaultImagePath();
                     }

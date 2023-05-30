@@ -3,3 +3,6 @@ Carlos BACCA|7|..\..\..\..\Resources\playerImages\player_07.png
 Ivan STRINIC|3|..\..\..\..\Resources\playerImages\player_02.png
 Dejan LOVREN|6|..\..\..\..\Resources\playerImages\player_12.png
 Danijel SUBASIC|23|..\..\..\..\Resources\playerImages\player_20.png
+Luka MODRIC|10|..\..\..\..\Resources\playerImages\player_19.png
+Kylian MBAPPE|10|..\..\..\..\Resources\playerImages\player_08.png
+Hugo LLORIS|1|..\..\..\..\Resources\playerImages\player_26.png
