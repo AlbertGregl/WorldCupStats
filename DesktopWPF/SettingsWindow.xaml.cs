@@ -100,8 +100,8 @@ namespace DesktopWPF
             rbMediumScreen.Content = resourceManager.GetString("rbMediumScreen");
             rbFullScreen.Content = resourceManager.GetString("rbFullScreen");
             btnSaveSettings.Content = resourceManager.GetString("btnSaveSettings");
+            btnCancelSettings.Content = resourceManager.GetString("");
         }
-
 
         private void btnSaveSettings_Click(object sender, RoutedEventArgs e)
         {
@@ -192,13 +192,33 @@ namespace DesktopWPF
             {
                 // save settings
                 RestartAppRequired = true;
-                SaveSettingsUtil();
             }
 
             // save settings
-            RestartAppRequired = false;
             SaveSettingsUtil();
         }
 
+        private void settingsWindow_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            // if user press enter
+            if (e.Key == System.Windows.Input.Key.Enter)
+            {
+                SaveAppSettings();
+                // close the window
+                this.Close();
+            }
+            // if user press escape
+            else if (e.Key == System.Windows.Input.Key.Escape)
+            {
+                RestartAppRequired = false;
+                this.Close();
+            }
+        }
+
+        private void btnCancelSettings_Click(object sender, RoutedEventArgs e)
+        {
+            RestartAppRequired = false;
+            this.Close();
+        }
     }
 }

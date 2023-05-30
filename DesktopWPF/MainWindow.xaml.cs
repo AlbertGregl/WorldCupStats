@@ -100,7 +100,6 @@ namespace DesktopWPF
         private void TranslateMainForm(ResourceManager resourceManager)
         {
             this.Title = resourceManager.GetString("MainWindowForm");
-            TabWorldCup.Header = resourceManager.GetString("TabWorldCup");
             MSGBoxRestartTitle = resourceManager.GetString("FormRestartName");
             MSGBoxRestartText = resourceManager.GetString("FormRestartText");
             MSGBoxFavTeamText = resourceManager.GetString("MSGBoxFavTeamText");
@@ -110,6 +109,7 @@ namespace DesktopWPF
             lblResultDisplay.Content = resourceManager.GetString("lblResultDisplay");
             btnTeamOvrwFavorite.Content = resourceManager.GetString("TeamOverview");
             btnTeamOvrwRival.Content = resourceManager.GetString("TeamOverview");
+            btnSettings.Content = resourceManager.GetString("TabSettings");
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

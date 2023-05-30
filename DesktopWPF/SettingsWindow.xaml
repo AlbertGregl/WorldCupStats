@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopWPF"
         mc:Ignorable="d"
-        Title="SettingsWindow" MinHeight="300" MinWidth="400" MaxHeight="300" MaxWidth="400" Height="300" Width="400" Background="#FFFFC300" Icon="/Resources/trophy.png" WindowStartupLocation="CenterScreen">
+        Title="SettingsWindow" MinHeight="300" MinWidth="400" MaxHeight="300" MaxWidth="400" Height="300" Width="400" Background="#FFFFC300" Icon="/Resources/trophy.png" WindowStartupLocation="CenterScreen" KeyDown="settingsWindow_KeyDown">
     <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="90"/>
@@ -13,8 +13,8 @@
             <RowDefinition Height="32" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="90"/>
-            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="120"/>
         </Grid.ColumnDefinitions>
         <Grid HorizontalAlignment="Left" Height="85" VerticalAlignment="Top" Width="85" Grid.Column="0">
             <Label x:Name="lbLanguage" Content="Language" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -26,13 +26,13 @@
             <RadioButton x:Name="rbMen" Content="Men" HorizontalAlignment="Left" Margin="0,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.066,-0.309" IsChecked="True" GroupName="rbgWorldCup"/>
             <RadioButton x:Name="rbWomen" Content="Women" HorizontalAlignment="Left" Margin="0,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.066,-0.309" GroupName="rbgWorldCup"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="90" VerticalAlignment="Center" Width="170" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+        <Grid HorizontalAlignment="Center" Height="90" VerticalAlignment="Center" Width="240" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
             <Label x:Name="lblScreenResolution" Content="Screen Resolution" HorizontalAlignment="Left" Margin="7,0,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
             <RadioButton x:Name="rbSmallScreen" Content="Small (800x600px)" HorizontalAlignment="Left" Margin="0,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.066,-0.309" IsChecked="True" GroupName="rbgScreenResolution"/>
             <RadioButton x:Name="rbMediumScreen" Content="Medium (1024x768px)" HorizontalAlignment="Left" Margin="0,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.066,-0.309" GroupName="rbgScreenResolution"/>
             <RadioButton x:Name="rbFullScreen" Content="Full Screen" HorizontalAlignment="Left" Margin="0,68,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.066,-0.309" GroupName="rbgScreenResolution"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="30" VerticalAlignment="Center" Width="180" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" RenderTransformOrigin="0.426,0.19">
+        <Grid HorizontalAlignment="Center" Height="30" VerticalAlignment="Center" Width="119" Grid.Row="2" RenderTransformOrigin="0.426,0.19">
             <Button x:Name="btnSaveSettings" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Width="118" Foreground="White" BorderBrush="#FFFFC300" Height="30" Click="btnSaveSettings_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/Resources/btnImg.png"/>
@@ -45,5 +45,6 @@
                 </Button.OpacityMask>
             </Button>
         </Grid>
+        <Button x:Name="btnCancelSettings" Grid.Column="1" Content="Cancel" HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="25" Width="84" Click="btnCancelSettings_Click"/>
     </Grid>
 </Window>
