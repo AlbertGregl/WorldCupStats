@@ -46,5 +46,17 @@ namespace DesktopWPF.Properties {
                 this["AppLanguage"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("men")]
+        public string AppChampionship {
+            get {
+                return ((string)(this["AppChampionship"]));
+            }
+            set {
+                this["AppChampionship"] = value;
+            }
+        }
     }
 }

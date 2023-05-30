@@ -26,16 +26,12 @@ namespace DesktopWPF
         private ISet<Player> playersFavorite = new HashSet<Player>();
         private ISet<Player> playersRival = new HashSet<Player>();
 
-        private const string cro = "cro";
-        private const string eng = "eng";
-        private const string women = "women";
-        private const string men = "men";
         private string MSGBoxRestartText = "";
         private string MSGBoxRestartTitle = "";
         private string MSGBoxFavTeamText = "";
 
         private readonly ISettingsRepository settingsRepo;
-        public SettingsLocal AppSettings { get; set; }
+
         private SettingsFavorite settingsFavorite;
 
         public MainWindow()
@@ -50,8 +46,7 @@ namespace DesktopWPF
             settingsRepo = RepositoryFactory.GetSettingsRepo();
             // create favorite settings file with default values
             settingsFavorite = new SettingsFavorite();
-            // set default settings
-            AppSettings = new SettingsLocal();
+
             // check if settings file exists
             CheckIfSettingsFileExists();
             // if settings favorite file does not exist set default values
@@ -83,13 +78,13 @@ namespace DesktopWPF
             {
                 ResourceManager resourceManager = new ResourceManager("DesktopWPF.Resources.croatian", Assembly.GetExecutingAssembly());
                 // change current lozalizable language to english
-                if (AppSettings.Language == "eng")
+                if (Properties.SettingsWPF.Default.AppLanguage == "eng")
                 {
                     Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
                     resourceManager = new ResourceManager("DesktopWPF.Resources.english", Assembly.GetExecutingAssembly());
                 }
                 // change current lozalizable language to croatian
-                else if (AppSettings.Language == "cro")
+                else if (Properties.SettingsWPF.Default.AppLanguage == "cro")
                 {
                     Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("hr-HR");
                     resourceManager = new ResourceManager("DesktopWPF.Resources.croatian", Assembly.GetExecutingAssembly());
@@ -105,22 +100,10 @@ namespace DesktopWPF
         private void TranslateMainForm(ResourceManager resourceManager)
         {
             this.Title = resourceManager.GetString("MainWindowForm");
-            TabSettings.Header = resourceManager.GetString("TabSettings");
             TabWorldCup.Header = resourceManager.GetString("TabWorldCup");
-            lbLanguage.Content = resourceManager.GetString("lbLanguage");
-            rbCroatian.Content = resourceManager.GetString("rbCroatian");
-            rbEnglish.Content = resourceManager.GetString("rbEnglish");
-            lbWorldCup.Content = resourceManager.GetString("lbWorldCup");
-            rbMen.Content = resourceManager.GetString("rbMen");
-            rbWomen.Content = resourceManager.GetString("rbWomen");
             MSGBoxRestartTitle = resourceManager.GetString("FormRestartName");
             MSGBoxRestartText = resourceManager.GetString("FormRestartText");
             MSGBoxFavTeamText = resourceManager.GetString("MSGBoxFavTeamText");
-            lblScreenResolution.Content = resourceManager.GetString("lblScreenResolution");
-            rbSmallScreen.Content = resourceManager.GetString("rbSmallScreen");
-            rbMediumScreen.Content = resourceManager.GetString("rbMediumScreen");
-            rbFullScreen.Content = resourceManager.GetString("rbFullScreen");
-            btnSaveSettings.Content = resourceManager.GetString("btnSaveSettings");
             lblFavoriteTeam.Content = resourceManager.GetString("lblFavoriteTeam");
             lblRivalTeam.Content = resourceManager.GetString("lblRivalTeam");
             btnSetFavTeam.Content = resourceManager.GetString("btnSetFavTeam");
@@ -191,8 +174,8 @@ namespace DesktopWPF
         {
             try
             {
-                results = dataManager.GetResultsByChampionship(AppSettings.Championship);
-                matches = dataManager.GetMatchesByChampionship(AppSettings.Championship);
+                results = dataManager.GetResultsByChampionship(Properties.SettingsWPF.Default.AppChampionship);
+                matches = dataManager.GetMatchesByChampionship(Properties.SettingsWPF.Default.AppChampionship);
             }
             catch (Exception ex)
             {
@@ -201,8 +184,8 @@ namespace DesktopWPF
                 // load results from file
                 dataManager.SetFileDataRepo();
                 // load results based on settings
-                results = dataManager.GetResultsByChampionship(AppSettings.Championship);
-                matches = dataManager.GetMatchesByChampionship(AppSettings.Championship);
+                results = dataManager.GetResultsByChampionship(Properties.SettingsWPF.Default.AppChampionship);
+                matches = dataManager.GetMatchesByChampionship(Properties.SettingsWPF.Default.AppChampionship);
                 // display that data is loaded from file (lblConnection = offline)
                 lblConnection.Content = "Offline";
             }
@@ -233,128 +216,12 @@ namespace DesktopWPF
         {
             if(!settingsRepo.SettingsFileCreated())
             {
-                // hide <TabItem Header="World Cup">
-                TabWorldCup.Visibility = Visibility.Hidden;
-                SaveAppSettings();
-                // hide <TabItem Header="World Cup">
-                TabWorldCup.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                // load settings
-                AppSettings = settingsRepo.LoadSettings();
-                // check radio buttons based on settings
-                SetupAppSettingsRadioButtons();
-                // display and open world cup tab
-                TabWorldCup.Visibility = Visibility.Visible;
-                TabWorldCup.IsSelected = true;
+                // display and open settings window
+                SettingsWindow settingsWindow = new SettingsWindow();
+                settingsWindow.ShowDialog();
             }
         }
 
-        private void SetupAppSettingsRadioButtons()
-        {
-            if (AppSettings.Language == cro)
-            {
-                rbCroatian.IsChecked = true;               
-            }
-            else
-            {
-                rbEnglish.IsChecked = true;                
-            }
-            if (AppSettings.Championship == men)
-            {
-                rbMen.IsChecked = true;
-            }
-            else
-            {
-                rbWomen.IsChecked = true;
-            }
-            if (Properties.SettingsWPF.Default.ScreenResolution == "Full")
-            {                
-                rbFullScreen.IsChecked = true;
-            }
-            else if (Properties.SettingsWPF.Default.ScreenResolution == "Medium")
-            {                
-                rbMediumScreen.IsChecked = true;
-            }
-            else if (Properties.SettingsWPF.Default.ScreenResolution == "Small")
-            {                
-                rbSmallScreen.IsChecked = true;
-            }
-        }
-
-        private void SaveAppSettings()
-        {
-            string initialResolution = Properties.SettingsWPF.Default.ScreenResolution;
-
-            // set settings based on choice of radio buttons
-            if (rbCroatian.IsChecked == true)
-            {
-                AppSettings.Language = cro;
-                Properties.SettingsWPF.Default.AppLanguage = cro;
-            }
-            else
-            {
-                AppSettings.Language = eng;
-                Properties.SettingsWPF.Default.AppLanguage = eng;
-            }
-            if (rbMen.IsChecked == true)
-            {
-                AppSettings.Championship = men;
-            }
-            else
-            {
-                AppSettings.Championship = women;
-            }
-
-            if (rbFullScreen.IsChecked == true)
-            {
-                Properties.SettingsWPF.Default.ScreenResolution = "Full";
-            }                
-            else if (rbMediumScreen.IsChecked == true)
-            {
-                Properties.SettingsWPF.Default.ScreenResolution = "Medium";
-            }
-            else if (rbSmallScreen.IsChecked == true)
-            {
-                Properties.SettingsWPF.Default.ScreenResolution = "Small";
-            }
-
-            if (initialResolution != Properties.SettingsWPF.Default.ScreenResolution)
-            {
-                // prompt user that for changing the resolution application will have to be reloaded
-                MessageBoxResult result = MessageBox.Show(MSGBoxRestartText, MSGBoxRestartTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (result == MessageBoxResult.Yes)
-                {
-                    // save settings
-                    SaveSettingsUtil();
-
-                    // unsubscribe from events to prevent multiple event firing
-                    this.Closing -= MainWindowForm_Closing;
-                    // restart the application
-                    System.Windows.Forms.Application.Restart();
-                    Application.Current.Shutdown();
-                }
-            }
-
-            // save settings
-            SaveSettingsUtil();
-            // open world cup tab
-            TabWorldCup.IsSelected = true;
-        }
-
-        private void SaveSettingsUtil()
-        {
-            Properties.SettingsWPF.Default.Save();
-            settingsRepo.SaveSettings(AppSettings);
-            // change current lozalizable language
-            SetLanguage();
-        }
-
-        private void TabControl_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            SetupAppSettingsRadioButtons();
-        }
 
         private void MainWindowForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -376,10 +243,6 @@ namespace DesktopWPF
 
         }
 
-        private void btnSaveSettings_Click(object sender, RoutedEventArgs e)
-        {
-            SaveAppSettings();
-        }
 
         private void btnSetFavTeam_Click(object sender, RoutedEventArgs e)
         {
@@ -844,8 +707,30 @@ namespace DesktopWPF
         {
             // open settings window
             SettingsWindow settingsWindow = new SettingsWindow();
-            settingsWindow.Show();
+            settingsWindow.ShowDialog();
+            // restart
+            bool restart = settingsWindow.RestartAppRequired;
+            // if user wants to close the app
+            if (restart)
+            {
+                RestartingRequired();
+            }
+            // translate the window
+            SetLanguage();
+        }
 
+        private void RestartingRequired()
+        {
+            // prompt user that for changing the resolution application will have to be reloaded
+            MessageBoxResult result = MessageBox.Show(MSGBoxRestartText, MSGBoxRestartTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                // unsubscribe from events to prevent multiple event firing
+                this.Closing -= MainWindowForm_Closing;
+                // restart the application
+                System.Windows.Forms.Application.Restart();
+                Application.Current.Shutdown();
+            }
         }
     }
 }

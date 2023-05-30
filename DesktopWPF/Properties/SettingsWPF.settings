@@ -8,5 +8,8 @@
     <Setting Name="AppLanguage" Type="System.String" Scope="User">
       <Value Profile="(Default)">cro</Value>
     </Setting>
+    <Setting Name="AppChampionship" Type="System.String" Scope="User">
+      <Value Profile="(Default)">men</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

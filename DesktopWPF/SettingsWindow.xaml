@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopWPF"
         mc:Ignorable="d"
-        Title="SettingsWindow" MinHeight="300" MinWidth="400" MaxHeight="300" MaxWidth="400" Height="300" Width="400" Background="#FFFFC300" Icon="/Resources/trophy.png">
+        Title="SettingsWindow" MinHeight="300" MinWidth="400" MaxHeight="300" MaxWidth="400" Height="300" Width="400" Background="#FFFFC300" Icon="/Resources/trophy.png" WindowStartupLocation="CenterScreen">
     <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="90"/>
