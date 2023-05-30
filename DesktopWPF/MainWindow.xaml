@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopWPF"
         mc:Ignorable="d"
-        Title="World Cup Stats" MinHeight="600" MinWidth="800" Height="600" Width="800" Loaded="Window_Loaded" Closing="MainWindowForm_Closing" WindowStartupLocation="CenterScreen" Icon="Resources/ball.png">
+        Background="Goldenrod" Title="World Cup Stats" MinHeight="600" MinWidth="800" Height="600" Width="800" Loaded="Window_Loaded" Closing="MainWindowForm_Closing" WindowStartupLocation="CenterScreen" Icon="Resources/ball.png">
     <TabControl Background="Goldenrod" x:Name="MainWindowTab" SelectionChanged="TabControl_SelectionChanged">
         <TabItem x:Name="TabSettings" Header="Settings">
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -103,6 +103,7 @@
                             <ImageBrush ImageSource="/Resources/btnImg.png"/>
                         </Button.Background>
                     </Button>
+                    <Button x:Name="btnSettings" Content="Settings" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Center" Click="btnSettings_Click"/>
                 </Grid>
                 <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
                     <Button x:Name="btnTeamOvrwFavorite" Content="Team Overview" HorizontalAlignment="Left" Margin="80,5,0,10" VerticalAlignment="Top" Width="200" BorderBrush="#FF707070" Foreground="White" FontWeight="Bold" Click="btnTeamOvrwFavorite_Click">

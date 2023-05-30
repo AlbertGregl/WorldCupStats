@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopWPF"
         mc:Ignorable="d"
-        Title="CloseWindow" Height="160" Width="400" MinWidth="400" MinHeight="160" MaxWidth="400" MaxHeight="160" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Resources/ball.png" FontFamily="Consolas" FontSize="14">
-    <Grid Background="#FFFFC300">
+        Title="CloseWindow" Height="160" Width="400" MinWidth="400" MinHeight="160" MaxWidth="400" MaxHeight="160" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Resources/ball.png" FontFamily="Consolas" FontSize="14" KeyDown="closeWindow_KeyDown" Background="#FFFFC300">
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="291*"/>
             <ColumnDefinition Width="109*"/>

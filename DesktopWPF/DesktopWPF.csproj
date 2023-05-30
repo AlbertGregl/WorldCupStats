@@ -44,6 +44,7 @@
     <None Remove="Resources\ball.png" />
     <None Remove="soccer_ball.png" />
     <None Remove="Soccer_field.png" />
+    <None Remove="trophy.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -86,6 +87,7 @@
     <Resource Include="Resources\btnImg.png" />
     <Resource Include="Resources\soccer_ball.png" />
     <Resource Include="Resources\Soccer_field.png" />
+    <Resource Include="Resources\trophy.png" />
   </ItemGroup>
 
   <ItemGroup>

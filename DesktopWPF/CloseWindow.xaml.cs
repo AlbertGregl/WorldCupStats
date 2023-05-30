@@ -3,7 +3,6 @@ using System.Reflection;
 using System.Threading;
 using System.Windows;
 using System.Resources;
-using DataRepository.Models;
 
 namespace DesktopWPF
 {
@@ -56,6 +55,11 @@ namespace DesktopWPF
 
         private void btnYesCloseWindow_Click(object sender, RoutedEventArgs e)
         {
+            CloseApplication();
+        }
+
+        private void CloseApplication()
+        {
             // set bool to true
             CloseApp = true;
             // close window
@@ -64,10 +68,29 @@ namespace DesktopWPF
 
         private void btnNoCloseWindow_Click(object sender, RoutedEventArgs e)
         {
+            Cancel();
+        }
+
+        private void Cancel()
+        {
             // set bool to false
             CloseApp = false;
             // close window
             this.Close();
+        }
+
+        private void closeWindow_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            // if user press enter
+            if (e.Key == System.Windows.Input.Key.Enter)
+            {
+                CloseApplication();
+            }
+            // if user press escape
+            else if (e.Key == System.Windows.Input.Key.Escape)
+            {
+                Cancel();
+            }
         }
     }
 }

@@ -839,5 +839,13 @@ namespace DesktopWPF
                 }
             }
         }
+
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            // open settings window
+            SettingsWindow settingsWindow = new SettingsWindow();
+            settingsWindow.Show();
+
+        }
     }
 }
