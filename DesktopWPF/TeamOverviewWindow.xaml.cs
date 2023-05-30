@@ -14,17 +14,11 @@ namespace DesktopWPF
     public partial class TeamOverviewWindow : Window
     {
         private Results result = new Results();
-        private int windowWidth;
-        private int windowHeight;
-        private string language;
 
-        public TeamOverviewWindow(Results result, int windowWidth, int windowHeight, string language)
+        public TeamOverviewWindow(Results result, int windowWidth, int windowHeight)
         {
             InitializeComponent();
             this.result = result;
-            this.windowWidth = windowWidth;                
-            this.windowHeight = windowHeight;
-            this.language = language;
 
             // setup window size
             this.Width = windowWidth;
@@ -54,18 +48,18 @@ namespace DesktopWPF
             {
                 ResourceManager resourceManager = new ResourceManager("DesktopWPF.Resources.croatian", Assembly.GetExecutingAssembly());
                 // change current lozalizable language to english
-                if (language == "eng")
+                if (Properties.SettingsWPF.Default.AppLanguage == "eng")
                 {
                     Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
                     resourceManager = new ResourceManager("DesktopWPF.Resources.english", Assembly.GetExecutingAssembly());
                 }
                 // change current lozalizable language to croatian
-                else if (language == "cro")
+                else if (Properties.SettingsWPF.Default.AppLanguage == "cro")
                 {
                     Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("hr-HR");
                     resourceManager = new ResourceManager("DesktopWPF.Resources.croatian", Assembly.GetExecutingAssembly());
                 }
-                TranslateMainForm(resourceManager);
+                TranslateTeamForm(resourceManager);
             }
             catch (Exception ex)
             {
@@ -73,7 +67,7 @@ namespace DesktopWPF
             }
         }
 
-        private void TranslateMainForm(ResourceManager resourceManager)
+        private void TranslateTeamForm(ResourceManager resourceManager)
         {
             this.Title = $"{resourceManager.GetString("TeamOverview")} ({result.FifaCode})";
             lblCountryRowTitle.Content = resourceManager.GetString("lblCountryRowTitle");

@@ -5,5 +5,8 @@
     <Setting Name="ScreenResolution" Type="System.String" Scope="User">
       <Value Profile="(Default)">Small</Value>
     </Setting>
+    <Setting Name="AppLanguage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cro</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

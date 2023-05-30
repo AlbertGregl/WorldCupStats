@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btnNoCloseWindow" xml:space="preserve">
+    <value>Ne</value>
+  </data>
   <data name="btnSaveSettings" xml:space="preserve">
     <value>Spremi</value>
   </data>
   <data name="btnSetFavTeam" xml:space="preserve">
     <value>Promijeni omiljenu reprezentaciju</value>
+  </data>
+  <data name="btnYesCloseWindow" xml:space="preserve">
+    <value>Da</value>
   </data>
   <data name="FormClosingName" xml:space="preserve">
     <value>Zatvori</value>
@@ -166,6 +172,24 @@ Ponovno pokreni sada?</value>
   <data name="lblLossesRowTitle" xml:space="preserve">
     <value>Izgubljeno: </value>
   </data>
+  <data name="lblPlayerWindowCaptain" xml:space="preserve">
+    <value>KAPETAN</value>
+  </data>
+  <data name="lblPlayerWindowGoals" xml:space="preserve">
+    <value>Golovi</value>
+  </data>
+  <data name="lblPlayerWindowName" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="lblPlayerWindowPosition" xml:space="preserve">
+    <value>Pozicija</value>
+  </data>
+  <data name="lblPlayerWindowShirt" xml:space="preserve">
+    <value>Broj dresa</value>
+  </data>
+  <data name="lblPlayerWindowYellowCards" xml:space="preserve">
+    <value>Žuti kartoni</value>
+  </data>
   <data name="lblResultDisplay" xml:space="preserve">
     <value>Rezultat:</value>
   </data>
@@ -207,9 +231,6 @@ Ponovno pokreni sada?</value>
   </data>
   <data name="rbWomen" xml:space="preserve">
     <value>Žene</value>
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value />
   </data>
   <data name="TabSettings" xml:space="preserve">
     <value>Postavke</value>

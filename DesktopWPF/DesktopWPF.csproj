@@ -40,6 +40,7 @@
     <None Remove="player_27.png" />
     <None Remove="player_28.png" />
     <None Remove="player_default.png" />
+    <None Remove="question_mark.png" />
     <None Remove="Resources\ball.png" />
     <None Remove="soccer_ball.png" />
     <None Remove="Soccer_field.png" />
@@ -50,6 +51,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\question_mark.png" />
     <Resource Include="Resources\playerImg\player_01.png" />
     <Resource Include="Resources\playerImg\player_02.png" />
     <Resource Include="Resources\playerImg\player_03.png" />

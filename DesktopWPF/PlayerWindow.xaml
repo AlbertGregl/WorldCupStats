@@ -1,0 +1,44 @@
+﻿<Window x:Name="playerDetailsWindow" x:Class="DesktopWPF.PlayerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesktopWPF"
+        mc:Ignorable="d"
+        Title="PlayerWindow" MinHeight="232" MinWidth="232" MaxHeight="232" MaxWidth="232" Height="232" Width="232" WindowStartupLocation="CenterScreen" Background="PaleGoldenrod" Icon="/Resources/playerImg/player_default.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="32"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="70"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <Label x:Name="lblPlayerWindowName" Content="Player: " HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Label x:Name="lblPlayerWindowShirt" Content="Shirt number: " HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Label x:Name="lblPlayerWindowPosition" Content="Position: " HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="0">
+            <Label x:Name="lblPlayerWindowGoals" Content="Goals: " HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="4" Grid.Column="0">            
+            <Label x:Name="lblPlayerWindowYellowCards" Content="Yellow Cards: " HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <Label x:Name="lblPlayerWindowCaptain" Content="Captain: " HorizontalAlignment="Left" VerticalAlignment="Center"/>            
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
+            <Image x:Name="imgPlayerWindow" Height="64" Width="64" Margin="0,0,0,0" Source="/Resources/playerImg/player_default.png"/>
+        </Grid>
+    </Grid>
+</Window>

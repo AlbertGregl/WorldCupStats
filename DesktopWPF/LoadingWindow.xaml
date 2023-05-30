@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Loading Window" Height="49" Width="766" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <ProgressBar x:Name="progressBar" HorizontalAlignment="Center" Height="33" VerticalAlignment="Center" Width="766" IsIndeterminate="True"/>
+        <ProgressBar x:Name="progressBar" HorizontalAlignment="Center" Height="33" VerticalAlignment="Center" Width="766" IsIndeterminate="True" Background="PaleGoldenrod"/>
     </Grid>
 </Window>

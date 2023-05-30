@@ -57,30 +57,30 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="80"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="12.5*"/>
-                    <ColumnDefinition Width="12.5*"/>
-                    <ColumnDefinition Width="12.5*"/>
-                    <ColumnDefinition Width="12.5*"/>
-                    <ColumnDefinition Width="12.5*"/>
-                    <ColumnDefinition Width="12.5*"/>
-                    <ColumnDefinition Width="12.5*"/>
-                    <ColumnDefinition Width="12.5*"/>
+                    <ColumnDefinition Width="95"/>
+                    <ColumnDefinition Width="95"/>
+                    <ColumnDefinition Width="95"/>
+                    <ColumnDefinition Width="95"/>
+                    <ColumnDefinition Width="95"/>
+                    <ColumnDefinition Width="95"/>
+                    <ColumnDefinition Width="95"/>
+                    <ColumnDefinition Width="95"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
-                    <Label x:Name="lblFavoriteTeam" Content="Favorite Team" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Width="195" Height="26"/>
+                    <Label x:Name="lblFavoriteTeam" Content="Favorite Team" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Top" Width="195" Height="26"/>
                 </Grid>
                 <Grid Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2">
-                    <Label x:Name="lblResultDisplay" Content="Result" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="79" HorizontalContentAlignment="Center"/>
+                    <Label x:Name="lblResultDisplay" Content="Result" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Width="79" HorizontalContentAlignment="Center"/>
                 </Grid>
                 <Grid Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="3">
-                    <Label x:Name="lblRivalTeam" Content="Rival Team" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Width="200" Height="26"/>
+                    <Label x:Name="lblRivalTeam" Content="Rival Team" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="200" Height="26"/>
                 </Grid>
                 <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
                     <ComboBox x:Name="cmbFavoriteTeam" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Center" Width="200" Height="23" FontWeight="Bold" SelectionChanged="cmbFavoriteTeam_SelectionChanged"/>
@@ -92,7 +92,7 @@
                     <ComboBox x:Name="cmbRivalTeam" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="200" Height="23" FontWeight="Bold" SelectionChanged="cmbRivalTeam_SelectionChanged"/>
                 </Grid>
                 <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="8">
-                    <Button x:Name="btnSetFavTeam" Content="Setup Favorite Team" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Bottom" Height="23" Width="200" BorderBrush="Goldenrod" Foreground="White" FontWeight="Bold" Click="btnSetFavTeam_Click">
+                    <Button x:Name="btnSetFavTeam" Content="Setup Favorite Team" HorizontalAlignment="Left" Margin="80,5,0,0" VerticalAlignment="Bottom" Height="23" Width="200" BorderBrush="Goldenrod" Foreground="White" FontWeight="Bold" Click="btnSetFavTeam_Click">
                         <Button.OpacityMask>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="Black"/>
@@ -105,7 +105,7 @@
                     </Button>
                 </Grid>
                 <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
-                    <Button x:Name="btnTeamOvrwFavorite" Content="Team Overview" HorizontalAlignment="Left" Margin="80,10,0,10" VerticalAlignment="Top" Width="200" BorderBrush="#FF707070" Foreground="White" FontWeight="Bold" Click="btnTeamOvrwFavorite_Click">
+                    <Button x:Name="btnTeamOvrwFavorite" Content="Team Overview" HorizontalAlignment="Left" Margin="80,5,0,10" VerticalAlignment="Top" Width="200" BorderBrush="#FF707070" Foreground="White" FontWeight="Bold" Click="btnTeamOvrwFavorite_Click">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="#FF444444"/>
@@ -115,10 +115,10 @@
                     </Button>
                 </Grid>
                 <Grid Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2">
-                    <Label x:Name="lblConnection" Content="" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="42" Foreground="Red" FontWeight="Bold" FontSize="10" Height="23"/>
+                    <Label x:Name="lblConnection" Content="" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" Width="42" Foreground="Red" FontWeight="Bold" FontSize="10" Height="23"/>
                 </Grid>
                 <Grid Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="3">
-                    <Button x:Name="btnTeamOvrwRival" Content="Team Overview" HorizontalAlignment="Left" Margin="0,10,0,10" VerticalAlignment="Top" Width="200" Foreground="White" FontWeight="Bold" Click="btnTeamOvrwRival_Click">
+                    <Button x:Name="btnTeamOvrwRival" Content="Team Overview" HorizontalAlignment="Left" Margin="0,5,0,10" VerticalAlignment="Top" Width="200" Foreground="White" FontWeight="Bold" Click="btnTeamOvrwRival_Click">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="#FF444444"/>
@@ -128,14 +128,14 @@
                     </Button>
                 </Grid>
 
-                <Grid x:Name="gridGameField40" Grid.Row="4" Grid.Column="0" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <Grid x:Name="gridGameField41" Grid.Row="4" Grid.Column="1" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <Grid x:Name="gridGameField42" Grid.Row="4" Grid.Column="2" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <Grid x:Name="gridGameField43" Grid.Row="4" Grid.Column="3" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <Grid x:Name="gridGameField44" Grid.Row="4" Grid.Column="4" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <Grid x:Name="gridGameField45" Grid.Row="4" Grid.Column="5" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <Grid x:Name="gridGameField46" Grid.Row="4" Grid.Column="6" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <Grid x:Name="gridGameField47" Grid.Row="4" Grid.Column="7" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Grid Margin="0,10,0,0" x:Name="gridGameField40" Grid.Row="4" Grid.Column="0" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Grid Margin="0,10,0,0"  x:Name="gridGameField41" Grid.Row="4" Grid.Column="1" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Grid Margin="0,10,0,0"  x:Name="gridGameField42" Grid.Row="4" Grid.Column="2" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Grid Margin="0,10,0,0"  x:Name="gridGameField43" Grid.Row="4" Grid.Column="3" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Grid Margin="0,10,0,0"  x:Name="gridGameField44" Grid.Row="4" Grid.Column="4" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Grid Margin="0,10,0,0"  x:Name="gridGameField45" Grid.Row="4" Grid.Column="5" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Grid Margin="0,10,0,0"  x:Name="gridGameField46" Grid.Row="4" Grid.Column="6" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Grid Margin="0,10,0,0"  x:Name="gridGameField47" Grid.Row="4" Grid.Column="7" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
                 <Grid x:Name="gridGameField50" Grid.Row="5" Grid.Column="0" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 <Grid x:Name="gridGameField51" Grid.Row="5" Grid.Column="1" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
@@ -163,15 +163,15 @@
                 <Grid x:Name="gridGameField75" Grid.Row="7" Grid.Column="5" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 <Grid x:Name="gridGameField76" Grid.Row="7" Grid.Column="6" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 <Grid x:Name="gridGameField77" Grid.Row="7" Grid.Column="7" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                
-                <Grid x:Name="gridGameField80" Grid.Row="8" Grid.Column="0" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <Grid x:Name="gridGameField81" Grid.Row="8" Grid.Column="1" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <Grid x:Name="gridGameField82" Grid.Row="8" Grid.Column="2" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <Grid x:Name="gridGameField83" Grid.Row="8" Grid.Column="3" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <Grid x:Name="gridGameField84" Grid.Row="8" Grid.Column="4" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <Grid x:Name="gridGameField85" Grid.Row="8" Grid.Column="5" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <Grid x:Name="gridGameField86" Grid.Row="8" Grid.Column="6" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <Grid x:Name="gridGameField87" Grid.Row="8" Grid.Column="7" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+                <Grid Margin="0,0,0,10" x:Name="gridGameField80" Grid.Row="8" Grid.Column="0" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Grid Margin="0,0,0,10" x:Name="gridGameField81" Grid.Row="8" Grid.Column="1" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Grid Margin="0,0,0,10" x:Name="gridGameField82" Grid.Row="8" Grid.Column="2" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Grid Margin="0,0,0,10" x:Name="gridGameField83" Grid.Row="8" Grid.Column="3" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Grid Margin="0,0,0,10" x:Name="gridGameField84" Grid.Row="8" Grid.Column="4" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Grid Margin="0,0,0,10" x:Name="gridGameField85" Grid.Row="8" Grid.Column="5" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Grid Margin="0,0,0,10" x:Name="gridGameField86" Grid.Row="8" Grid.Column="6" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Grid Margin="0,0,0,10" x:Name="gridGameField87" Grid.Row="8" Grid.Column="7" MinHeight="80" MinWidth="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
                 <Canvas x:Name="cnvGameField" Grid.Row="4" Grid.ColumnSpan="8" Grid.RowSpan="5" Panel.ZIndex="-1">
                     <Canvas.Background>

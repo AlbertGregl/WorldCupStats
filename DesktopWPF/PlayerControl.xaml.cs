@@ -1,8 +1,8 @@
 ﻿using DataRepository.Models;
 using System;
-using System.IO;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
+using System.Windows.Media.Animation;
+using System.Windows.Media;
 
 namespace DesktopWPF
 {
@@ -19,18 +19,26 @@ namespace DesktopWPF
 
             this.player = player;
 
-            string sourceImagePath = player.ImagePath;
-            string destinationFolderPath = "/Resources/playerImg/";
-            string fileName = Path.GetFileName(sourceImagePath);
-            string destinationImagePath = Path.Combine(destinationFolderPath, fileName);
-
             // Set the data context for the control
-            imgPlayerControl.Source = new BitmapImage(new Uri(destinationImagePath, UriKind.Relative));
+            imgPlayerControl.Source = WPFUtilities.WPFUtilities.SetPlayerImageWPF(player);
             lblPlayerControlText.Text = $"{player.Name} [{player.ShirtNumber}]";
         }
         public PlayerControl()
         {
             InitializeComponent();
+        }
+
+        private void controlPlayer_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            // open the player details window with player
+            PlayerWindow playerDetailsWindow = new PlayerWindow(player);
+            playerDetailsWindow.Show();
+            DoubleAnimation rotateAnimation = new DoubleAnimation(0, 360, TimeSpan.FromSeconds(0.3));
+            RotateTransform rotateTransform = new RotateTransform();
+            playerDetailsWindow.RenderTransform = rotateTransform;
+            // Animate the rotation
+            rotateTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Resources;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Media.Animation;
+using System.Windows.Media;
 
 namespace DesktopWPF
 {
@@ -29,8 +30,6 @@ namespace DesktopWPF
         private const string eng = "eng";
         private const string women = "women";
         private const string men = "men";
-        private string MSGBoxExitText = "";
-        private string MSGBoxExitTitle = "";
         private string MSGBoxRestartText = "";
         private string MSGBoxRestartTitle = "";
         private string MSGBoxFavTeamText = "";
@@ -114,8 +113,6 @@ namespace DesktopWPF
             lbWorldCup.Content = resourceManager.GetString("lbWorldCup");
             rbMen.Content = resourceManager.GetString("rbMen");
             rbWomen.Content = resourceManager.GetString("rbWomen");
-            MSGBoxExitTitle = resourceManager.GetString("FormClosingName");
-            MSGBoxExitText = resourceManager.GetString("FormClosingText");
             MSGBoxRestartTitle = resourceManager.GetString("FormRestartName");
             MSGBoxRestartText = resourceManager.GetString("FormRestartText");
             MSGBoxFavTeamText = resourceManager.GetString("MSGBoxFavTeamText");
@@ -258,11 +255,11 @@ namespace DesktopWPF
         {
             if (AppSettings.Language == cro)
             {
-                rbCroatian.IsChecked = true;
+                rbCroatian.IsChecked = true;               
             }
             else
             {
-                rbEnglish.IsChecked = true;
+                rbEnglish.IsChecked = true;                
             }
             if (AppSettings.Championship == men)
             {
@@ -294,10 +291,12 @@ namespace DesktopWPF
             if (rbCroatian.IsChecked == true)
             {
                 AppSettings.Language = cro;
+                Properties.SettingsWPF.Default.AppLanguage = cro;
             }
             else
             {
                 AppSettings.Language = eng;
+                Properties.SettingsWPF.Default.AppLanguage = eng;
             }
             if (rbMen.IsChecked == true)
             {
@@ -359,17 +358,22 @@ namespace DesktopWPF
 
         private void MainWindowForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            // prompt use if he realy wants to close the app
-            MessageBoxResult result = MessageBox.Show(MSGBoxExitText, MSGBoxExitTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            // before exit open the CloseWindow
+            CloseWindow closeWindow = new CloseWindow();
+            closeWindow.ShowDialog();
+            // get the result of the CloseWindow
+            bool closeApp = closeWindow.CloseApp;
+            // if user wants to close the app
+            if (closeApp)
             {
                 // before exit store favorite settings
                 settingsRepo.SaveSettingsFavorite(settingsFavorite);
             }
-            if (result == MessageBoxResult.No)
+            else
             {
                 e.Cancel = true;
             }
+
         }
 
         private void btnSaveSettings_Click(object sender, RoutedEventArgs e)
@@ -481,6 +485,7 @@ namespace DesktopWPF
                     }
                     // fill gridGameField60 with PlayerControl
                     gridGameField67.Children.Add(new PlayerControl(p));
+
                 }
                 if (p.Position == "Defender")
                 {
@@ -790,7 +795,6 @@ namespace DesktopWPF
                 string favoriteTeam = cmbFavoriteTeam.SelectedItem.ToString().Substring(0, cmbFavoriteTeam.SelectedItem.ToString().IndexOf("(") - 1);
                 int windowWidth = (int)this.ActualWidth;
                 int windowHeight = (int)this.ActualHeight;
-                string language = AppSettings.Language;
 
                 // find selected team in results
                 foreach (var result in results)
@@ -798,10 +802,13 @@ namespace DesktopWPF
                     if (result.Country == favoriteTeam)
                     {
                         // display team overview with selected team and with an animation lasting 0.5 seconds
-                        TeamOverviewWindow teamOverview = new TeamOverviewWindow(result, windowWidth, windowHeight, language);
+                        TeamOverviewWindow teamOverview = new TeamOverviewWindow(result, windowWidth, windowHeight);
                         teamOverview.Show();
-                        DoubleAnimation animation = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
-                        teamOverview.BeginAnimation(OpacityProperty, animation);
+                        DoubleAnimation translateXAnimation = new DoubleAnimation(-300, 0, TimeSpan.FromSeconds(0.5));
+                        TranslateTransform translateTransform = new TranslateTransform();
+                        teamOverview.RenderTransform = translateTransform;
+                        // Animate the X translation
+                        translateTransform.BeginAnimation(TranslateTransform.XProperty, translateXAnimation);
                     }
                 }
             }
@@ -815,17 +822,19 @@ namespace DesktopWPF
                 string rivalTeam = cmbRivalTeam.SelectedItem.ToString().Substring(0, cmbRivalTeam.SelectedItem.ToString().IndexOf("(") - 1);
                 int windowWidth = (int)this.ActualWidth;
                 int windowHeight = (int)this.ActualHeight;
-                string language = AppSettings.Language;
                 // find selected team in results
                 foreach (var result in results)
                 {
                     if (result.Country == rivalTeam)
                     {
                         // display team overview with selected team and with an animation lasting 0.5 seconds
-                        TeamOverviewWindow teamOverview = new TeamOverviewWindow(result, windowWidth, windowHeight, language);
+                        TeamOverviewWindow teamOverview = new TeamOverviewWindow(result, windowWidth, windowHeight);
                         teamOverview.Show();
-                        DoubleAnimation animation = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
-                        teamOverview.BeginAnimation(OpacityProperty, animation);
+                        DoubleAnimation translateXAnimation = new DoubleAnimation(300, 0, TimeSpan.FromSeconds(0.5));
+                        TranslateTransform translateTransform = new TranslateTransform();
+                        teamOverview.RenderTransform = translateTransform;
+                        // Animate the X translation
+                        translateTransform.BeginAnimation(TranslateTransform.XProperty, translateXAnimation);
                     }
                 }
             }
