@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopWPF"
         mc:Ignorable="d"
-        Title="PlayerWindow" MinHeight="232" MinWidth="232" MaxHeight="232" MaxWidth="232" Height="232" Width="232" WindowStartupLocation="CenterScreen" Background="PaleGoldenrod" Icon="/Resources/playerImg/player_default.png">
+        Title="PlayerWindow" MinHeight="232" MinWidth="232" MaxHeight="232" MaxWidth="232" Height="232" Width="232" WindowStartupLocation="CenterScreen" Background="PaleGoldenrod" Icon="/Resources/playerImg/player_default.png" FontFamily="Consolas" FontSize="14">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="32"/>

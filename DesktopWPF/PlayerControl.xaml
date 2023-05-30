@@ -17,7 +17,7 @@
         <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,0,0" Grid.Column="0">
             <Image x:Name="imgPlayerControl" Height="64  " Width="64" Margin="0,0,0,15" Source="/Resources/playerImg/player_default.png"/>
             <Label x:Name="lblPlayerControl" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontSize="9" Margin="0,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Panel.ZIndex="1" Height="Auto">
-                <TextBlock x:Name="lblPlayerControlText" TextWrapping="Wrap" FontWeight="Bold" Padding="2,2,2,2" Foreground="#FF020202" Height="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#99FFFFFF" OpacityMask="Black">
+                <TextBlock x:Name="lblPlayerControlText" TextWrapping="Wrap" FontWeight="Bold" Padding="2,2,2,2" Foreground="#FF020202" Height="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#99FFFFFF" OpacityMask="Black" FontFamily="Consolas" FontSize="10">
                     name....
                 </TextBlock>
             </Label>
